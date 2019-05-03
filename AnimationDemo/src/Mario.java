@@ -21,6 +21,7 @@ public class Mario extends Sprite {
 
 	public void jump() {
 		// JUMP!
+		moveByAmount(0,-1);
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
