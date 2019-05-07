@@ -1,13 +1,17 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
 public class Background 
 {
 	private Image[] backgroundImages;
+	private ArrayList<Fire> fires;
 	private final int NUM_IMAGES = 10;
 	
 	public Background()
 	{
 		this.backgroundImages = new Image[NUM_IMAGES];
+		this.fires = new ArrayList<Fire>();
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (x%2 == 0)
@@ -23,7 +27,7 @@ public class Background
 	}
 	
 	// Scrolls the sky to make the plane look like it is moving
-	public void scrollSkySideways(double v)
+	public void scrollBackgroundSideways(double v)
 	{
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
