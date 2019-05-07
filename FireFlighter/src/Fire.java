@@ -8,6 +8,7 @@ public class Fire
 	private int frame;
 	private double x,y;
 	
+	// Fire
 	public Fire(double x, double y)
 	{
 		this.x = x;
