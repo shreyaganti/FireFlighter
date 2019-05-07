@@ -40,5 +40,6 @@ public class Background
 				backgroundImages[x].draw(drawer,700,500);
 			}
 		}
+		// drawer.background(0,0,255);
 	}
 }
