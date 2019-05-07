@@ -2,8 +2,8 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
 
-public class Dial {
-
+public class Dial 
+{
 	private double speed;
 	private double xCoord,yCoord; //top left corner of dial
 	private PImage arrow; //draw papplet line instead of image
@@ -19,6 +19,7 @@ public class Dial {
 		//arrow = loadImage("images//arrow.png");
 		//arrow.resize(200, 200);
 	}
+	
 	/**
 	 * Draws the dial object
 	 * @param p PApplet object used to draw the dial

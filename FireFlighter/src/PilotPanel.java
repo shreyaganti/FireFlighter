@@ -10,6 +10,7 @@ import processing.core.PApplet;
 public class PilotPanel extends PApplet
 {
 	private FlightSimulation flightSim;
+	private Cockpit cockpit;
 	private final float DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 500;
 	
 	/**
@@ -18,6 +19,7 @@ public class PilotPanel extends PApplet
 	public PilotPanel()
 	{
 		flightSim = new FlightSimulation();
+		cockpit = new Cockpit();
 	}
 	
 	/**
@@ -62,6 +64,7 @@ public class PilotPanel extends PApplet
 		float scaleH = height / DRAWING_HEIGHT;
 		scale(scaleW,scaleH);
 		flightSim.draw(this);
+		// cockpit.draw(this);
 		popMatrix();
 	}
 }
