@@ -64,7 +64,7 @@ public class PilotPanel extends PApplet
 		float scaleH = height / DRAWING_HEIGHT;
 		scale(scaleW,scaleH);
 		flightSim.draw(this);
-		// cockpit.draw(this);
+		cockpit.draw(this);
 		popMatrix();
 	}
 }

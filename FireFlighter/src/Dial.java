@@ -24,7 +24,8 @@ public class Dial
 	 * Draws the dial object
 	 * @param p PApplet object used to draw the dial
 	 */
-	public void draw(PApplet p) {
+	public void draw(PApplet p) 
+	{
 		dial = p.loadImage("images//speed_dial.png");
 		dial.resize(200, 200);
 		p.imageMode(p.CENTER);

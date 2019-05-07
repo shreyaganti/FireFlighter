@@ -1,3 +1,4 @@
+import processing.core.PApplet;
 
 public class Cockpit 
 {
@@ -7,5 +8,10 @@ public class Cockpit
 	public Cockpit() 
 	{
 		dial = new Dial(0,0);
+	}
+	
+	public void draw(PApplet drawer)
+	{
+		dial.draw(drawer);
 	}
 }
