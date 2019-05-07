@@ -19,7 +19,7 @@ public class PilotPanel extends PApplet
 	public PilotPanel()
 	{
 		flightSim = new FlightSimulation();
-		cockpit = new Cockpit();
+		cockpit = new Cockpit(new Dial(100,100));
 	}
 	
 	/**
