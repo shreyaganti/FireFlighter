@@ -7,44 +7,45 @@ import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
-public class Main {
+public class Main 
+{
 
 	private JFrame window;
-	
 	private JPanel cardPanel;
-	
-	private InstructionsPanel panel1;    
-	private DrawingSurface panel2;
-	
+	private InstructionsPanel instructions; 
+	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
 	
-	public Main() {
-		panel2 = new DrawingSurface();
-		PApplet.runSketch(new String[]{""}, panel2);
+	public Main() 
+	{
+		final int WIDTH = 1000;
+		final int HEIGHT = 500;
 		
-		PSurfaceAWT surf = (PSurfaceAWT) panel2.getSurface();
+		pilotView = new PilotPanel();
+		PApplet.runSketch(new String[]{""}, pilotView);
+		
+		PSurfaceAWT surf = (PSurfaceAWT) pilotView.getSurface();
 		processingCanvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		window = (JFrame)processingCanvas.getFrame();
 
-		window.setBounds(0,0,800, 600);
+		window.setBounds(0,0, WIDTH, HEIGHT);
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
-
+		
 		cardPanel = new JPanel();
 	    CardLayout cl = new CardLayout();
 	    cardPanel.setLayout(cl);
 	    
 	    window.getContentPane().removeAll();
 	    
-		panel1 = new InstructionsPanel(this);    
-	    panel2 = new DrawingSurface();
+	    instructions = new InstructionsPanel(this);    
+	    pilotView = new PilotPanel();
 	    
-	    cardPanel.add(panel1,"1");
+	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
 	    
 	    window.setLayout(new BorderLayout());
-	    
 	    window.add(cardPanel);
 	    window.revalidate();
 	}
@@ -55,7 +56,8 @@ public class Main {
 		Main m = new Main();
 	}
   
-	public void changePanel() {
+	public void changePanel() 
+	{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		processingCanvas.requestFocus();
 	}
