@@ -2,11 +2,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
 
-public class Dial {
-
+public class Dial 
+{
 	private double speed;
 	private double xCoord,yCoord; //center of dial
-	private PImage arrow; //draw papplet line instead of image
 	private PImage dial;
 	private boolean maxSpeed = false;
 	private boolean minSpeed = true;
@@ -21,12 +20,12 @@ public class Dial {
 		xCoord = x;
 		yCoord = y;
 	}
-	
 	/**
 	 * Draws the dial object
 	 * @param p PApplet object used to draw the dial
 	 */
-	public void draw(PApplet p) {
+	public void draw(PApplet p) 
+	{
 		dial = p.loadImage("images//speed_dial.png");
 		dial.resize(200, 200);
 		if (speed == 360) {

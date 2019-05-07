@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
-public class Cockpit {
-
+public class Cockpit 
+{
 	private Dial dial;
 	private double altitude;
 	
