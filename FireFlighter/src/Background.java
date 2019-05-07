@@ -1,13 +1,25 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
+/**
+ * Represents a background for the plane, containing scenery images and fires
+ * @author Ashwini Suriyaprakash
+ * @version 5/7/19
+ */
 public class Background 
 {
 	private Image[] backgroundImages;
+	private ArrayList<Fire> fires;
 	private final int NUM_IMAGES = 10;
 	
+	/**
+	 * Creates an instance of a Background with scenery images initialized
+	 */
 	public Background()
 	{
 		this.backgroundImages = new Image[NUM_IMAGES];
+		this.fires = new ArrayList<Fire>();
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (x%2 == 0)
@@ -22,8 +34,11 @@ public class Background
 		
 	}
 	
-	// Scrolls the sky to make the plane look like it is moving
-	public void scrollSkySideways(double v)
+	/**
+	 * Scrolls the background to the left to make it look like the plane is moving
+	 * @param v the velocity of scrolling
+	 */
+	public void scrollBackgroundSideways(double v)
 	{
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
@@ -31,6 +46,10 @@ public class Background
 		}
 	}
 	
+	/**
+	 * Draws a Background object on a PApplet
+	 * @param drawer PApplet on which the Background object is drawn
+	 */
 	public void draw(PApplet drawer)
 	{
 		for (int x = 0; x < NUM_IMAGES; x++)
@@ -40,5 +59,6 @@ public class Background
 				backgroundImages[x].draw(drawer,700,500);
 			}
 		}
+		// drawer.background(0,0,255);
 	}
 }
