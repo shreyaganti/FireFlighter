@@ -5,19 +5,19 @@ import java.awt.event.*;
 
 //format correctly, rename airports
 
-public class InstructionsPanel extends JPanel implements ActionListener, ItemListener{
+public class InstructionsPanel extends JPanel implements ActionListener, ItemListener
+{
 	
 	Main w;
 	JButton button;
 	JButton instructions;
 	
-	
 	JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
-	
 	String source = "";
 	String destination = "";
 
-	public InstructionsPanel(Main w) {
+	public InstructionsPanel(Main w) 
+	{
 		this.w = w;
 	
 		
@@ -43,7 +43,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		
 		
 		
-		//this.setLayout(new BorderLayout());
+		
 		
 		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
 		button = new JButton("START");
@@ -52,10 +52,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		button.setPreferredSize(new Dimension(100, 50)); //width, height
 		button.addActionListener(this);
 		
-		
 		instructions = new JButton("HELP");
 		
-		this.add(buttonPanel);
 		instructions.setPreferredSize(new Dimension (100, 50));
 		instructions.addActionListener(this);
 		
@@ -77,7 +75,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		tx1.addItemListener(this);
 		tx2.addItemListener(this);
 		
-		
+		this.setLayout(new GridLayout(0,3));
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
 		buttonPanel.add(button);
@@ -95,6 +93,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		buttonPanel.add(wa2);
 		buttonPanel.add(jfk2);
 		buttonPanel.add(tx2);
+		this.add(buttonPanel);
+		
 		
 	}
 	
