@@ -76,6 +76,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		tx2.addItemListener(this);
 		
 		this.setLayout(new GridLayout(0,3));
+		this.add(buttonPanel);
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
 		buttonPanel.add(button);
@@ -93,9 +94,6 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		buttonPanel.add(wa2);
 		buttonPanel.add(jfk2);
 		buttonPanel.add(tx2);
-		this.add(buttonPanel);
-		
-		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
