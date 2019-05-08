@@ -41,7 +41,7 @@ public class Dial
 		p.imageMode(p.CENTER);
 		p.image(dial,(float)xCoord,(float)yCoord);
 		p.strokeWeight(10);
-		if (Math.abs(1120-speed) <=0.001) {
+		if (Math.abs(1130-speed) <=0.001) {
 			maxSpeed = true;
 		}
 		else {

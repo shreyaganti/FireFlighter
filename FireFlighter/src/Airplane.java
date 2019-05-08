@@ -94,11 +94,11 @@ public class Airplane
 		vx+=offset;
 		if (offset < 0 && !cockpit.getDial().reachedMin())
 		{
-			cockpit.getDial().addSpeed(5*offset);
+			cockpit.getDial().addSpeed(10*offset);
 		}
 		else if (offset > 0 && !cockpit.getDial().reachedMax())
 		{
-			cockpit.getDial().addSpeed(5*offset);
+			cockpit.getDial().addSpeed(10*offset);
 		}
 			
 	}
