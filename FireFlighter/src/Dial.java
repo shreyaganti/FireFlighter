@@ -2,6 +2,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
 
+/**
+ * 
+ * @author Shreya Ganti
+ * @version 5/7/19
+ */
 public class Dial 
 {
 	private double speed;
