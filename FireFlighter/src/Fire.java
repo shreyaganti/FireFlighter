@@ -7,6 +7,7 @@ public class Fire
 	private final int IMAGE_COUNT = 2;
 	private int frame;
 	private double x,y;
+	private boolean isHit = false;
 	
 	// Fire
 	public Fire(double x, double y)
@@ -33,9 +34,26 @@ public class Fire
 		}
 		
 		frame = (frame+1) % IMAGE_COUNT;
-		drawer.image(images[frame], (float)x, (float)y);
+		if (!isHit)
+			drawer.image(images[frame], (float)x, (float)y);
 		
 		// drawer.fill(255,0,0);
 		// drawer.rect((float)x, (float)y, 10, 10);
+	}
+	
+	public void hit() {
+		isHit = true;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public double getWidth() {
+		return images[0].width;
 	}
 }

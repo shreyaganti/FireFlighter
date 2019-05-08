@@ -11,6 +11,7 @@ public class WaterSpray
 {
 	private double x,y,vx,vy;
 	private PImage waterImage;
+	private boolean isHit = false;
 	
 	public WaterSpray(double x, double y, double vx, double vy)
 	{
@@ -23,9 +24,11 @@ public class WaterSpray
 	
 	public void draw(PApplet drawer)
 	{
-		waterImage = drawer.loadImage("images/water.png");
-		waterImage.resize(25, 25);
-		drawer.image(waterImage, (float)(x), (float)(y));
+		if (!isHit) {
+			waterImage = drawer.loadImage("images/water.png");
+			waterImage.resize(25, 25);
+			drawer.image(waterImage, (float)(x), (float)(y));
+		}
 	}
 	
 	/**
@@ -42,6 +45,22 @@ public class WaterSpray
 	public double getX()
 	{
 		return x;
+	}
+	
+	/**
+	 * Returns width of water spray image
+	 * @return Width of one water spray droplet
+	 */
+	public double getWidth() {
+		return waterImage.width;
+	}
+	
+	/**
+	 * Returns height of water spray image
+	 * @return Height of one water spray droplet
+	 */
+	public double getHeight() {
+		return waterImage.height;
 	}
 	
 	/**
@@ -77,5 +96,12 @@ public class WaterSpray
 	public double getVelocityY()
 	{
 		return vy;
+	}
+	
+	public void isHit(Fire f) {
+		if (x >= f.getX() && x <= f.getX()+f.getWidth() && y+waterImage.height>=f.getY()) {
+			isHit = true;
+			f.hit();
+		}
 	}
 }
