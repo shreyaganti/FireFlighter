@@ -54,14 +54,6 @@ public class Cockpit
 	}
 	
 	/**
-	 * Increments or decrements speed value on Dial object
-	 * @param a value to change the speed by
-	 */
-	public void changeSpeed(double a) {
-		dial.addSpeed(a);
-	}
-	
-	/**
 	 * Returns Dial object in the Cockpit
 	 * @return Dial object located in cockpit
 	 */
