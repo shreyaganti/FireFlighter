@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
+//Author: Rujuta Swadi, per. 4
+
 //format correctly, add pictures
 
 public class InstructionsPanel extends JPanel implements ActionListener, ItemListener
@@ -16,6 +18,11 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	private String source = "";
 	private String destination = "";
 
+	
+	/**
+	 * creates an InstructionsPanel with start, help, source, and destination buttons
+	 * @param w the Main object on which to run methods to begin the game
+	 */
 	public InstructionsPanel(Main w) 
 	{
 		this.w = w;
@@ -39,12 +46,6 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		JLabel gameName = new JLabel("FIRE FLIGHTERS");
 		gameName.setFont(new Font("Serif", Font.PLAIN, 40));
 
-		
-		
-		
-		
-		
-		
 		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
 		button = new JButton("START");
 		
@@ -75,7 +76,26 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		tx1.addItemListener(this);
 		tx2.addItemListener(this);
 		
-		this.setLayout(new GridLayout(0,3));
+		//this.setLayout(new GridLayout(0,3));
+		
+//		GroupLayout layout = new GroupLayout(buttonPanel);
+//		buttonPanel.setLayout(layout);
+//		
+//		layout.setAutoCreateGaps(true);
+//		layout.setAutoCreateContainerGaps(true);
+//		
+//		
+//		layout.setHorizontalGroup(layout.createSequentialGroup().addComponent(gameName).addComponent(instructions).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(button)));
+//		
+//		layout.setVerticalGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(gameName).addComponent(instructions).addComponent(button)));
+		
+		
+		
+		BoxLayout bLayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
+		buttonPanel.setLayout(bLayout);
+		
+		
+		
 		this.add(buttonPanel);
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
@@ -96,6 +116,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		buttonPanel.add(tx2);
 	}
 	
+	/**
+	 * stores the source and destination airports selected by the user
+	 * @param e the event that has occurred in the program
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(button)) {
 			if (isMissing()){
@@ -151,13 +175,11 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		
 	}
 	
-	public void displayUncheckedBoxesMessage() {
-		JOptionPane.showMessageDialog(null, "you must check one source and one destination to begin", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-	}
-	
-	public boolean isMissing() {
-		return (sfo1.isSelected() == false && nv1.isSelected() == false && az1.isSelected() == false && wa1.isSelected() == false && jfk1.isSelected() == false && tx1.isSelected() == false) || (sfo2.isSelected() == false && nv2.isSelected() == false && az2.isSelected() == false && wa2.isSelected() == false && jfk2.isSelected() == false && tx2.isSelected() == false);
-	}
+
+	/**
+	 * checks if the source or destination checked are allowed to be chosen given the other selections
+	 * @param e the event to be checked
+	 */
 	public void itemStateChanged(ItemEvent e) {
 		if (sfo1.isSelected()) {
 			nv1.setSelected(false);
@@ -257,21 +279,36 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		} 
 	}
 	
-	public void displayInstructions() {
+	private void displayInstructions() {
 		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. select the source and destination airports\n    > to change either, unselect the current location and choose another\n2. press start\n\nWHILE PLAYING:\n- use the up and down arrows to increase or decrease the plane's altitude\n- use the spacebar to shoot water streams at fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
+	
+	private void displayUncheckedBoxesMessage() {
+		JOptionPane.showMessageDialog(null, "you must check one source and one destination to begin", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	private boolean isMissing() {
+		return (sfo1.isSelected() == false && nv1.isSelected() == false && az1.isSelected() == false && wa1.isSelected() == false && jfk1.isSelected() == false && tx1.isSelected() == false) || (sfo2.isSelected() == false && nv2.isSelected() == false && az2.isSelected() == false && wa2.isSelected() == false && jfk2.isSelected() == false && tx2.isSelected() == false);
+	}
+	
 
+	/**
+	 * returns the name of the airport the user selected as the source
+	 * @return name of source airport
+	 */
 	public String getSource() {
 		return source;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * returns the name of the airport the user selected as the destination
+	 * @return name of destination airport
 	 */
 	public String getDestination() {
 		return destination;
 	}
+	
+	
 	
 }
