@@ -18,6 +18,12 @@ public class Fire
 		
 	}
 	
+	public void shift(double offsetX, double offsetY)
+	{
+		x+=offsetX;
+		y+=offsetY;
+	}
+	
 	public void draw(PApplet drawer)
 	{
 		for (int i = 0; i < IMAGE_COUNT; i++) 
@@ -27,7 +33,6 @@ public class Fire
 		}
 		
 		frame = (frame+1) % IMAGE_COUNT;
-		System.out.println("Frame:" + frame);
 		drawer.image(images[frame], (float)x, (float)y);
 		
 		// drawer.fill(255,0,0);

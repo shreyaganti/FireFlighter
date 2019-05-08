@@ -68,6 +68,11 @@ public class Background
 				backgroundImages[x].draw(drawer,700,500);
 			}
 		}
+		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			fires.get(f).draw(drawer);
+		}
 		// drawer.background(0,0,255);
 	}
 }

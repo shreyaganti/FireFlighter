@@ -28,7 +28,7 @@ public class FlightSimulation
 	{
 		drawer.pushStyle();
 		drawer.pushMatrix();
-		scenery.scrollBackgroundSideways(plane.getVelocityX());
+		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
 		drawer.fill(0);
 		drawer.rect(300, 0, 170, 30);
