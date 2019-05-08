@@ -33,6 +33,13 @@ public class Background
 			}
 		}
 		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			double xcoord = 300+Math.random()*NUM_IMAGES*700;
+			double ycoord = 400;
+			fires.add(new Fire(xcoord,ycoord));
+		}
+		
 	}
 	
 	/**
@@ -43,7 +50,8 @@ public class Background
 	{
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
-			backgroundImages[x].shift(-v, 0);
+			backgroundImages[x].shift(v, 0);
+			fires.get(x).shift(v,0);
 		}
 	}
 	
