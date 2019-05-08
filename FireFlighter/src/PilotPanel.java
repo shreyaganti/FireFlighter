@@ -34,18 +34,24 @@ public class PilotPanel extends PApplet
 		if (keyCode == KeyEvent.VK_LEFT)
 		{
 			flightSim.getPlane().increaseSpeed(-2);
+			if (!cockpit.getDial().reachedMin())
+				cockpit.changeSpeed(10);
 		}
 		else if (keyCode == KeyEvent.VK_RIGHT)
 		{
 			flightSim.getPlane().increaseSpeed(2);
+			if (!cockpit.getDial().reachedMax())
+				cockpit.changeSpeed(-10);
 		}
 		else if (keyCode == KeyEvent.VK_UP)
 		{
 			flightSim.getPlane().ascend(2);
+			cockpit.changeAltitude(2);
 		}
 		else if (keyCode == KeyEvent.VK_DOWN)
 		{
 			flightSim.getPlane().ascend(-2);
+			cockpit.changeAltitude(-2);
 		}
 		else if (keyCode == KeyEvent.VK_SPACE)
 		{
