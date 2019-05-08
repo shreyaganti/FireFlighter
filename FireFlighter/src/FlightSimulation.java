@@ -16,7 +16,7 @@ public class FlightSimulation
 	 */
 	public FlightSimulation()
 	{
-		plane = new Airplane(500,360);
+		plane = new Airplane(500,360, new Cockpit(new Dial(100,100)));
 		scenery = new Background();
 	}
 	

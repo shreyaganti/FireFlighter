@@ -46,6 +46,14 @@ public class Cockpit
 	}
 	
 	/**
+	 * Sets value of altitude of plane
+	 * @param a New value to assign to altitude
+	 */
+	public void setAltitude(double a) {
+		altitude = a;
+	}
+	
+	/**
 	 * Returns altitude of plane
 	 * @return Altitude of plane
 	 */

@@ -17,13 +17,14 @@ public class Airplane
 	public static final int WATER_SPRAY_MAX = 40;
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
 	private int status;
+	private Cockpit cockpit;
 	
 	/**
 	 * Creates a instance of an Airplane object with horizontal and vertical velocities set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of upper left corner of plane
 	 * @param y y coordinate of upper left corner of plane
 	 */
-	public Airplane(double x, double y)
+	public Airplane(double x, double y, Cockpit c)
 	{
 		this.x = x;
 		this.y = y;
@@ -32,6 +33,7 @@ public class Airplane
 		this.planeImage = null;
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
+		cockpit = c;
 	}
 	
 	/**
@@ -79,6 +81,7 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
+		cockpit.setAltitude(-1*(y+vy-360));
 	}
 	
 	/**
@@ -168,5 +171,13 @@ public class Airplane
 			WaterSpray spray = new WaterSpray(x,y,-1,10);
 			sprayedWater.add(spray);
 		}
+	}
+	
+	/**
+	 * Returns Cockpit object
+	 * @return Cockpit object in Airplane
+	 */
+	public Cockpit getCockpit() {
+		return cockpit;
 	}
 }
