@@ -36,6 +36,13 @@ public class Airplane
 		cockpit = c;
 	}
 	
+	
+	public void setup(PApplet drawer) 
+	{
+		planeImage = drawer.loadImage("images//plane.png");
+		cockpit.setup(drawer);
+	}
+	
 	/**
 	 * Draws Airplane object to a processing PApplet
 	 * @param drawer PApplet on which Airplane object is drawn
@@ -43,7 +50,7 @@ public class Airplane
 	 */
 	public void draw(PApplet drawer)
 	{
-		planeImage = drawer.loadImage("images/plane.png");
+		
 		planeImage.resize(120, 60);
 		drawer.image(planeImage, (float)(x), (float)(y));
 		cockpit.draw(drawer);

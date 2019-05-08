@@ -25,6 +25,11 @@ public class Dial
 		xCoord = x;
 		yCoord = y;
 	}
+	
+	public void setup(PApplet drawer)
+	{
+		dial = drawer.loadImage("images//speed_dial.png");
+	}
 	/**
 	 * Draws the dial object
 	 * @param p PApplet object used to draw the dial
@@ -33,7 +38,7 @@ public class Dial
 	{
 		p.pushMatrix();
 		p.pushStyle();
-		dial = p.loadImage("images//speed_dial.png");
+		
 		dial.resize(200, 200);
 		if (speed == 360) {
 			speed = 0;

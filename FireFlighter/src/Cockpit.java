@@ -14,8 +14,14 @@ public class Cockpit
 	 * Constructor to initialize Cockpit object with speed dial
 	 * @param d
 	 */
-	public Cockpit(Dial d) {
+	public Cockpit(Dial d) 
+	{
 		dial = d;
+	}
+	
+	public void setup(PApplet drawer)
+	{
+		dial.setup(drawer);
 	}
 	
 	/**

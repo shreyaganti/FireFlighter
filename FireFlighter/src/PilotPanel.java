@@ -17,8 +17,13 @@ public class PilotPanel extends PApplet
 	 */
 	public PilotPanel()
 	{
+		super();
 		flightSim = new FlightSimulation();
-		// cockpit = flightSim.getPlane().getCockpit();
+	}
+	
+	public void setup() 
+	{
+		flightSim.setup(this);
 	}
 	
 	/**

@@ -20,6 +20,12 @@ public class FlightSimulation
 		scenery = new Background();
 	}
 	
+	public void setup(PApplet drawer)
+	{
+		plane.setup(drawer);
+		scenery.setup(drawer);
+	}
+	
 	/**
 	 * Draws this FlightSimulation object to a PApplet
 	 * @param drawer Papplet used to draw FlightSimulation object

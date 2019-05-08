@@ -21,6 +21,18 @@ public class Background
 	{
 		this.backgroundImages = new Image[NUM_IMAGES];
 		this.fires = new ArrayList<Fire>();
+		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			double xcoord = 300+Math.random()*NUM_IMAGES*700;
+			double ycoord = 400;
+			fires.add(new Fire(xcoord,ycoord));
+		}
+		
+	}
+	
+	public void setup(PApplet drawer)
+	{
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (x%2 == 0)
@@ -32,14 +44,6 @@ public class Background
 				backgroundImages[x] = new Image(300+700*x, 0, "images/scenery-flipped.jpg");
 			}
 		}
-		
-		for (int f = 0; f < NUM_FIRES; f++)
-		{
-			double xcoord = 300+Math.random()*NUM_IMAGES*700;
-			double ycoord = 400;
-			fires.add(new Fire(xcoord,ycoord));
-		}
-		
 	}
 	
 	/**
