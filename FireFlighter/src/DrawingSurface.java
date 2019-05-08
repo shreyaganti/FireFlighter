@@ -1,5 +1,10 @@
 import processing.core.PApplet;
 
+/**
+ * 
+ * @author Shreya Ganti
+ * @version 5/7/19
+ */
 public class DrawingSurface extends PApplet {
 	
 	private Dial dial;
