@@ -1,10 +1,5 @@
 import processing.core.PApplet;
 
-/**
- * 
- * @author Shreya Ganti
- * @version 5/7/19
- */
 public class Cockpit 
 {
 	private Dial dial;
