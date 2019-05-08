@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-//format correctly, rename airports
+//format correctly, add pictures
 
 public class InstructionsPanel extends JPanel implements ActionListener, ItemListener
 {
@@ -266,6 +266,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		return source;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getDestination() {
 		return destination;
 	}
