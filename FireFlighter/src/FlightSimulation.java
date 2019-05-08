@@ -26,6 +26,8 @@ public class FlightSimulation
 	 */
 	public void draw(PApplet drawer)
 	{
+		drawer.pushStyle();
+		drawer.pushMatrix();
 		scenery.scrollBackgroundSideways(plane.getVelocityX());
 		scenery.draw(drawer);
 		drawer.fill(0);
@@ -40,6 +42,8 @@ public class FlightSimulation
 			w.act();
 			w.draw(drawer);
 		}
+		drawer.popStyle();
+		drawer.popMatrix();
 	}
 	
 	/**

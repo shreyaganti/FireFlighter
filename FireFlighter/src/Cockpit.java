@@ -18,12 +18,18 @@ public class Cockpit
 	 * @param p PApplet used to draw Cockpit object
 	 */
 	public void draw(PApplet p) {
+		p.pushMatrix();
+		p.pushStyle();
+		p.fill(0,0,128);
+		p.rect(0, 0, 300, 500);
 		dial.draw(p);
 		p.fill(255);
 		p.rect(25, 250, 150, 50);
 		p.fill(0);
 		p.textSize(26);
 		p.text(altitude+"", 80, 283);
+		p.popStyle();
+		p.popMatrix();
 	}
 	
 	/**

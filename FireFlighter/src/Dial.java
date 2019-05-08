@@ -26,6 +26,8 @@ public class Dial
 	 */
 	public void draw(PApplet p) 
 	{
+		p.pushMatrix();
+		p.pushStyle();
 		dial = p.loadImage("images//speed_dial.png");
 		dial.resize(200, 200);
 		if (speed == 360) {
@@ -33,7 +35,6 @@ public class Dial
 		}
 		p.imageMode(p.CENTER);
 		p.image(dial,(float)xCoord,(float)yCoord);
-		p.pushMatrix();
 		p.strokeWeight(10);
 		if (Math.abs(1120-speed) <=0.001) {
 			maxSpeed = true;
@@ -48,6 +49,7 @@ public class Dial
 			minSpeed = false;
 		}
 		p.line((float)xCoord,(float)yCoord,(float)(Math.cos(Math.toRadians(speed))*(dial.width/2-10)+xCoord),(float)((Math.sin(Math.toRadians(speed))*(dial.height/2-10)+yCoord)));
+		p.popStyle();
 		p.popMatrix();
 	}
 	
