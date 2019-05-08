@@ -47,9 +47,9 @@ public class Main
 	    cardPanel.add(processingCanvas,"2");
 	    
 	    window.setLayout(new BorderLayout());
+	    window.setVisible(true);
 	    window.add(cardPanel);
 	    window.revalidate();
-	    window.setVisible(true);
 	    
 	}
 	
