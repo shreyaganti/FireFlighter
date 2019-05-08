@@ -12,6 +12,7 @@ public class Background
 	private Image[] backgroundImages;
 	private ArrayList<Fire> fires;
 	private final int NUM_IMAGES = 10;
+	private final int NUM_FIRES = 10;
 	
 	/**
 	 * Creates an instance of a Background with scenery images initialized

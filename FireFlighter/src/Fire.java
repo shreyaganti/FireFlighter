@@ -22,7 +22,7 @@ public class Fire
 	{
 		for (int i = 0; i < IMAGE_COUNT; i++) 
 		{
-			images[i] = drawer.loadImage("images//fire.gif");
+			// images[i] = drawer.loadImage("images//fire.gif");
 			images[i] = drawer.loadImage("images//fire" + (i+1) + ".gif");
 		}
 		
