@@ -10,7 +10,6 @@ import processing.core.PApplet;
 public class PilotPanel extends PApplet
 {
 	private FlightSimulation flightSim;
-	private Cockpit cockpit;
 	private final float DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 500;
 	
 	/**
@@ -19,7 +18,7 @@ public class PilotPanel extends PApplet
 	public PilotPanel()
 	{
 		flightSim = new FlightSimulation();
-		cockpit = flightSim.getPlane().getCockpit();
+		// cockpit = flightSim.getPlane().getCockpit();
 	}
 	
 	/**
@@ -34,24 +33,20 @@ public class PilotPanel extends PApplet
 		if (keyCode == KeyEvent.VK_LEFT)
 		{
 			flightSim.getPlane().increaseSpeed(-2);
-			if (!cockpit.getDial().reachedMin())
-				cockpit.getDial().addSpeed(-10);
+			
 		}
 		else if (keyCode == KeyEvent.VK_RIGHT)
 		{
 			flightSim.getPlane().increaseSpeed(2);
-			if (!cockpit.getDial().reachedMax())
-				cockpit.getDial().addSpeed(10);
+			
 		}
 		else if (keyCode == KeyEvent.VK_UP)
 		{
 			flightSim.getPlane().ascend(2);
-			cockpit.changeAltitude(2);
 		}
 		else if (keyCode == KeyEvent.VK_DOWN)
 		{
 			flightSim.getPlane().ascend(-2);
-			cockpit.changeAltitude(-2);
 		}
 		else if (keyCode == KeyEvent.VK_SPACE)
 		{
@@ -71,7 +66,6 @@ public class PilotPanel extends PApplet
 		float scaleH = height / DRAWING_HEIGHT;
 		scale(scaleW,scaleH);
 		flightSim.draw(this);
-		cockpit.draw(this);
 		popStyle();
 		popMatrix();
 	}

@@ -46,6 +46,7 @@ public class Airplane
 		planeImage = drawer.loadImage("images/plane.png");
 		planeImage.resize(120, 60);
 		drawer.image(planeImage, (float)(x), (float)(y));
+		cockpit.draw(drawer);
 	}
 	
 	/**
@@ -91,6 +92,15 @@ public class Airplane
 	public void increaseSpeed(double offset)
 	{
 		vx+=offset;
+		if (offset < 0 && !cockpit.getDial().reachedMin())
+		{
+			cockpit.getDial().addSpeed(5*offset);
+		}
+		else if (offset > 0 && !cockpit.getDial().reachedMax())
+		{
+			cockpit.getDial().addSpeed(5*offset);
+		}
+			
 	}
 	
 	/**
@@ -104,6 +114,7 @@ public class Airplane
 			status = 1;
 			y-=num;
 			vy = 3;
+			cockpit.changeAltitude(num);
 		}
 	}
 	
@@ -177,7 +188,8 @@ public class Airplane
 	 * Returns Cockpit object
 	 * @return Cockpit object in Airplane
 	 */
-	public Cockpit getCockpit() {
+	public Cockpit getCockpit() 
+	{
 		return cockpit;
 	}
 }
