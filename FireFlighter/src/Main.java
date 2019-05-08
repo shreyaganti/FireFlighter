@@ -40,8 +40,8 @@ public class Main
 	    
 	    window.getContentPane().removeAll();
 	    
-	    instructions = new InstructionsPanel(this);    
-	    pilotView = new PilotPanel();
+	    instructions = new InstructionsPanel(this); 
+	    // window.createBufferStrategy(1);
 	    
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
@@ -49,6 +49,8 @@ public class Main
 	    window.setLayout(new BorderLayout());
 	    window.add(cardPanel);
 	    window.revalidate();
+	    window.setVisible(true);
+	    
 	}
 	
 
