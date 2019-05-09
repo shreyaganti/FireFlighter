@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 /**
- * Represents an Image
+ * This class represents an Image with (x,y) coordinate
  * @author Ashwini Suriyaprakash
  * @version 5/7/19
  */

@@ -1,10 +1,10 @@
 import processing.core.PApplet;
 
 /**
- * This class represents a flight simulation (2d side view), containing the Airplane, Fire, Weather, and Background objects.
+ * This class represents a flight simulation (2d side view), containing the Airplane and Background objects.
  * 
- * @author Ashwini Suriyaprakash
- * @version 5/5/19
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/8/19
  */
 public class FlightSimulation
 {
@@ -20,6 +20,10 @@ public class FlightSimulation
 		scenery = new Background();
 	}
 	
+	/**
+	 * Sets up the Airplane and Background objects
+	 * @param drawer PApplet object need for setup
+	 */
 	public void setup(PApplet drawer)
 	{
 		plane.setup(drawer);

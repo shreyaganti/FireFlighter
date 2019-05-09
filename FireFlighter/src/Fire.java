@@ -1,6 +1,12 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * This class represents an animated fire with (x,y) coordinate and can either be extinguished/not extinguished
+ * 
+ * @author Ashwini Suriyaprakash
+ * @version 5/8/19
+ */
 public class Fire 
 {
 	private PImage[] flameImages;
@@ -10,7 +16,11 @@ public class Fire
 	private double x,y;
 	private boolean isExtinguished;
 	
-	// Fire
+	/**
+	 * Creates a Fire object that is not extinguished
+	 * @param x x coordinate of the fire
+	 * @param y y coordinate of the fire
+	 */
 	public Fire(double x, double y)
 	{
 		this.x = x;
@@ -21,6 +31,10 @@ public class Fire
 		this.isExtinguished = false;
 	}
 	
+	/**
+	 * Loads flame and smoke images
+	 * @param drawer PApplet needed for the setup
+	 */
 	public void setup(PApplet drawer)
 	{
 		for (int i = 0; i < IMAGE_COUNT; i++) 
@@ -38,12 +52,21 @@ public class Fire
 		}
 	}
 	
+	/**
+	 * Shifts the Fire's location
+	 * @param offsetX amount in the x direction the fire should be shifted by
+	 * @param offsetY amount in the y direction the fire should be shifted by
+	 */
 	public void shift(double offsetX, double offsetY)
 	{
 		x+=offsetX;
 		y+=offsetY;
 	}
 	
+	/**
+	 * Draws the Fire object on a PApplet
+	 * @param drawer PApplet on which Fire object is drawn
+	 */
 	public void draw(PApplet drawer)
 	{
 		frame = (frame+1) % IMAGE_COUNT;
@@ -53,16 +76,21 @@ public class Fire
 		{
 			drawer.image(smokeImages[frame], (float)x, (float)y);
 		}
-		
-		// drawer.fill(255,0,0);
-		// drawer.rect((float)x, (float)y, 10, 10);
 	}
 	
+	/**
+	 * Extinguishes the fire
+	 */
 	public void extinguish() 
 	{
 		isExtinguished = true;
 	}
 	
+	/**
+	 * Checks for collision between Fire and a WaterSpray object
+	 * @param spray WaterSpray object to check for collision with
+	 * @return true if this Fire was hit by WaterSpray, otherwise false
+	 */
 	public boolean isHitByWaterSpray(WaterSpray spray)
 	{
 		if (spray.getX() >= x && spray.getX() <= x+getWidth() && spray.getY()+spray.getHeight()>=y) 
@@ -75,14 +103,23 @@ public class Fire
 		}
 	}
 	
+	/**
+	 * @return x coordinate of the fire
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/**
+	 * @return y coordinate of the fire
+	 */
 	public double getY() {
 		return y;
 	}
 	
+	/**
+	 * @return width of the fire
+	 */
 	public double getWidth() 
 	{
 		return flameImages[0].width;

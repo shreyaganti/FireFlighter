@@ -3,7 +3,7 @@ import processing.core.PImage;
 import processing.core.PShape;
 
 /**
- * Represents a dial that keeps track of a measurement
+ * This class represents a dial that keeps track of a measurement
  * 
  * @author Shreya Ganti
  * @version 5/7/19

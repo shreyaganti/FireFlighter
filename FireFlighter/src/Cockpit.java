@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 /**
- * Represents the cockpit of an airplane with altitude measurement and dial for speed
+ * This class represents the cockpit of an airplane with altitude measurement and dial for speed
  * @author Shreya Ganti
  * @version 5/7/19
  */
