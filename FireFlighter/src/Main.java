@@ -47,6 +47,7 @@ public class Main
 	    window.getContentPane().removeAll();
 	    
 	    instructions = new InstructionsPanel(this); 
+	    pilotView = new PilotPanel();
 	    // window.createBufferStrategy(1);
 	    
 	    cardPanel.add(instructions,"1");
@@ -57,7 +58,7 @@ public class Main
 	    window.add(cardPanel);
 	    window.revalidate();
 	    
-	    window.setVisible(true);
+	    // window.setVisible(true);
 	    
 	}
 	

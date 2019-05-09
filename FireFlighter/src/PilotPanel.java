@@ -4,7 +4,7 @@ import processing.core.PApplet;
 /**
  * This class represents the pilot’s view of the flight simulation and extends PApplet
  * 
- * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
  * @version 5/8/19
  */
 public class PilotPanel extends PApplet
