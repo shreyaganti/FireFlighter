@@ -39,7 +39,7 @@ public class Airplane
 	
 	public void setup(PApplet drawer) 
 	{
-		planeImage = drawer.loadImage("images//plane.png");
+		planeImage = drawer.loadImage("images/plane.png");
 		cockpit.setup(drawer);
 	}
 	
@@ -189,14 +189,5 @@ public class Airplane
 			WaterSpray spray = new WaterSpray(x,y,-1,10);
 			sprayedWater.add(spray);
 		}
-	}
-	
-	/**
-	 * Returns Cockpit object
-	 * @return Cockpit object in Airplane
-	 */
-	public Cockpit getCockpit() 
-	{
-		return cockpit;
 	}
 }

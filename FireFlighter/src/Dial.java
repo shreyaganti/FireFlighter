@@ -28,7 +28,7 @@ public class Dial
 	
 	public void setup(PApplet drawer)
 	{
-		dial = drawer.loadImage("images//speed_dial.png");
+		dial = drawer.loadImage("images/speed_dial.png");
 	}
 	/**
 	 * Draws the dial object
