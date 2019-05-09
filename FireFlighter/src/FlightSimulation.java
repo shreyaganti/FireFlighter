@@ -44,6 +44,7 @@ public class FlightSimulation
 				if (f.isHitByWaterSpray(w))
 				{
 					f.extinguish();
+					w.consume();
 				}
 			}
 		}

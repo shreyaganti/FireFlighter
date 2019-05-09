@@ -11,7 +11,7 @@ public class WaterSpray
 {
 	private double x,y,vx,vy;
 	private PImage waterImage;
-	private boolean isHit = false;
+	private boolean isConsumedByFire;
 	
 	public WaterSpray(double x, double y, double vx, double vy)
 	{
@@ -20,6 +20,7 @@ public class WaterSpray
 		this.vx = vx;
 		this.vy = vy;
 		this.waterImage = null;
+		this.isConsumedByFire = false;
 	}
 	
 	public void setup(PApplet drawer)
@@ -31,7 +32,7 @@ public class WaterSpray
 	
 	public void draw(PApplet drawer)
 	{
-		if (!isHit) 
+		if (!isConsumedByFire) 
 		{
 			drawer.image(waterImage, (float)(x), (float)(y));
 		}
@@ -104,14 +105,9 @@ public class WaterSpray
 		return vy;
 	}
 	
-	
-	
-	public void isHit(Fire f) 
+	public void consume()
 	{
-		if (x >= f.getX() && x <= f.getX()+f.getWidth() && y+waterImage.height>=f.getY()) 
-		{
-			isHit = true;
-			f.extinguish();
-		}
+		isConsumedByFire = true;
 	}
+	
 }
