@@ -44,6 +44,11 @@ public class Background
 				backgroundImages[x] = new Image(300+700*x, 0, "images/scenery-flipped.jpg");
 			}
 		}
+		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			fires.get(f).setup(drawer);
+		}
 	}
 	
 	/**
