@@ -104,6 +104,8 @@ public class WaterSpray
 		return vy;
 	}
 	
+	
+	
 	public void isHit(Fire f) 
 	{
 		if (x >= f.getX() && x <= f.getX()+f.getWidth() && y+waterImage.height>=f.getY()) 

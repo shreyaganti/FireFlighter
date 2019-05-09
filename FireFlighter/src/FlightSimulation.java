@@ -36,6 +36,18 @@ public class FlightSimulation
 		drawer.pushMatrix();
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
+		
+		for (Fire f: scenery.getFires())
+		{
+			for (WaterSpray w: plane.getSprayedWater())
+			{
+				if (f.isHitByWaterSpray(w))
+				{
+					f.extinguish();
+				}
+			}
+		}
+		
 		drawer.fill(0);
 		drawer.rect(300, 0, 170, 30);
 		drawer.fill(255);

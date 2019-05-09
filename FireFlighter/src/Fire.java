@@ -27,12 +27,14 @@ public class Fire
 		{
 			// images[i] = drawer.loadImage("images//fire.gif");
 			flameImages[i] = drawer.loadImage("images/fire" + (i+1) + ".gif");
+			flameImages[i].resize(100, 100);
 		}
 		
 		for (int i = 0; i < IMAGE_COUNT; i++) 
 		{
 			// images[i] = drawer.loadImage("images//fire.gif");
 			smokeImages[i] = drawer.loadImage("images/smoke" + (i+1) + ".gif");
+			smokeImages[i].resize(100, 100);
 		}
 	}
 	
@@ -59,6 +61,18 @@ public class Fire
 	public void extinguish() 
 	{
 		isExtinguished = true;
+	}
+	
+	public boolean isHitByWaterSpray(WaterSpray spray)
+	{
+		if (spray.getX() >= x && spray.getX() <= x+getWidth() && spray.getY()+spray.getWidth()>=y) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public double getX() {
