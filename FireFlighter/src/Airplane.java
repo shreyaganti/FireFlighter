@@ -92,7 +92,11 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
-		cockpit.setAltitude(-1*(y+vy-360));
+		if (cockpit.getAltitude() == 0) {
+			cockpit.setAltitude(0);
+		}
+		else
+			cockpit.setAltitude(-1*(y+vy-360));
 	}
 	
 	/**
@@ -124,7 +128,6 @@ public class Airplane
 			status = 1;
 			y-=num;
 			vy = 3;
-			cockpit.changeAltitude(num);
 		}
 	}
 	
@@ -189,7 +192,7 @@ public class Airplane
 	{
 		if (sprayedWater.size() < WATER_SPRAY_MAX)
 		{
-			WaterSpray spray = new WaterSpray(x,y,-1,10);
+			WaterSpray spray = new WaterSpray(x,y,-1,20);
 			spray.setup(drawer);
 			sprayedWater.add(spray);
 		}
