@@ -4,8 +4,8 @@ import processing.core.PImage;
 /**
  * This class represents a single spray of water, which the plane can shoot at the fires
  * 
- * @author Ashwini Suriyaprakash
- * @version 5/5/19
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/8/19
  */
 public class WaterSpray 
 {
@@ -13,6 +13,13 @@ public class WaterSpray
 	private PImage waterImage;
 	private boolean isConsumedByFire;
 	
+	/**
+	 * Creates a WaterSpray object with given parameters, that has not been consumed by a fire
+	 * @param x x coordinate of the WaterSpray
+	 * @param y y coordinate of the WaterSpray
+	 * @param vx velocity in the x direction
+	 * @param vy velocity in the y direction
+	 */
 	public WaterSpray(double x, double y, double vx, double vy)
 	{
 		this.x = x;
@@ -23,6 +30,10 @@ public class WaterSpray
 		this.isConsumedByFire = false;
 	}
 	
+	/**
+	 * Loads water spray image
+	 * @param drawer PApplet required for setup
+	 */
 	public void setup(PApplet drawer)
 	{
 		waterImage = drawer.loadImage("images/water.png");
@@ -30,6 +41,10 @@ public class WaterSpray
 		
 	}
 	
+	/**
+	 * Draws WaterSpray object
+	 * @param drawer PApplet used to draw the WaterSpray object
+	 */
 	public void draw(PApplet drawer)
 	{
 		if (!isConsumedByFire) 
@@ -105,6 +120,9 @@ public class WaterSpray
 		return vy;
 	}
 	
+	/**
+	 * Consumes the water spray (specifically, used when it hits the fire)
+	 */
 	public void consume()
 	{
 		isConsumedByFire = true;

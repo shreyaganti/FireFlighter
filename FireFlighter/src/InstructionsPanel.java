@@ -7,6 +7,12 @@ import java.awt.event.*;
 
 //format correctly, add pictures
 
+
+/**
+ * This class represents the Instructions Panel, which allows user to seek help and select airport options
+ * @author Rujuta Swadi
+ * @version 5/8/19
+ */
 public class InstructionsPanel extends JPanel implements ActionListener, ItemListener
 {
 	
@@ -20,7 +26,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 
 	
 	/**
-	 * creates an InstructionsPanel with start, help, source, and destination buttons
+	 * Creates an InstructionsPanel with start, help, source, and destination buttons
 	 * @param w the Main object on which to run methods to begin the game
 	 */
 	public InstructionsPanel(Main w) 
@@ -117,7 +123,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	}
 	
 	/**
-	 * stores the source and destination airports selected by the user
+	 * Stores the source and destination airports selected by the user
 	 * @param e the event that has occurred in the program
 	 */
 	public void actionPerformed(ActionEvent e) {
@@ -177,7 +183,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	
 
 	/**
-	 * checks if the source or destination checked are allowed to be chosen given the other selections
+	 *Checks if the source or destination checked are allowed to be chosen given the other selections
 	 * @param e the event to be checked
 	 */
 	public void itemStateChanged(ItemEvent e) {
@@ -279,10 +285,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		} 
 	}
 	
-	private void displayInstructions() {
+	private void displayInstructions() 
+	{
 		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. select the source and destination airports\n    > to change either, unselect the current location and choose another\n2. press start\n\nWHILE PLAYING:\n- use the up and down arrows to increase or decrease the plane's altitude\n- use the spacebar to shoot water streams at fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
 	
 	private void displayUncheckedBoxesMessage() {
 		JOptionPane.showMessageDialog(null, "you must check one source and one destination to begin", "ERROR", JOptionPane.INFORMATION_MESSAGE);

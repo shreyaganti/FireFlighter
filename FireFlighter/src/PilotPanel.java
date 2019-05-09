@@ -2,10 +2,10 @@ import java.awt.event.KeyEvent;
 import processing.core.PApplet;
 
 /**
- * This class represents the pilot’s view of the flight simulation and cockpit and IS-A PApplet
+ * This class represents the pilot’s view of the flight simulation and extends PApplet
  * 
- * @author Ashwini Suriyaprakash
- * @version 5/5/19
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/8/19
  */
 public class PilotPanel extends PApplet
 {
@@ -21,6 +21,9 @@ public class PilotPanel extends PApplet
 		flightSim = new FlightSimulation();
 	}
 	
+	/**
+	 * Sets up this PApplet
+	 */
 	public void setup() 
 	{
 		flightSim.setup(this);
@@ -32,6 +35,7 @@ public class PilotPanel extends PApplet
 	 * @post if right key pressed, Airplane horizontal velocity increases by 2
 	 * @post if up key pressed, Airplane moves up by 2 units
 	 * @post if down key pressed, Airplane moves down by 2 units
+	 * @post if space key pressed, Airplane sprays water
 	 */
 	public void keyPressed() 
 	{
