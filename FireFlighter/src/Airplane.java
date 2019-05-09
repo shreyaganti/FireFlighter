@@ -192,7 +192,7 @@ public class Airplane
 	{
 		if (sprayedWater.size() < WATER_SPRAY_MAX)
 		{
-			WaterSpray spray = new WaterSpray(x,y,-1,10);
+			WaterSpray spray = new WaterSpray(x,y,-1,20);
 			spray.setup(drawer);
 			sprayedWater.add(spray);
 		}
