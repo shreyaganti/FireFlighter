@@ -1,4 +1,7 @@
 import java.awt.event.KeyEvent;
+
+import javax.swing.JPanel;
+
 import processing.core.PApplet;
 
 /**
@@ -19,6 +22,8 @@ public class PilotPanel extends PApplet
 	{
 		super();
 		flightSim = new FlightSimulation();
+		
+		
 	}
 	
 	/**

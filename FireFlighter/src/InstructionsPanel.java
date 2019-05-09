@@ -170,6 +170,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 				
 				System.out.println("source: " + source + " destination: " + destination);
 				w.changePanel();
+				
 			}
 			
 			

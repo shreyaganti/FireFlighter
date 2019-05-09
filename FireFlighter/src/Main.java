@@ -19,6 +19,8 @@ public class Main
 	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
 	
+	
+	
 	/**
 	 * Creates a Main object with a JFrame object that displays InstructionsPanel and PilotPanel 
 	 */
@@ -44,19 +46,25 @@ public class Main
 	    CardLayout cl = new CardLayout();
 	    cardPanel.setLayout(cl);
 	    
+	    
 	    window.getContentPane().removeAll();
 	    
 	    instructions = new InstructionsPanel(this); 
 	    pilotView = new PilotPanel();
 	    // window.createBufferStrategy(1);
 	    
+
+	    
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
+	   
 	    
 	    window.setLayout(new BorderLayout());
+	  
 	    
 	    window.add(cardPanel);
 	    window.revalidate();
+	    
 	    
 	    // window.setVisible(true);
 	    
@@ -79,6 +87,8 @@ public class Main
 	{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		processingCanvas.requestFocus();
+	
+		
 	}
   
 }
