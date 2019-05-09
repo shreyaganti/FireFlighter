@@ -5,7 +5,7 @@ import processing.core.PApplet;
 /**
  * Represents a background for the plane, containing scenery images and fires
  * @author Ashwini Suriyaprakash
- * @version 5/7/19
+ * @version 5/8/19
  */
 public class Background 
 {
@@ -15,7 +15,7 @@ public class Background
 	private final int NUM_FIRES = 10;
 	
 	/**
-	 * Creates an instance of a Background with scenery images initialized
+	 * Creates an instance of a Background with scenery images and fires at random locations initialized
 	 */
 	public Background()
 	{
@@ -31,6 +31,10 @@ public class Background
 		
 	}
 	
+	/**
+	 * Loads scenery images and sets up the background's fires
+	 * @param drawer PApplet required for the setup
+	 */
 	public void setup(PApplet drawer)
 	{
 		for (int x = 0; x < NUM_IMAGES; x++)
@@ -85,6 +89,9 @@ public class Background
 		// drawer.background(0,0,255);
 	}
 	
+	/**
+	 * @return ArrayList of fires this Background object contains
+	 */
 	public ArrayList<Fire> getFires()
 	{
 		return fires;

@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 /**
- * 
+ * Represents the cockpit of an airplane with altitude measurement and dial for speed
  * @author Shreya Ganti
  * @version 5/7/19
  */
@@ -12,7 +12,7 @@ public class Cockpit
 	
 	/**
 	 * Constructor to initialize Cockpit object with speed dial
-	 * @param d
+	 * @param d Dial object for speed
 	 */
 	public Cockpit(Dial d) 
 	{

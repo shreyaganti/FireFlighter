@@ -3,6 +3,7 @@ import processing.core.PImage;
 import processing.core.PShape;
 
 /**
+ * Represents a dial that keeps track of a measurement
  * 
  * @author Shreya Ganti
  * @version 5/7/19
@@ -26,6 +27,10 @@ public class Dial
 		yCoord = y;
 	}
 	
+	/**
+	 * Loads dial image
+	 * @param drawer PApplet required for the setup
+	 */
 	public void setup(PApplet drawer)
 	{
 		dial = drawer.loadImage("images/speed_dial.png");
@@ -77,8 +82,8 @@ public class Dial
 	 */
 	public void addSpeed(double s) {
 		speed+=s;
-		System.out.println(speed);
-		System.out.println(Math.cos(Math.toRadians(speed)) + "  " + Math.sin(Math.toRadians(speed)));
+		// System.out.println(speed);
+		// System.out.println(Math.cos(Math.toRadians(speed)) + "  " + Math.sin(Math.toRadians(speed)));
 	}
 	
 	/**

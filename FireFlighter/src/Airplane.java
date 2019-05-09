@@ -7,7 +7,7 @@ import processing.core.PImage;
  * This class represents an airplane with an (x,y) coordinate and velocities in the x and y direction
  * 
  * @author Ashwini Suriyaprakash
- * @version 5/5/19
+ * @version 5/8/19
  */
 public class Airplane 
 {
@@ -23,6 +23,7 @@ public class Airplane
 	 * Creates a instance of an Airplane object with horizontal and vertical velocities set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of upper left corner of plane
 	 * @param y y coordinate of upper left corner of plane
+	 * @param c Cockpit object that the plane will have
 	 */
 	public Airplane(double x, double y, Cockpit c)
 	{
@@ -36,10 +37,14 @@ public class Airplane
 		cockpit = c;
 	}
 	
-	
+	/**
+	 * Loads the plane image from file and sets up the plane's cockpit
+	 * @param drawer PApplet required for the setup
+	 */
 	public void setup(PApplet drawer) 
 	{
 		planeImage = drawer.loadImage("images/plane.png");
+		planeImage.resize(120, 60);
 		cockpit.setup(drawer);
 	}
 	
@@ -50,8 +55,6 @@ public class Airplane
 	 */
 	public void draw(PApplet drawer)
 	{
-		
-		planeImage.resize(120, 60);
 		drawer.image(planeImage, (float)(x), (float)(y));
 		cockpit.draw(drawer);
 	}
@@ -84,7 +87,7 @@ public class Airplane
 	}
 	
 	/**
-	 * Causes the Airplane to act based on its velocities
+	 * Causes the Airplane to act based on its velocities and adjusts the cockpit dial appropriately
 	 */
 	public void act()
 	{
@@ -172,7 +175,7 @@ public class Airplane
 	}
 	
 	/**
-	 * @return arraylist containing the WaterSpray objects the plane has fired
+	 * @return Arraylist containing the WaterSpray objects the plane has fired
 	 */
 	public ArrayList<WaterSpray> getSprayedWater()
 	{
