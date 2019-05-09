@@ -38,7 +38,7 @@ public class Cockpit
 		p.rect(25, 250, 150, 50);
 		p.fill(0);
 		p.textSize(26);
-		p.text(altitude+"", 80, 283);
+		p.text(altitude*100+" ft", 50, 283);
 		p.popStyle();
 		p.popMatrix();
 	}
