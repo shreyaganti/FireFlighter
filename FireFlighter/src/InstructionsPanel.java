@@ -49,7 +49,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		tx1 = new JCheckBox("san antonio (SAT)"); //texas
 		tx2 = new JCheckBox("san antonio (SAT)"); //texas
 		
-		JLabel gameName = new JLabel("FIRE FLIGHTERS");
+		JLabel gameName = new JLabel("FIRE FLIGHTER");
 		gameName.setFont(new Font("Serif", Font.PLAIN, 40));
 
 		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 

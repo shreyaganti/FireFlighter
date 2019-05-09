@@ -126,6 +126,8 @@ public class WaterSpray
 	public void consume()
 	{
 		isConsumedByFire = true;
+		x = -1;
+		y = -1;
 	}
 	
 }
