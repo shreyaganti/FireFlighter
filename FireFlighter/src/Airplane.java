@@ -92,7 +92,11 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
-		cockpit.setAltitude(-1*(y+vy-360));
+		if (cockpit.getAltitude() == 0) {
+			cockpit.setAltitude(0);
+		}
+		else
+			cockpit.setAltitude(-1*(y+vy-360));
 	}
 	
 	/**
