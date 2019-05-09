@@ -4,7 +4,12 @@ import processing.core.PApplet;
 import java.awt.*;
 
 
-
+/**
+ * This class contains the Main method and implements the Fire Flighter Game
+ * 
+ * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
+ * @version 5/8/19
+ */
 public class Main 
 {
 
@@ -14,6 +19,9 @@ public class Main
 	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
 	
+	/**
+	 * Creates a Main object with a JFrame object that displays InstructionsPanel and PilotPanel 
+	 */
 	public Main() 
 	{
 		final int WIDTH = 1000;
@@ -53,12 +61,19 @@ public class Main
 	    
 	}
 	
-
+	
+	/**
+	 * Main method
+	 * @param args string arguments
+	 */
 	public static void main(String[] args)
 	{
 		Main m = new Main();
 	}
-  
+	
+	/**
+	 * Changes panels
+	 */
 	public void changePanel() 
 	{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
