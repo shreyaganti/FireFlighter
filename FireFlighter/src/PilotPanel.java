@@ -55,7 +55,7 @@ public class PilotPanel extends PApplet
 		}
 		else if (keyCode == KeyEvent.VK_SPACE)
 		{
-			flightSim.getPlane().spray();
+			flightSim.getPlane().spray(this);
 		}
 	}
 	

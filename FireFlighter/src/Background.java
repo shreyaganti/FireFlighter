@@ -84,4 +84,9 @@ public class Background
 		}
 		// drawer.background(0,0,255);
 	}
+	
+	public ArrayList<Fire> getFires()
+	{
+		return fires;
+	}
 }

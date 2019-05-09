@@ -182,11 +182,12 @@ public class Airplane
 	/**
 	 * Sprays a WaterSpray with vertical velocity downward, if water spray amount the plane contains hasn't run out
 	 */
-	public void spray()
+	public void spray(PApplet drawer)
 	{
 		if (sprayedWater.size() < WATER_SPRAY_MAX)
 		{
 			WaterSpray spray = new WaterSpray(x,y,-1,10);
+			spray.setup(drawer);
 			sprayedWater.add(spray);
 		}
 	}

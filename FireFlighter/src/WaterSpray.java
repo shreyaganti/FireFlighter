@@ -22,11 +22,17 @@ public class WaterSpray
 		this.waterImage = null;
 	}
 	
+	public void setup(PApplet drawer)
+	{
+		waterImage = drawer.loadImage("images/water.png");
+		waterImage.resize(25, 25);
+		
+	}
+	
 	public void draw(PApplet drawer)
 	{
-		if (!isHit) {
-			waterImage = drawer.loadImage("images/water.png");
-			waterImage.resize(25, 25);
+		if (!isHit) 
+		{
 			drawer.image(waterImage, (float)(x), (float)(y));
 		}
 	}
@@ -98,10 +104,12 @@ public class WaterSpray
 		return vy;
 	}
 	
-	public void isHit(Fire f) {
-		if (x >= f.getX() && x <= f.getX()+f.getWidth() && y+waterImage.height>=f.getY()) {
+	public void isHit(Fire f) 
+	{
+		if (x >= f.getX() && x <= f.getX()+f.getWidth() && y+waterImage.height>=f.getY()) 
+		{
 			isHit = true;
-			f.hit();
+			f.extinguish();
 		}
 	}
 }
