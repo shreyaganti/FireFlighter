@@ -75,3 +75,4 @@ Credit List:
 * Background scenery image: https://clipartimage.com/clipart/25138-clear-day-clipart.html
 * Fire/smoke gifs: http://www.animatedimages.org/cat-fire-90.htm
 * Speed dial image: http://www.clker.com/clipart-dial-5.html
+* Used Stack Overflow for example code for Box Layout
