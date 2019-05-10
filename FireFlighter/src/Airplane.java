@@ -19,6 +19,8 @@ public class Airplane
 	private int status;
 	private Cockpit cockpit;
 	
+	private double trueX;
+	
 	/**
 	 * Creates a instance of an Airplane object with horizontal and vertical velocities set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of upper left corner of plane
@@ -92,6 +94,7 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
+		trueX+= x + vx;
 		if (Math.abs(y+vy) <=0.01) {
 			cockpit.setAltitude(0);
 		}
@@ -196,5 +199,12 @@ public class Airplane
 			spray.setup(drawer);
 			sprayedWater.add(spray);
 		}
+	}
+	
+	/**
+	 * @return returns the true X value of the plane as if it was moving
+	 */
+	public double returnTrueX() {
+		return trueX;
 	}
 }

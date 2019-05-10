@@ -14,6 +14,9 @@ public class Background
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
 	
+	
+	
+	
 	/**
 	 * Creates an instance of a Background with scenery images and fires at random locations initialized
 	 */
@@ -127,4 +130,6 @@ public class Background
 	public int getNumImages() {
 		return NUM_IMAGES;
 	}
+	
+	
 }
