@@ -37,15 +37,6 @@ public class Runway
 	}
 	
 	/**
-	 * Draws the runway
-	 * @param drawer Papplet to draw the runway on
-	 */
-	public void draw(PApplet drawer)
-	{
-		drawer.image(runwayImage,(float)x, (float)y);
-	}
-	
-	/**
 	 * Shifts the runway by x and y amount
 	 * @param offsetX x amount to shift the runway by
 	 * @param offsetY y amount to shift the runway by
@@ -55,4 +46,15 @@ public class Runway
 		x+=offsetX;
 		y+=offsetY;
 	}
+	
+	/**
+	 * Draws the runway
+	 * @param drawer Papplet to draw the runway on
+	 */
+	public void draw(PApplet drawer)
+	{
+		drawer.image(runwayImage,(float)x, (float)y);
+	}
+	
+	
 }
