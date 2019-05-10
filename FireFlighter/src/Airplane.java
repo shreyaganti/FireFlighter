@@ -33,6 +33,7 @@ public class Airplane
 		this.y = y;
 		this.vx = 0;
 		this.vy = 0;
+		this.trueX = x;
 		this.planeImage = null;
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
@@ -94,7 +95,7 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
-		trueX+= x + vx;
+		trueX += vx;
 		if (Math.abs(y+vy) <=0.01) {
 			cockpit.setAltitude(0);
 		}
