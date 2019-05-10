@@ -71,6 +71,8 @@ public class FlightSimulation
 			sec = "" + secondsLeft;
 		}
 		
+		
+		
 		drawer.text("Estimated time until landing: "+ minutesLeft + ":" + sec, 305, 80); 
 		
 		plane.act();

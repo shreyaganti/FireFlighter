@@ -109,7 +109,15 @@ public class Airplane
 	 */
 	public void increaseSpeed(double offset)
 	{
-		vx+=offset;
+		if (offset < 0 && vx >= -offset)
+		{
+			vx+=offset;
+		}
+		else if (offset > 0)
+		{
+			vx+=offset;
+		}
+		
 		if (offset < 0 && !cockpit.getDial().reachedMin())
 		{
 			cockpit.getDial().addSpeed(10*offset);
