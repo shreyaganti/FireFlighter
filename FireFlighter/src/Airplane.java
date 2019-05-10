@@ -93,7 +93,6 @@ public class Airplane
 	{
 		move(x,y+vy);
 		if (Math.abs(y+vy) <=0.01) {
-			System.out.println("Hi");
 			cockpit.setAltitude(0);
 		}
 		else
