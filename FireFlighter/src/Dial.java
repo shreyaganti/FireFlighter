@@ -51,19 +51,21 @@ public class Dial
 		p.imageMode(p.CENTER);
 		p.image(dial,(float)xCoord,(float)yCoord);
 		p.strokeWeight(10);
-		if (Math.abs(1130-speed) <=0.001) {
+		if (speed>1130 || Math.abs(1130-speed) <=0.001) {
+			speed = 1130;
 			maxSpeed = true;
 		}
 		else {
 			maxSpeed = false;
 		}
-		if (Math.abs(850-speed)<=0.001) {
+		if (speed <850 || Math.abs(850-speed)<=0.001) {
+			speed = 850;
 			minSpeed = true;
 		}
 		else {
 			minSpeed = false;
 		}
-		// System.out.println(speed + "    " + minSpeed+"   "+ maxSpeed);
+		System.out.println(speed + "    " + minSpeed+"   "+ maxSpeed);
 		p.line((float)xCoord,(float)yCoord,(float)(Math.cos(Math.toRadians(speed))*(dial.width/2-10)+xCoord),(float)((Math.sin(Math.toRadians(speed))*(dial.height/2-10)+yCoord)));
 		p.popStyle();
 		p.popMatrix();
@@ -83,8 +85,6 @@ public class Dial
 	 */
 	public void addSpeed(double s) {
 		speed+=s;
-		// System.out.println(speed);
-		// System.out.println(Math.cos(Math.toRadians(speed)) + "  " + Math.sin(Math.toRadians(speed)));
 	}
 	
 	/**
