@@ -35,10 +35,10 @@ public class Cockpit
 		p.rect(0, 0, 300, 500);
 		dial.draw(p);
 		p.fill(255);
-		p.rect(25, 250, 150, 50);
+		p.rect(60, 250, 180, 50);
 		p.fill(0);
 		p.textSize(26);
-		p.text(altitude*100+" ft", 50, 283);
+		p.text(altitude*100+" ft", 80, 283);
 		p.popStyle();
 		p.popMatrix();
 	}
