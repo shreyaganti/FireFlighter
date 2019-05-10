@@ -33,7 +33,7 @@ public class Airplane
 		this.y = y;
 		this.vx = 0;
 		this.vy = 0;
-		this.trueX = x;
+		this.trueX = 0;
 		this.planeImage = null;
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
