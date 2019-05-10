@@ -72,6 +72,9 @@ public class FlightSimulation
 			sec = "" + secondsLeft;
 		}
 		
+		if (secondsLeft < 0) {
+			sec = "0";
+		}
 		
 		if (plane.getVelocityX() <= 0) {
 			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
