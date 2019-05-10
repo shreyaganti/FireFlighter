@@ -204,7 +204,14 @@ public class Airplane
 	/**
 	 * @return returns the true X value of the plane as if it was moving
 	 */
-	public double returnTrueX() {
+	public double getTrueX() {
 		return trueX;
+	}
+	
+	/**
+	 * @return Cockpit object in Airplane
+	 */
+	public Cockpit getCockpit() {
+		return cockpit;
 	}
 }
