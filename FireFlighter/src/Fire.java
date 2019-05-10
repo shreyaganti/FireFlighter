@@ -124,4 +124,8 @@ public class Fire
 	{
 		return flameImages[0].width;
 	}
+	
+	public boolean isHit() {
+		return isExtinguished;
+	}
 }

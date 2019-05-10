@@ -44,14 +44,17 @@ public class Main
 	    CardLayout cl = new CardLayout();
 	    cardPanel.setLayout(cl);
 	    
+	    
 	    window.getContentPane().removeAll();
 	    
 	    instructions = new InstructionsPanel(this); 
 	    pilotView = new PilotPanel();
 	    // window.createBufferStrategy(1);
 	    
+	   
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
+	    
 	    
 	    window.setLayout(new BorderLayout());
 	    

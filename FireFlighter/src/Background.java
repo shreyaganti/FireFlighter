@@ -96,4 +96,28 @@ public class Background
 	{
 		return fires;
 	}
+	
+	
+	/**
+	 * @return total number of fires in the simulation
+	 */
+	public int getFireCount() {
+		return NUM_FIRES;
+	}
+	
+	
+	/**
+	 * @return returns the number of fires extinguished
+	 */
+	public int getFiresExtinguished() {
+		int fireCount = 0;
+		
+		for (Fire f : fires) {
+			if (f.isHit()) {
+				fireCount++;
+			}
+		}
+		
+		return fireCount;
+	}
 }

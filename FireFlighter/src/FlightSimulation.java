@@ -54,10 +54,11 @@ public class FlightSimulation
 		}
 		
 		drawer.fill(0);
-		drawer.rect(300, 0, 170, 30);
-		drawer.fill(255);
+		//drawer.rect(300, 0, 170, 30);
+		drawer.fill(0);
 		drawer.textSize(13);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 20);
+		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		plane.act();
 		plane.draw(drawer);
 		for (WaterSpray w: plane.getSprayedWater())
