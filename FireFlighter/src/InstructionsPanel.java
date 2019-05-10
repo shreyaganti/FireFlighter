@@ -287,7 +287,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	
 	private void displayInstructions() 
 	{
-		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. select the source and destination airports\n    > to change either, unselect the current location and choose another\n2. press start\n\nWHILE PLAYING:\n- use the up and down arrows to increase or decrease the plane's altitude\n- use the spacebar to shoot water streams at fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. select the source and destination airports\n    > to change either, unselect the current location and choose another\n2. press start\n\nWHILE PLAYING:\n- use up and down arrows to increase or decrease the plane's altitude\n- use left and right arrows to slow or speed up the plane\n- use spacebar to shoot water streams at fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	private void displayUncheckedBoxesMessage() {
