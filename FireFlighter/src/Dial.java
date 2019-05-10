@@ -103,4 +103,12 @@ public class Dial
 	}
 	
 	
+	/**
+	 * @return returns the current speed of the plane 
+	 */
+	public double getSpeed() {
+		return speed;
+	}
+	
+	
 }
