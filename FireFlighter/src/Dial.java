@@ -65,7 +65,6 @@ public class Dial
 		else {
 			minSpeed = false;
 		}
-		System.out.println(speed + "    " + minSpeed+"   "+ maxSpeed);
 		p.line((float)xCoord,(float)yCoord,(float)(Math.cos(Math.toRadians(speed))*(dial.width/2-10)+xCoord),(float)((Math.sin(Math.toRadians(speed))*(dial.height/2-10)+yCoord)));
 		p.popStyle();
 		p.popMatrix();
