@@ -215,4 +215,12 @@ public class Airplane
 	public Cockpit getCockpit() {
 		return cockpit;
 	}
+	
+	/**
+	 * @return the width of the plane
+	 */
+	public int getWidth()
+	{
+		return planeImage.width;
+	}
 }
