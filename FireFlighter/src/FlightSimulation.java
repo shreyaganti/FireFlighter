@@ -60,7 +60,18 @@ public class FlightSimulation
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 20);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-		drawer.text("Estimated time until landing: "+ (int) (distanceLeft/plane.getVelocityX()), 305, 80); //update to take time
+		int timeLeft = (int) (distanceLeft/plane.getVelocityX());
+		int minutesLeft = timeLeft/60;
+		int secondsLeft = timeLeft%60;
+		String sec = "";
+		
+		if (secondsLeft < 10) {
+			sec = "0" + secondsLeft;
+		} else {
+			sec = "" + secondsLeft;
+		}
+		
+		drawer.text("Estimated time until landing: "+ minutesLeft + ":" + sec, 305, 80); 
 		
 		plane.act();
 		plane.draw(drawer);
