@@ -64,6 +64,7 @@ public class FlightSimulation
 		int minutesLeft = timeLeft/60;
 		int secondsLeft = timeLeft%60;
 		String sec = "";
+		String min = "" + minutesLeft;
 		
 		if (secondsLeft < 10) {
 			sec = "0" + secondsLeft;
@@ -72,8 +73,12 @@ public class FlightSimulation
 		}
 		
 		
+		if (plane.getVelocityX() <= 0) {
+			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
+		} else {
+			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
+		}
 		
-		drawer.text("Estimated time until landing: "+ minutesLeft + ":" + sec, 305, 80); 
 		
 		plane.act();
 		plane.draw(drawer);
