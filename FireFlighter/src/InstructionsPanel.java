@@ -168,7 +168,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 					destination = "san antonio (SAT)";
 				}
 				
-				System.out.println("source: " + source + " destination: " + destination);
+				//System.out.println("source: " + source + " destination: " + destination);
 				w.changePanel();
 			}
 			
