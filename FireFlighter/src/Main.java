@@ -13,6 +13,11 @@ import java.awt.*;
 public class Main 
 {
 
+	
+	// make plane burn if it's flying on fire
+	// don't let user drop water if not above altitude of 150 feet
+	
+	
 	private JFrame window;
 	private JPanel cardPanel;
 	private InstructionsPanel instructions; 
