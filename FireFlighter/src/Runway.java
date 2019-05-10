@@ -33,7 +33,7 @@ public class Runway
 	public void setup(PApplet drawer) 
 	{
 		runwayImage = drawer.loadImage("images/runway.png");
-		runwayImage.resize(120, 60);
+		runwayImage.resize(700, 60);
 	}
 	
 	/**
