@@ -120,4 +120,11 @@ public class Background
 		
 		return fireCount;
 	}
+	
+	/**
+	 * @return returns number of images in background
+	 */
+	public int getNumImages() {
+		return NUM_IMAGES;
+	}
 }
