@@ -30,7 +30,7 @@ public class Background
 			fires.add(new Fire(xcoord,ycoord));
 		}
 		source = new Runway(300,420,"SFO");
-		destination = new Runway(300+700*NUM_IMAGES, 420, "NYC");
+		destination = new Runway(300+700*(NUM_IMAGES-1), 420, "NYC");
 	}
 	
 	/**
@@ -68,10 +68,16 @@ public class Background
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			backgroundImages[x].shift(v, 0);
-			fires.get(x).shift(v,0);
-			source.shift(v, 0);
-			destination.shift(v, 0);
+			
 		}
+		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			fires.get(f).shift(v,0);
+		}
+		
+		source.shift(v, 0);
+		destination.shift(v, 0);
 	}
 	
 	/**
@@ -94,6 +100,7 @@ public class Background
 		}
 		source.draw(drawer);
 		destination.draw(drawer);
+		System.out.println(destination.x);
 		// drawer.background(0,0,255);
 	}
 	
