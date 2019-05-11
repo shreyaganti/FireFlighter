@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class Cockpit 
 {
 	private Dial dial;
-	private double altitude;
+	private int altitude;
 	
 	/**
 	 * Constructor to initialize Cockpit object with speed dial
@@ -35,10 +35,10 @@ public class Cockpit
 		p.rect(0, 0, 300, 500);
 		dial.draw(p);
 		p.fill(255);
-		p.rect(25, 250, 150, 50);
+		p.rect(60, 250, 180, 50);
 		p.fill(0);
 		p.textSize(26);
-		p.text(altitude*100+" ft", 50, 283);
+		p.text(altitude*5+" ft", 125, 283);
 		p.popStyle();
 		p.popMatrix();
 	}
@@ -47,7 +47,7 @@ public class Cockpit
 	 * Increments or decrements altitude of plane
 	 * @param a Value to change altitude by
 	 */
-	public void changeAltitude(double a) {
+	public void changeAltitude(int a) {
 		altitude+=a;
 	}
 	
@@ -55,7 +55,7 @@ public class Cockpit
 	 * Sets value of altitude of plane
 	 * @param a New value to assign to altitude
 	 */
-	public void setAltitude(double a) {
+	public void setAltitude(int a) {
 		altitude = a;
 	}
 	
@@ -63,7 +63,7 @@ public class Cockpit
 	 * Returns altitude of plane
 	 * @return Altitude of plane
 	 */
-	public double getAltitude() {
+	public int getAltitude() {
 		return altitude;
 	}
 	

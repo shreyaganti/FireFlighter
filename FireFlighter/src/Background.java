@@ -13,6 +13,8 @@ public class Background
 	private ArrayList<Fire> fires;
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
+	private Runway source, destination;
+	private final int GROUND_LEVEL = 400;
 	
 	/**
 	 * Creates an instance of a Background with scenery images and fires at random locations initialized
@@ -28,7 +30,8 @@ public class Background
 			double ycoord = 370;
 			fires.add(new Fire(xcoord,ycoord));
 		}
-		
+		source = new Runway(300,GROUND_LEVEL,"SFO");
+		destination = new Runway(300+700*(NUM_IMAGES-1), GROUND_LEVEL, "NYC");
 	}
 	
 	/**
@@ -53,6 +56,8 @@ public class Background
 		{
 			fires.get(f).setup(drawer);
 		}
+		source.setup(drawer);
+		destination.setup(drawer);
 	}
 	
 	/**
@@ -64,8 +69,16 @@ public class Background
 		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			backgroundImages[x].shift(v, 0);
-			fires.get(x).shift(v,0);
+			
 		}
+		
+		for (int f = 0; f < NUM_FIRES; f++)
+		{
+			fires.get(f).shift(v,0);
+		}
+		
+		source.shift(v, 0);
+		destination.shift(v, 0);
 	}
 	
 	/**
@@ -86,6 +99,8 @@ public class Background
 		{
 			fires.get(f).draw(drawer);
 		}
+		source.draw(drawer);
+		destination.draw(drawer);
 		// drawer.background(0,0,255);
 	}
 	
@@ -96,4 +111,64 @@ public class Background
 	{
 		return fires;
 	}
+	
+	
+	/**
+	 * @return total number of fires in the simulation
+	 */
+	public int getFireCount() {
+		return NUM_FIRES;
+	}
+	
+	
+	/**
+	 * @return returns the number of fires extinguished
+	 */
+	public int getFiresExtinguished() 
+	{
+		int fireCount = 0;
+		
+		for (Fire f : fires) 
+		{
+			if (f.isExtinguished()) 
+			{
+				fireCount++;
+			}
+		}
+		
+		return fireCount;
+	}
+	
+	/**
+	 * @return returns number of images in background
+	 */
+	public int getNumImages() 
+	{
+		return NUM_IMAGES;
+	}
+	
+	/**
+	 * @return ground level of the background
+	 */
+	public int getGroundLevel()
+	{
+		return GROUND_LEVEL;
+	}
+	
+	/**
+	 * @return source runway object
+	 */
+	public Runway getSourceRunway()
+	{
+		return source;
+	}
+	
+	/**
+	 * @return destination runway object
+	 */
+	public Runway getDestinationRunway()
+	{
+		return destination;
+	}
+	
 }

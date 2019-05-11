@@ -13,12 +13,15 @@ import java.awt.event.*;
  * @author Rujuta Swadi
  * @version 5/8/19
  */
-public class InstructionsPanel extends JPanel implements ActionListener, ItemListener
+public class InstructionsPanel extends JPanel implements ActionListener // , ItemListener
 {
 	
 	Main w;
-	private JButton button;
+	private JButton startButton;
 	private JButton instructions;
+	
+	private JComboBox sourceBox, destinationBox;
+	private final String AIRPORTS[] = {"San Francisco, CA (SFO)","Carson City, NV (CSN)","Scottsdale, AZ (SDL)","Seattle, WA (BFI)","Queens, NY (JFK)", "San Antonio, TX (SAT)"};
 	
 	private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
@@ -35,8 +38,39 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	
 		
 		JPanel buttonPanel = new JPanel();
+		BoxLayout bLayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
+		buttonPanel.setLayout(bLayout);
 		
-		sfo1 = new JCheckBox("san francisco (SFO)"); //california
+		JLabel gameName = new JLabel("FIRE FLIGHTER");
+		gameName.setFont(new Font("Serif", Font.BOLD, 40));
+		
+		instructions = new JButton("HELP");
+		instructions.setPreferredSize(new Dimension (100, 50));
+		instructions.addActionListener(this);
+		
+		JLabel sourceLabel = new JLabel("select a source airport:");
+		JLabel destinationLabel = new JLabel("select a destination airport:");
+		
+		buttonPanel.add(gameName);
+		buttonPanel.add(instructions);
+	
+		sourceBox = new JComboBox(AIRPORTS);  
+		destinationBox = new JComboBox(AIRPORTS);
+		buttonPanel.add(sourceLabel);
+		buttonPanel.add(sourceBox);
+		buttonPanel.add(destinationLabel);
+		buttonPanel.add(destinationBox);
+		
+		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
+		startButton = new JButton("START");
+		startButton.setPreferredSize(new Dimension(100, 50)); //width, height
+		startButton.addActionListener(this);
+		buttonPanel.add(startButton);
+		
+		this.add(buttonPanel);
+		
+
+		/*sfo1 = new JCheckBox("san francisco (SFO)"); //california
 		sfo2 = new JCheckBox("san francisco (SFO)"); //california
 		nv1 = new JCheckBox("carson city (CSN)"); //nevada
 		nv2 = new JCheckBox("carson city (CSN)"); //nevada
@@ -50,26 +84,22 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		tx2 = new JCheckBox("san antonio (SAT)"); //texas
 		
 		JLabel gameName = new JLabel("FIRE FLIGHTER");
-		gameName.setFont(new Font("Serif", Font.PLAIN, 40));
+		gameName.setFont(new Font("Serif", Font.BOLD, 40));
 
 		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
 		button = new JButton("START");
 		
 		
 		button.setPreferredSize(new Dimension(100, 50)); //width, height
-		button.addActionListener(this);
-		
-		instructions = new JButton("HELP");
-		
-		instructions.setPreferredSize(new Dimension (100, 50));
-		instructions.addActionListener(this);
+		button.addActionListener(this);*/
 		
 		
-		JLabel source = new JLabel("select a source airport:");
-		JLabel destination = new JLabel("select a destination airport:");
 		
 		
-		sfo1.addItemListener(this);
+		
+		
+		
+		/*sfo1.addItemListener(this);
 		sfo2.addItemListener(this);
 		az1.addItemListener(this);
 		az2.addItemListener(this);
@@ -80,7 +110,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		jfk1.addItemListener(this);
 		jfk2.addItemListener(this);
 		tx1.addItemListener(this);
-		tx2.addItemListener(this);
+		tx2.addItemListener(this);*/
 		
 		//this.setLayout(new GridLayout(0,3));
 		
@@ -97,12 +127,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		
 		
 		
-		BoxLayout bLayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
-		buttonPanel.setLayout(bLayout);
 		
 		
 		
-		this.add(buttonPanel);
+		/*this.add(buttonPanel);
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
 		buttonPanel.add(button);
@@ -119,15 +147,42 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		buttonPanel.add(az2);
 		buttonPanel.add(wa2);
 		buttonPanel.add(jfk2);
-		buttonPanel.add(tx2);
+		buttonPanel.add(tx2);*/
 	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getSource().equals(instructions)) 
+		{
+			displayInstructions();
+		}
+		else if (e.getSource().equals(startButton))
+		{
+			source = sourceBox.getItemAt(sourceBox.getSelectedIndex()) + "";
+			destination = destinationBox.getItemAt(destinationBox.getSelectedIndex()) + "";
+			
+			if (!source.equals(destination))
+			{
+				System.out.println("Source: " + source);
+				System.out.println("Destination: " + destination);
+				w.changePanel();
+			}
+			else
+			{
+				displaySameBoxCheckedMessage();
+			}
+		}
+		
+	}
+	
 	
 	/**
 	 * Stores the source and destination airports selected by the user
 	 * @param e the event that has occurred in the program
 	 */
+	/*
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(button)) {
+		if (e.getSource().equals(startButton)) {
 			if (isMissing()){
 				displayUncheckedBoxesMessage();
 			} else {
@@ -168,7 +223,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 					destination = "san antonio (SAT)";
 				}
 				
-				System.out.println("source: " + source + " destination: " + destination);
+				//System.out.println("source: " + source + " destination: " + destination);
 				w.changePanel();
 				
 			}
@@ -180,13 +235,14 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 		}
 		
 		
-	}
+	}*/
 	
-
+	
 	/**
 	 *Checks if the source or destination checked are allowed to be chosen given the other selections
 	 * @param e the event to be checked
 	 */
+	/*
 	public void itemStateChanged(ItemEvent e) {
 		if (sfo1.isSelected()) {
 			nv1.setSelected(false);
@@ -284,20 +340,25 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 			jfk2.setSelected(false);
 			tx1.setSelected(false);
 		} 
-	}
+	}*/
 	
 	private void displayInstructions() 
 	{
-		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. select the source and destination airports\n    > to change either, unselect the current location and choose another\n2. press start\n\nWHILE PLAYING:\n- use the up and down arrows to increase or decrease the plane's altitude\n- use the spacebar to shoot water streams at fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. use the drop down menus to select source and destination airports\n2. press start\n\nWHILE PLAYING:\n- press the up and down arrows to increase or decrease the plane's altitude\n- press the left and right arrows to slow or speed up the plane\n- press the spacebar to drop water on fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	private void displayUncheckedBoxesMessage() {
+	/*private void displayUncheckedBoxesMessage() {
 		JOptionPane.showMessageDialog(null, "you must check one source and one destination to begin", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	}*/
+	
+	private void displaySameBoxCheckedMessage() 
+	{
+		JOptionPane.showMessageDialog(null, "The source and destination should be different", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	private boolean isMissing() {
+	/*private boolean isMissing() {
 		return (sfo1.isSelected() == false && nv1.isSelected() == false && az1.isSelected() == false && wa1.isSelected() == false && jfk1.isSelected() == false && tx1.isSelected() == false) || (sfo2.isSelected() == false && nv2.isSelected() == false && az2.isSelected() == false && wa2.isSelected() == false && jfk2.isSelected() == false && tx2.isSelected() == false);
-	}
+	}*/
 	
 
 	/**

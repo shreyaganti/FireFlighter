@@ -13,6 +13,11 @@ import java.awt.*;
 public class Main 
 {
 
+	
+	// make plane burn if it's flying on fire
+	// don't let user drop water if not above altitude of 150 feet
+	
+	
 	private JFrame window;
 	private JPanel cardPanel;
 	private InstructionsPanel instructions; 
@@ -52,12 +57,12 @@ public class Main
 	    instructions = new InstructionsPanel(this); 
 	    pilotView = new PilotPanel();
 	    // window.createBufferStrategy(1);
-	    
 
-	    
+
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
 	   
+	    
 	    
 	    window.setLayout(new BorderLayout());
 	  

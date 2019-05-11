@@ -2,7 +2,7 @@
 Fire Flighter
 Ashwini Suriyaprakash, Rujuta Swadi, Shreya Ganti
 Period 4, AP CS, Mr. Shelby
-5/3/19
+5/10/19
 
 
 Description:  
@@ -52,25 +52,27 @@ Stretch Features (NOT DONE):
  
 Class List:
 * (DONE) WaterSpray: represents a single spray of water, which the plane can shoot at the fires
-* (DONE) Airplane: represents an airplane, which has an x,y coordinate, a velocity in the horizontal direction, a downward gravitational acceleration, and many WaterSpray objects
+* (DONE) Airplane: represents an airplane, which has an x,y coordinate, a velocity in the horizontal direction, a downward gravitational acceleration, many WaterSprays, and a Cockpit
 * (DONE) Fire: represents an animated forest fire, that the plane has to extinguish with its WaterSprays
 * (NOT DONE) Weather (abstract class): represents a weather phenomenon and stores the strength and duration of the phenomenon
 * (NOT DONE) Wind, Lightning, Rain: extends Weather and represents different kinds of weather phenomena with differing impacts (lightning causes damage while wind causes turbulence)
-* (DONE) Background: represents the scenery behind the plane as Images (depending on the complexity could also be a moving background)
+* (DONE) Background: represents the scenery behind the plane as Images (depending on the complexity could also be a moving background) and contains Fires
 * (DONE) Image: represents an Image with an x,y coordinate
-* (DONE) FlightSimulation: represents the simulation of the flight (2d view), containing the Airplane, Fire, Weather, and Background objects
+* (DONE) FlightSimulation: represents the simulation of the flight (2d view), containing the Airplane, Weather, and Background objects
 * (NOT DONE) LocationTracker: represents a real-time tracker, which contains a geographic map of the plane’s route from source to destination and keeps track of where the plane is at
 * (DONE) Dial: represents a circular dial, which has incrementally spaced values and a hand pointing to the current measurement (for speed, altitude, etc..)
 * (DONE) Cockpit: represents a pilot’s cockpit, which has Dial objects and a LocationTracker object
 * (DONE) InstructionsPanel: extends JPanel and represents the drawing surface where the initial instructions are provided, where user can select source and destination airports, and where user can start the game
-* (DONE) PilotPanel: extends PApplet, represents the pilot’s view of the flight and cockpit, contains a FlightSimulation and a Cockpit object
+* (DONE) PilotPanel: extends PApplet, represents the pilot’s view of the flight and cockpit, contains a FlightSimulation
 * (DONE) Main: contains the main method and creates a JFrame with InstructionsPanel and PilotPanel
 
 
 Credit List:
-* Shreya: Dial, Cockpit, Background, PilotPanel
-* Ashwini: WaterSpray, Plane, Fire, Weather classes, LocationTracker, FlightSimulation
+* Shreya: Dial, Cockpit, Background, PilotPanel, FlightSimulation
+* Ashwini: WaterSpray, Airplane, Fire, Background, FlightSimulation, Image
 * Rujuta: PilotPanel, InstructionsPanel, Main, creating images/gifs for the plane and fires
 * Airplane image: http://clipart-library.com/airplane-cliparts.html
-* Background scenery image: Clear Day Clipart (clipartimage.com)
-* Fire/smoke gifs: animatedimages.org
+* Background scenery image: https://clipartimage.com/clipart/25138-clear-day-clipart.html
+* Fire/smoke gifs: http://www.animatedimages.org/cat-fire-90.htm
+* Speed dial image: http://www.clker.com/clipart-dial-5.html
+* Used Stack Overflow for example code for Box Layout

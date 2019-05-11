@@ -19,6 +19,8 @@ public class Airplane
 	private int status;
 	private Cockpit cockpit;
 	
+	private double trueX;
+	
 	/**
 	 * Creates a instance of an Airplane object with horizontal and vertical velocities set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of upper left corner of plane
@@ -31,6 +33,7 @@ public class Airplane
 		this.y = y;
 		this.vx = 0;
 		this.vy = 0;
+		this.trueX = 0;
 		this.planeImage = null;
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
@@ -92,11 +95,17 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
-		if (cockpit.getAltitude() == 0) {
+		trueX+=vx;
+		if (Math.abs(y+vy) <=0.01) 
+		{
 			cockpit.setAltitude(0);
 		}
 		else
-			cockpit.setAltitude(-1*(y+vy-360));
+		{
+			cockpit.setAltitude((int) (-1*(y+vy-360)));
+		}
+		
+			
 	}
 	
 	/**
@@ -105,7 +114,15 @@ public class Airplane
 	 */
 	public void increaseSpeed(double offset)
 	{
-		vx+=offset;
+		if (offset < 0 && vx >= -offset)
+		{
+			vx+=offset;
+		}
+		else if (offset > 0)
+		{
+			vx+=offset;
+		}
+		
 		if (offset < 0 && !cockpit.getDial().reachedMin())
 		{
 			cockpit.getDial().addSpeed(10*offset);
@@ -127,7 +144,7 @@ public class Airplane
 		{
 			status = 1;
 			y-=num;
-			vy = 3;
+			// vy = 3;
 		}
 	}
 	
@@ -195,6 +212,40 @@ public class Airplane
 			WaterSpray spray = new WaterSpray(x,y,-1,20);
 			spray.setup(drawer);
 			sprayedWater.add(spray);
+		}
+	}
+	
+	/**
+	 * @return returns the true X value of the plane as if it was moving
+	 */
+	public double getTrueX() {
+		return trueX;
+	}
+	
+	/**
+	 * @return Cockpit object in Airplane
+	 */
+	public Cockpit getCockpit() {
+		return cockpit;
+	}
+	
+	/**
+	 * @return the width of the plane
+	 */
+	public int getWidth()
+	{
+		return planeImage.width;
+	}
+	
+	public boolean isPlaneOnRunway(Runway r)
+	{
+		if (Math.abs(getY()-r.getY()) < 0.0001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 }
