@@ -20,6 +20,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	private JButton button;
 	private JButton instructions;
 	
+	private JComboBox cb; 
+	
 	private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
 	private String destination = "";
@@ -35,6 +37,11 @@ public class InstructionsPanel extends JPanel implements ActionListener, ItemLis
 	
 		
 		JPanel buttonPanel = new JPanel();
+		
+		String country[]={"India","Aus","U.S.A","England","Newzealand"};
+		
+		cb = new JComboBox(country);  
+		this.add(cb);
 		
 		sfo1 = new JCheckBox("san francisco (SFO)"); //california
 		sfo2 = new JCheckBox("san francisco (SFO)"); //california
