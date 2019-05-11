@@ -155,9 +155,20 @@ public class Background
 		return GROUND_LEVEL;
 	}
 	
+	/**
+	 * @return source runway object
+	 */
 	public Runway getSourceRunway()
 	{
 		return source;
+	}
+	
+	/**
+	 * @return destination runway object
+	 */
+	public Runway getDestinationRunway()
+	{
+		return destination;
 	}
 	
 }

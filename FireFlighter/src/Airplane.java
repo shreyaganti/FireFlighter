@@ -95,12 +95,17 @@ public class Airplane
 	public void act()
 	{
 		move(x,y+vy);
-		trueX += vx;
-		if (Math.abs(y+vy) <=0.01) {
+		trueX+=vx;
+		if (Math.abs(y+vy) <=0.01) 
+		{
 			cockpit.setAltitude(0);
 		}
 		else
+		{
 			cockpit.setAltitude((int) (-1*(y+vy-360)));
+		}
+		
+			
 	}
 	
 	/**

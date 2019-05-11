@@ -63,6 +63,14 @@ public class FlightSimulation
 			}
 		}
 		
+		if (plane.getStatus() == 1 && (plane.getY()-scenery.getGroundLevel()) <= 0.000001)
+		{
+			plane.setStatus(2);
+		}
+		
+		System.out.println("Status: " + plane.getStatus());
+		
+		// Draws useful data
 		drawer.fill(0);
 		drawer.fill(0);
 		drawer.textSize(13);
@@ -103,6 +111,11 @@ public class FlightSimulation
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
 			drawer.text("Unsuccessful takeoff", 305, 100);
+		}
+		
+		if (plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+		{
+			drawer.text("Unsuccessful landing", 305, 110);
 		}
 		
 		drawer.popStyle();
