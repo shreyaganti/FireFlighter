@@ -43,7 +43,7 @@ public class Main
 		window = (JFrame)processingCanvas.getFrame();
 
 		window.setBounds(0,0, WIDTH, HEIGHT);
-		window.setMinimumSize(new Dimension(100,100));
+		window.setMinimumSize(new Dimension(WIDTH,HEIGHT));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
 		
@@ -65,8 +65,7 @@ public class Main
 	    
 	    
 	    window.setLayout(new BorderLayout());
-	  
-	    
+	    window.pack();
 	    window.add(cardPanel);
 	    window.revalidate();
 	    
