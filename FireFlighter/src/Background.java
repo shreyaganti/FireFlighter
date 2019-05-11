@@ -14,6 +14,7 @@ public class Background
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
+	private final int GROUND_LEVEL = 400;
 	
 	/**
 	 * Creates an instance of a Background with scenery images and fires at random locations initialized
@@ -29,8 +30,8 @@ public class Background
 			double ycoord = 370;
 			fires.add(new Fire(xcoord,ycoord));
 		}
-		source = new Runway(300,420,"SFO");
-		destination = new Runway(300+700*(NUM_IMAGES-1), 420, "NYC");
+		source = new Runway(300,GROUND_LEVEL,"SFO");
+		destination = new Runway(300+700*(NUM_IMAGES-1), GROUND_LEVEL, "NYC");
 	}
 	
 	/**
@@ -138,8 +139,17 @@ public class Background
 	/**
 	 * @return returns number of images in background
 	 */
-	public int getNumImages() {
+	public int getNumImages() 
+	{
 		return NUM_IMAGES;
+	}
+	
+	/**
+	 * @return ground level of the background
+	 */
+	public int getGroundLevel()
+	{
+		return GROUND_LEVEL;
 	}
 	
 	

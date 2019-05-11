@@ -10,14 +10,16 @@ public class FlightSimulation
 {
 	private Airplane plane;
 	private Background scenery;
+	private int timeRemaining;
 	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
 	 */
 	public FlightSimulation()
 	{
-		plane = new Airplane(500,360, new Cockpit(new Dial(150,100)));
 		scenery = new Background();
+		plane = new Airplane(500,scenery.getGroundLevel(), new Cockpit(new Dial(150,100)));
+		timeRemaining = -1;
 	}
 	
 	/**
@@ -59,10 +61,12 @@ public class FlightSimulation
 		drawer.textSize(13);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 20);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
+		
+		
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-		int timeLeft = (int) (distanceLeft/plane.getVelocityX());
-		int minutesLeft = timeLeft/60;
-		int secondsLeft = timeLeft%60;
+		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
+		int minutesLeft = timeRemaining/60;
+		int secondsLeft = timeRemaining%60;
 		String sec = "";
 		String min = "" + minutesLeft;
 		
@@ -76,12 +80,15 @@ public class FlightSimulation
 			sec = "0";
 		}
 		
-		if (plane.getVelocityX() <= 0) {
+		if (plane.getVelocityX() <= 0) 
+		{
 			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
-		} else {
+		} else 
+		{
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
 		
+		// drawer.text(s,305,80);
 		
 		plane.act();
 		plane.draw(drawer);
