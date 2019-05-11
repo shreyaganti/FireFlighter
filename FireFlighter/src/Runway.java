@@ -11,7 +11,7 @@ public class Runway
 {
 	private String airport;
 	private PImage runwayImage;
-	public double x,y;
+	private double x,y;
 	
 	/**
 	 * Creates a Runway object

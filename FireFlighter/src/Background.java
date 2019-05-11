@@ -100,7 +100,6 @@ public class Background
 		}
 		source.draw(drawer);
 		destination.draw(drawer);
-		System.out.println(destination.x);
 		// drawer.background(0,0,255);
 	}
 	
