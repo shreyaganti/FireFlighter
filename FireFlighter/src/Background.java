@@ -124,11 +124,14 @@ public class Background
 	/**
 	 * @return returns the number of fires extinguished
 	 */
-	public int getFiresExtinguished() {
+	public int getFiresExtinguished() 
+	{
 		int fireCount = 0;
 		
-		for (Fire f : fires) {
-			if (f.isHit()) {
+		for (Fire f : fires) 
+		{
+			if (f.isExtinguished()) 
+			{
 				fireCount++;
 			}
 		}
@@ -152,5 +155,9 @@ public class Background
 		return GROUND_LEVEL;
 	}
 	
+	public Runway getSourceRunway()
+	{
+		return source;
+	}
 	
 }

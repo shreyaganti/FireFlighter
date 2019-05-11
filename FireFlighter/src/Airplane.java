@@ -231,4 +231,16 @@ public class Airplane
 	{
 		return planeImage.width;
 	}
+	
+	public boolean isPlaneOnRunway(Runway r)
+	{
+		if (Math.abs(getY()-r.getY()) < 0.0001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

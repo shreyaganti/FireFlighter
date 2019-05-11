@@ -56,5 +56,29 @@ public class Runway
 		drawer.image(runwayImage,(float)x, (float)y);
 	}
 	
+	/**
+	 * @return y coordinate of Runway object
+	 */
+	public double getY()
+	{
+		return y;
+	}
+	
+	/**
+	 * @return x coordinate of Runway object
+	 */
+	public double getX()
+	{
+		return x;
+	}
+	
+	/**
+	 * @return width of the fire
+	 */
+	public double getWidth() 
+	{
+		return runwayImage.width;
+	}
+	
 	
 }

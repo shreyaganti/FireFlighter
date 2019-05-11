@@ -43,6 +43,14 @@ public class FlightSimulation
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
 		
+		plane.act();
+		plane.draw(drawer);
+		for (WaterSpray w: plane.getSprayedWater())
+		{
+			w.act();
+			w.draw(drawer);
+		}
+		
 		for (Fire f: scenery.getFires())
 		{
 			for (WaterSpray w: plane.getSprayedWater())
@@ -56,7 +64,6 @@ public class FlightSimulation
 		}
 		
 		drawer.fill(0);
-		//drawer.rect(300, 0, 170, 30);
 		drawer.fill(0);
 		drawer.textSize(13);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 20);
@@ -70,13 +77,17 @@ public class FlightSimulation
 		String sec = "";
 		String min = "" + minutesLeft;
 		
-		if (secondsLeft < 10) {
+		if (secondsLeft < 10) 
+		{
 			sec = "0" + secondsLeft;
-		} else {
+		} 
+		else 
+		{
 			sec = "" + secondsLeft;
 		}
 		
-		if (secondsLeft < 0) {
+		if (secondsLeft < 0) 
+		{
 			sec = "0";
 		}
 		
@@ -88,15 +99,12 @@ public class FlightSimulation
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
 		
-		// drawer.text(s,305,80);
-		
-		plane.act();
-		plane.draw(drawer);
-		for (WaterSpray w: plane.getSprayedWater())
+		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
+		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
-			w.act();
-			w.draw(drawer);
+			drawer.text("Unsuccessful takeoff", 305, 100);
 		}
+		
 		drawer.popStyle();
 		drawer.popMatrix();
 	}
