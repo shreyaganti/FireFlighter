@@ -23,7 +23,6 @@ public class PilotPanel extends PApplet
 		super();
 		flightSim = new FlightSimulation();
 		
-		
 	}
 	
 	/**

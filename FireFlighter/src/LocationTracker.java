@@ -13,8 +13,13 @@ public class LocationTracker {
 	}
 	
 	public void draw(PApplet p) {
-		p.line(0, y, 100, y);
+		p.line(100, y, 200, y);
 		p.ellipseMode(p.RADIUS);
 		p.ellipse(x, y, 10, 10);
 	}
+	
+	public void changeX(double a) {
+		x+=a;
+	}
+	
 }

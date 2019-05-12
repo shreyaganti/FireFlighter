@@ -9,6 +9,7 @@ public class Cockpit
 {
 	private Dial dial;
 	private int altitude;
+	private LocationTracker locTrack;
 	
 	/**
 	 * Constructor to initialize Cockpit object with speed dial
@@ -17,6 +18,7 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
+		locTrack = new LocationTracker(100,375,"hi","bye");
 	}
 	
 	public void setup(PApplet drawer)
@@ -39,6 +41,7 @@ public class Cockpit
 		p.fill(0);
 		p.textSize(26);
 		p.text(altitude*5+" ft", 125, 283);
+		locTrack.draw(p);
 		p.popStyle();
 		p.popMatrix();
 	}
@@ -73,5 +76,12 @@ public class Cockpit
 	 */
 	public Dial getDial() {
 		return dial;
+	}
+	
+	/**
+	 * @return LocationTracker object in the Cockpit
+	 */
+	public LocationTracker getLocTrack() {
+		return locTrack;
 	}
 }
