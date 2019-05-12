@@ -9,7 +9,7 @@ import processing.core.PApplet;
  */
 public class Background 
 {
-	private Image[] backgroundImages;
+	private ArrayList<Image> backgroundImages;
 	private ArrayList<Fire> fires;
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
@@ -21,7 +21,7 @@ public class Background
 	 */
 	public Background()
 	{
-		this.backgroundImages = new Image[NUM_IMAGES];
+		this.backgroundImages = new ArrayList<Image>();// [NUM_IMAGES];
 		this.fires = new ArrayList<Fire>();
 		
 		for (int f = 0; f < NUM_FIRES; f++)
@@ -40,15 +40,15 @@ public class Background
 	 */
 	public void setup(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES; x++)
+		for (int x = 0; x < NUM_IMAGES+1; x++)
 		{
 			if (x%2 == 0)
 			{
-				backgroundImages[x] = new Image(300+700*x, 0, "images/scenery.jpg");
+				backgroundImages.add(new Image(300+700*x, 0, "images/scenery.jpg"));
 			}
 			else
 			{
-				backgroundImages[x] = new Image(300+700*x, 0, "images/scenery-flipped.jpg");
+				backgroundImages.add(new Image(300+700*x, 0, "images/scenery-flipped.jpg"));
 			}
 		}
 		
@@ -61,24 +61,32 @@ public class Background
 	}
 	
 	/**
-	 * Scrolls the background to the left to make it look like the plane is moving
+	 * Scrolls the background to the left to make it look like the plane is moving until the last image
 	 * @param v the velocity of scrolling
 	 */
 	public void scrollBackgroundSideways(double v)
 	{
-		for (int x = 0; x < NUM_IMAGES; x++)
+		// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
+		if (backgroundImages.get(NUM_IMAGES).getX() <= 500)
 		{
-			backgroundImages[x].shift(v, 0);
+			// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
+		}
+		else
+		{
+			for (int x = 0; x < NUM_IMAGES+1; x++)
+			{
+				backgroundImages.get(x).shift(v, 0);
+				
+			}
 			
+			for (int f = 0; f < NUM_FIRES; f++)
+			{
+				fires.get(f).shift(v,0);
+			}
+			
+			source.shift(v, 0);
+			destination.shift(v, 0);
 		}
-		
-		for (int f = 0; f < NUM_FIRES; f++)
-		{
-			fires.get(f).shift(v,0);
-		}
-		
-		source.shift(v, 0);
-		destination.shift(v, 0);
 	}
 	
 	/**
@@ -87,11 +95,11 @@ public class Background
 	 */
 	public void draw(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES; x++)
+		for (int x = 0; x < NUM_IMAGES+1; x++)
 		{
-			if (backgroundImages[x] != null)
+			if (backgroundImages.get(x) != null)
 			{
-				backgroundImages[x].draw(drawer,700,500);
+				backgroundImages.get(x).draw(drawer,700,500);
 			}
 		}
 		

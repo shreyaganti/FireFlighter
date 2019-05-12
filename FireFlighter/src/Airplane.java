@@ -144,7 +144,7 @@ public class Airplane
 		{
 			status = 1;
 			y-=num;
-			// vy = 3;
+			vy = 3;
 		}
 	}
 	
