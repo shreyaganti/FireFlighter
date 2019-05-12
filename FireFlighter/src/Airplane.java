@@ -12,7 +12,7 @@ import processing.core.PImage;
 public class Airplane 
 {
 	private PImage planeImage;
-	private double x,y,vx,vy;
+	private double x,y,vx,gravity;
 	private ArrayList<WaterSpray> sprayedWater;
 	public static final int WATER_SPRAY_MAX = 40;
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
@@ -22,7 +22,7 @@ public class Airplane
 	private double trueX;
 	
 	/**
-	 * Creates a instance of an Airplane object with horizontal and vertical velocities set to 0, null plane image, and a status of being on the ground
+	 * Creates a instance of an Airplane object with horizontal and vertical gravity set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of upper left corner of plane
 	 * @param y y coordinate of upper left corner of plane
 	 * @param c Cockpit object that the plane will have
@@ -32,7 +32,7 @@ public class Airplane
 		this.x = x;
 		this.y = y;
 		this.vx = 0;
-		this.vy = 0;
+		this.gravity = 0;
 		this.trueX = 0;
 		this.planeImage = null;
 		this.sprayedWater = new ArrayList<WaterSpray>();
@@ -94,15 +94,16 @@ public class Airplane
 	 */
 	public void act()
 	{
-		move(x,y+vy);
+		applyGravity();
+		move(x,y+gravity);
 		trueX+=vx;
-		if (Math.abs(y+vy) <=0.01) 
+		if (Math.abs(y+gravity) <=0.01) 
 		{
 			cockpit.setAltitude(0);
 		}
 		else
 		{
-			cockpit.setAltitude((int) (-1*(y+vy-360)));
+			cockpit.setAltitude((int) (-1*(y+gravity-360)));
 		}
 		
 			
@@ -144,7 +145,22 @@ public class Airplane
 		{
 			status = 1;
 			y-=num;
-			vy = 3;
+			// vy = 3;
+		}
+	}
+	
+	/**
+	 * Applies gravity to the plane if its status is 1 (in the air), else it applies 0 gravity
+	 */
+	public void applyGravity()
+	{
+		if (status == 1)
+		{
+			gravity = 3;
+		}
+		else
+		{
+			gravity = 0;
 		}
 	}
 	
@@ -159,9 +175,9 @@ public class Airplane
 	/**
 	 * @return vertical velocity of the plane (in the y direction)
 	 */
-	public double getVelocityY()
+	public double getVelocityGravity()
 	{
-		return vy;
+		return gravity;
 	}
 	
 	private boolean isReadyForTakeOff()

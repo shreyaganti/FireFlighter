@@ -63,12 +63,12 @@ public class FlightSimulation
 			}
 		}
 		
-		if (plane.getStatus() == 1 && Math.abs(plane.getY()-scenery.getGroundLevel()) <= 0.000001)
+		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
 		}
 		
-		// System.out.println("Status: " + plane.getStatus());
+		System.out.println("Status: " + plane.getStatus());
 		// System.out.println("Y coordinate: " + plane.getY());
 		
 		// Draws useful data
