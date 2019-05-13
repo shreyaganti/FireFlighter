@@ -18,12 +18,13 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
-		locTrack = new LocationTracker(100,375,"hi","bye");
+		locTrack = new LocationTracker(0,300,"SFO","JFK");
 	}
 	
 	public void setup(PApplet drawer)
 	{
 		dial.setup(drawer);
+		locTrack.setup(drawer);
 	}
 	
 	/**

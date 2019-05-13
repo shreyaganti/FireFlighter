@@ -96,7 +96,7 @@ public class FlightSimulation
 		}
 		
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-		plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
+		// plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
