@@ -145,13 +145,13 @@ public class FlightSimulation
 		System.out.println(!plane.isPlaneOnRunway(scenery.getDestinationRunway()));
 		
 		
-		if (crashCount < 1 && plane.getStatus() == 2) { 
+		if (crashCount < 1 && plane.getStatus() == 3) { 
 			crashCount++;
 			JOptionPane.showMessageDialog(null, "GAME OVER -- YOU CRASHED", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
 		
-		if (landingCount < 1 && plane.getStatus() == 3 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 		{
 			// hello
 			landingCount++;
