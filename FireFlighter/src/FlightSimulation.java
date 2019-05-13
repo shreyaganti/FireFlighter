@@ -100,7 +100,7 @@ public class FlightSimulation
 
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
 		if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
-			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*375/(700*scenery.getNumImages()));
+			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*350/(700*scenery.getNumImages()));
 		}
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
