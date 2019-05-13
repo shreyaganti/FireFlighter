@@ -198,7 +198,7 @@ public class Airplane
 	/**
 	 * Sets the status of the plane (0 for on the ground before take off, 1 for in the air, and 2 for on the ground after landing)
 	 * @param val status to set the plane to
-	 * @pre val can only be 0, 1, or 2
+	 * @pre val can only be 0, 1, 2, or 3
 	 */
 	public void setStatus(int val)
 	{

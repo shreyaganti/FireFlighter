@@ -11,7 +11,7 @@ import java.awt.event.*;
 /**
  * This class represents the Instructions Panel, which allows user to seek help and select airport options
  * @author Rujuta Swadi
- * @version 5/11/19
+ * @version 5/13/19
  */
 public class InstructionsPanel extends JPanel implements ActionListener // , ItemListener
 {

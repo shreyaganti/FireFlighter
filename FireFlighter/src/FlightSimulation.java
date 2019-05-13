@@ -17,6 +17,7 @@ public class FlightSimulation
 	private int waterCount = 0;
 	private int takeoffCount = 0;
 	private int landingCount = 0;
+	private int crashCount = 0;
 	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
@@ -143,7 +144,14 @@ public class FlightSimulation
 		
 		System.out.println(!plane.isPlaneOnRunway(scenery.getDestinationRunway()));
 		
-		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+		
+		if (crashCount < 1 && plane.getStatus() == 2) { 
+			crashCount++;
+			JOptionPane.showMessageDialog(null, "GAME OVER -- YOU CRASHED", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	System.exit(0);
+		}
+		
+		if (landingCount < 1 && plane.getStatus() == 3 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 		{
 			// hello
 			landingCount++;
@@ -151,6 +159,8 @@ public class FlightSimulation
 			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
+		
+		
 		
 		drawer.popStyle();
 		drawer.popMatrix();

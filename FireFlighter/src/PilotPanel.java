@@ -5,10 +5,10 @@ import javax.swing.JPanel;
 import processing.core.PApplet;
 
 /**
- * This class represents the pilot’s view of the flight simulation and extends PApplet
+ * This class represents the pilot's view of the flight simulation and extends PApplet
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/8/19
+ * @version 5/13/19
  */
 public class PilotPanel extends PApplet
 {
@@ -62,7 +62,12 @@ public class PilotPanel extends PApplet
 		}
 		else if (keyCode == KeyEvent.VK_DOWN)
 		{
-			flightSim.getPlane().ascend(-5);
+			if (!(flightSim.getPlane().getStatus() == 1 && flightSim.getPlane().getY() >= flightSim.getScenery().getGroundLevel())) {
+				flightSim.getPlane().ascend(-5);
+			} else {
+				flightSim.getPlane().setStatus(3);
+			}
+			
 		}
 		else if (keyCode == KeyEvent.VK_SPACE)
 		{
