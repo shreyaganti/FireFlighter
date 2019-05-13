@@ -14,7 +14,8 @@ public class FlightSimulation
 	private Background scenery;
 	private int timeRemaining;
 	
-	private int messageCount = 0;
+	private int waterCount = 0;
+	private int takeoffCount = 0;
 	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
@@ -83,13 +84,13 @@ public class FlightSimulation
 		
 		
 
-	    int waterCount = plane.WATER_SPRAY_MAX;
+	    int water = plane.WATER_SPRAY_MAX;
 	    int waterDone = plane.getSprayedWater().size();
 	    
 	   
 	    
-	    if (messageCount < 1 && waterCount - waterDone <= 0) {
-	    	messageCount++;
+	    if (waterCount < 1 && water - waterDone <= 0) {
+	    	waterCount++;
 	    	JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
@@ -131,9 +132,12 @@ public class FlightSimulation
 		
 		
 		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
-		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
+		if (takeoffCount < 1 && plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
+			takeoffCount++;
 			drawer.text("Unsuccessful takeoff", 305, 100);
+			JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	System.exit(0);
 		}
 		
 		if (plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
