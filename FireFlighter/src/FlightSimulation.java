@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 
 /**
@@ -11,6 +13,8 @@ public class FlightSimulation
 	private Airplane plane;
 	private Background scenery;
 	private int timeRemaining;
+	
+	private int messageCount = 0;
 	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
@@ -79,6 +83,18 @@ public class FlightSimulation
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		
 		
+
+	    int waterCount = plane.WATER_SPRAY_MAX;
+	    int waterDone = plane.getSprayedWater().size();
+	    
+	   
+	    
+	    if (messageCount < 1 && waterCount - waterDone <= 0) {
+	    	messageCount++;
+	    	JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	System.exit(0);
+		}
+		
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
 		plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
@@ -108,6 +124,9 @@ public class FlightSimulation
 		{
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
+		
+	
+		
 		
 		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))

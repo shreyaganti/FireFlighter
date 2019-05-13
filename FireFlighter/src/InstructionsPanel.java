@@ -11,7 +11,7 @@ import java.awt.event.*;
 /**
  * This class represents the Instructions Panel, which allows user to seek help and select airport options
  * @author Rujuta Swadi
- * @version 5/8/19
+ * @version 5/11/19
  */
 public class InstructionsPanel extends JPanel implements ActionListener // , ItemListener
 {
@@ -362,7 +362,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	
 
 	/**
-	 * returns the name of the airport the user selected as the source
 	 * @return name of source airport
 	 */
 	public String getSource() {
@@ -370,7 +369,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	}
 	
 	/**
-	 * returns the name of the airport the user selected as the destination
 	 * @return name of destination airport
 	 */
 	public String getDestination() {
