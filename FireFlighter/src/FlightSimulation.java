@@ -141,6 +141,8 @@ public class FlightSimulation
 	    	System.exit(0);
 		}
 		
+		System.out.println(!plane.isPlaneOnRunway(scenery.getDestinationRunway()));
+		
 		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 		{
 			landingCount++;

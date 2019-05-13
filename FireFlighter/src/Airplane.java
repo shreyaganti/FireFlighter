@@ -263,7 +263,7 @@ public class Airplane
 	 */
 	public boolean isPlaneOnRunway(Runway r)
 	{
-		if (Math.abs(getY()-r.getY()) < 0.0001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		if (Math.abs(getY()-r.getY()) < 2 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
 		{
 			return true;
 		}
