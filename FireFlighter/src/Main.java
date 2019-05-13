@@ -14,8 +14,7 @@ public class Main
 {
 
 	
-	// make plane burn if it's flying on fire
-	// don't let user drop water if not above altitude of 150 feet
+	
 	
 	
 	private JFrame window;
@@ -23,6 +22,8 @@ public class Main
 	private InstructionsPanel instructions; 
 	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
+	
+	
 	
 	
 	
@@ -52,6 +53,7 @@ public class Main
 	    cardPanel.setLayout(cl);
 	    
 	    
+	    
 	    window.getContentPane().removeAll();
 	    
 	    instructions = new InstructionsPanel(this); 
@@ -64,6 +66,7 @@ public class Main
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
 	   
+	    
 	    
 	    
 	    window.setLayout(new BorderLayout());
@@ -96,5 +99,7 @@ public class Main
 	
 		
 	}
+	
+	
   
 }

@@ -18,12 +18,17 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
+<<<<<<< HEAD
 		locTrack = new LocationTracker(75,375,"","");
+=======
+		locTrack = new LocationTracker(0,300,"SFO","JFK");
+>>>>>>> branch 'master' of https://github.com/shreyaganti/FireFlighter.git
 	}
 	
 	public void setup(PApplet drawer)
 	{
 		dial.setup(drawer);
+		locTrack.setup(drawer);
 	}
 	
 	/**

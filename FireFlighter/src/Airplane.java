@@ -253,6 +253,11 @@ public class Airplane
 		return planeImage.width;
 	}
 	
+	/**
+	 * Checks if the plane is on the runway
+	 * @param r Runway to check
+	 * @return true if the plane is on the runway, false otherwise
+	 */
 	public boolean isPlaneOnRunway(Runway r)
 	{
 		if (Math.abs(getY()-r.getY()) < 0.0001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())

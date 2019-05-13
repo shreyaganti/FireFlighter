@@ -11,7 +11,7 @@ import java.awt.event.*;
 /**
  * This class represents the Instructions Panel, which allows user to seek help and select airport options
  * @author Rujuta Swadi
- * @version 5/8/19
+ * @version 5/11/19
  */
 public class InstructionsPanel extends JPanel implements ActionListener // , ItemListener
 {
@@ -23,7 +23,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	private JComboBox sourceBox, destinationBox;
 	private final String AIRPORTS[] = {"San Francisco, CA (SFO)","Carson City, NV (CSN)","Scottsdale, AZ (SDL)","Seattle, WA (BFI)","Queens, NY (JFK)", "San Antonio, TX (SAT)"};
 	
-	private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
+	// private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
 	private String destination = "";
 
@@ -150,6 +150,10 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		buttonPanel.add(tx2);*/
 	}
 	
+	/**
+	 * Stores the source and destination airports selected by the user
+	 * @param e the event that has occurred in the program
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource().equals(instructions)) 
@@ -362,7 +366,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	
 
 	/**
-	 * returns the name of the airport the user selected as the source
 	 * @return name of source airport
 	 */
 	public String getSource() {
@@ -370,7 +373,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	}
 	
 	/**
-	 * returns the name of the airport the user selected as the destination
 	 * @return name of destination airport
 	 */
 	public String getDestination() {
