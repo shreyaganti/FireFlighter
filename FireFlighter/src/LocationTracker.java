@@ -5,12 +5,26 @@ import java.util.Scanner;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * 
+ * Represents a LocationTracker which tracks the plane's flight
+ * @author Shreya Ganti, Ashwini Suriyaprakash
+ * @version 5/12/19
+ *
+ */
 public class LocationTracker {
 	
 	private String source, destination;
 	private PImage map;
 	private int x,y;
 	
+	/**
+	 * Creates a new LocationTracker object
+	 * @param x x coordinate of tracker
+	 * @param y y coordinate of tracker
+	 * @param s source airport
+	 * @param d destination airport
+	 */
 	public LocationTracker(int x, int y, String s, String d) {
 		source = s;
 		destination = d;
@@ -19,6 +33,10 @@ public class LocationTracker {
 		this.map = null;
 	}
 	
+	/**
+	 * Downloads map image from Internet
+	 * @param drawer PApplet used to setup the LocationTracker
+	 */
 	public void setup(PApplet drawer)
 	{
 		Scanner scan = null;
@@ -67,6 +85,10 @@ public class LocationTracker {
 		}
 	}
 	
+	/**
+	 * Draws the LocationTracker object
+	 * @param drawer PApplet to draw the LocationTracker object on
+	 */
 	public void draw(PApplet drawer) 
 	{
 		if (map != null)
@@ -78,6 +100,10 @@ public class LocationTracker {
 		drawer.ellipse(x, y, 10, 10);
 	}
 	
+	/**
+	 * Changes x coordinate of the LocationTracker
+	 * @param a x offset to shift by
+	 */
 	public void changeX(double a) {
 		x+=a;
 	}
