@@ -15,9 +15,9 @@ import processing.core.PImage;
 public class LocationTracker {
 	
 	private String source, destination;
-	private double x,y;
+	//private double x,y;
 	private PImage map;
-	//private int x,y;
+	private int x,y;
 	
 	/**
 	 * Constructor to initialize location and source and destination labels of LocationTracker
@@ -39,10 +39,10 @@ public class LocationTracker {
 		this.map = null;
 	}
 	
-	/**
+	/*/**
 	 * Draws the LocationTracker
 	 * @param p PApplet object used to draw the LocationTracker
-	 */
+	 *
 	public void draw(PApplet p) {
 		p.line(75, (float)y, 225, (float)y);
 		p.line(75, (float)(y+5), 75, (float)(y-5));
@@ -52,7 +52,7 @@ public class LocationTracker {
 		//System.out.println(source+ "  :  " +destination);
 		p.ellipseMode(p.RADIUS);
 		p.ellipse((float)x, (float)y, 10, 10);
-	}
+	}*/
 	/**
 	 * Downloads map image from Internet
 	 * @param drawer PApplet used to setup the LocationTracker
@@ -105,10 +105,10 @@ public class LocationTracker {
 		}
 	}
 	
-	/*/**
+	/**
 	 * Draws the LocationTracker object
 	 * @param drawer PApplet to draw the LocationTracker object on
-	 *
+	 **/
 	public void draw(PApplet drawer) 
 	{
 		if (map != null)
@@ -118,7 +118,7 @@ public class LocationTracker {
 		drawer.line(100, y, 200, y);
 		drawer.ellipseMode(drawer.RADIUS);
 		drawer.ellipse(x, y, 10, 10);
-	}*/
+	}
 	
 	/**
 	 * Changes x coordinate of the LocationTracker

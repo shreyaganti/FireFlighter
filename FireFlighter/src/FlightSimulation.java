@@ -95,10 +95,7 @@ public class FlightSimulation
 		}
 		
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-<<<<<<< HEAD
-=======
-		// plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
->>>>>>> branch 'master' of https://github.com/shreyaganti/FireFlighter.git
+
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
 		if (plane.getStatus() == 1 || !scenery.getisEnd()) {
 			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*150/(700*scenery.getNumImages()));

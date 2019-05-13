@@ -45,14 +45,8 @@ public class PilotPanel extends PApplet
 	{
 		if (keyCode == KeyEvent.VK_LEFT)
 		{
-<<<<<<< HEAD
-			flightSim.getPlane().increaseSpeed(-4);
-			//double distanceLeft = flightSim.getScenery().getNumImages()*700 - flightSim.getPlane().getTrueX() - flightSim.getPlane().getWidth();
-			//flightSim.getPlane().getCockpit().getLocTrack().changeX(-1/distanceLeft);
-			
-=======
+
 			flightSim.getPlane().increaseSpeed(-2);
->>>>>>> branch 'master' of https://github.com/shreyaganti/FireFlighter.git
 		}
 		else if (keyCode == KeyEvent.VK_RIGHT)
 		{
@@ -91,14 +85,11 @@ public class PilotPanel extends PApplet
 		popMatrix();
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * @return FlightSimulation object in PilotPanel
 	 */
 	public FlightSimulation getFlightSim() {
 		return flightSim;
 	}
-=======
 
->>>>>>> branch 'master' of https://github.com/shreyaganti/FireFlighter.git
 }
