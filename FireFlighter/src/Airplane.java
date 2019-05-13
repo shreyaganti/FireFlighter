@@ -156,7 +156,10 @@ public class Airplane
 	{
 		if (status == 1)
 		{
-			gravity = 3;
+			if (y < 300) {
+				gravity = 3;
+			}
+			
 		}
 		else
 		{

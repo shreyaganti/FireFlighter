@@ -71,7 +71,7 @@ public class FlightSimulation
 			plane.setStatus(2);
 		}
 		
-		// System.out.println("Status: " + plane.getStatus());
+		System.out.println("Status: " + plane.getStatus());
 		// System.out.println("Y coordinate: " + plane.getY());
 		
 		// Draws useful data
