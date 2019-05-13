@@ -145,6 +145,7 @@ public class FlightSimulation
 		
 		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 		{
+			// hello
 			landingCount++;
 			drawer.text("Unsuccessful landing", 305, 110);
 			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "ERROR", JOptionPane.INFORMATION_MESSAGE);
