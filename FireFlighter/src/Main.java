@@ -12,10 +12,6 @@ import java.awt.*;
  */
 public class Main 
 {
-
-	
-	
-	
 	
 	private JFrame window;
 	private JPanel cardPanel;

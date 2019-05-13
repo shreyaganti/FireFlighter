@@ -51,8 +51,6 @@ public class PilotPanel extends PApplet
 		else if (keyCode == KeyEvent.VK_RIGHT)
 		{
 			flightSim.getPlane().increaseSpeed(4);
-			//double distanceLeft = flightSim.getScenery().getNumImages()*700 - flightSim.getPlane().getTrueX() - flightSim.getPlane().getWidth();
-			//flightSim.getPlane().getCockpit().getLocTrack().changeX(1/distanceLeft);
 			
 		}
 		else if (keyCode == KeyEvent.VK_UP)
