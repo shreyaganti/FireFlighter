@@ -32,7 +32,7 @@ public class Background
 			fires.add(new Fire(xcoord,ycoord));
 		}
 		source = new Runway(300,GROUND_LEVEL,"SFO");
-		destination = new Runway(300+700*(NUM_IMAGES-1), GROUND_LEVEL, "NYC");
+		destination = new Runway(300+700*(NUM_IMAGES-2), GROUND_LEVEL, "NYC");
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class Background
 	 */
 	public void setup(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES+1; x++)
+		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (x%2 == 0)
 			{
@@ -68,14 +68,14 @@ public class Background
 	public void scrollBackgroundSideways(double v)
 	{
 		// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
-		if (backgroundImages.get(NUM_IMAGES).getX() <= 500)
+		if (backgroundImages.get(NUM_IMAGES-1).getX() <= 500)
 		{
 			// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
 			isEnd = true;
 		}
 		else
 		{
-			for (int x = 0; x < NUM_IMAGES+1; x++)
+			for (int x = 0; x < NUM_IMAGES; x++)
 			{
 				backgroundImages.get(x).shift(v, 0);
 				
@@ -97,7 +97,7 @@ public class Background
 	 */
 	public void draw(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES+1; x++)
+		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (backgroundImages.get(x) != null)
 			{
