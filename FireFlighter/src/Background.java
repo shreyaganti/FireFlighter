@@ -184,7 +184,7 @@ public class Background
 	/**
 	 * @return true if last background image is visible, false otherwise
 	 */
-	public boolean getisEnd() {
+	public boolean getIsEnd() {
 		return isEnd;
 	}
 }
