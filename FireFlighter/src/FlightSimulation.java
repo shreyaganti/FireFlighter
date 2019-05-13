@@ -16,6 +16,7 @@ public class FlightSimulation
 	
 	private int waterCount = 0;
 	private int takeoffCount = 0;
+	private int landingCount = 0;
 	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
@@ -91,7 +92,7 @@ public class FlightSimulation
 	    
 	    if (waterCount < 1 && water - waterDone <= 0) {
 	    	waterCount++;
-	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU\'RE OUT OF WATER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
 		
@@ -140,9 +141,12 @@ public class FlightSimulation
 	    	System.exit(0);
 		}
 		
-		if (plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 		{
+			landingCount++;
 			drawer.text("Unsuccessful landing", 305, 110);
+			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	System.exit(0);
 		}
 		
 		drawer.popStyle();
