@@ -42,7 +42,6 @@ public class FlightSimulation
 		drawer.pushMatrix();
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
-		
 		plane.act();
 		plane.draw(drawer);
 		for (WaterSpray w: plane.getSprayedWater())
@@ -80,8 +79,10 @@ public class FlightSimulation
 		
 		
 		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-		plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
+		if (plane.getStatus() == 1 || !scenery.getisEnd()) {
+			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*150/(700*scenery.getNumImages()));
+		}
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
 		String sec = "";
@@ -130,5 +131,12 @@ public class FlightSimulation
 	public Airplane getPlane()
 	{
 		return plane;
+	}
+	
+	/**
+	 * @return Background of FlightSimulation
+	 */
+	public Background getScenery() {
+		return scenery;
 	}
 }

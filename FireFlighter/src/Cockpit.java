@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class Cockpit 
 {
 	private Dial dial;
-	private int altitude;
+	private int altitude = 0;
 	private LocationTracker locTrack;
 	
 	/**
@@ -18,7 +18,7 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
-		locTrack = new LocationTracker(100,375,"hi","bye");
+		locTrack = new LocationTracker(75,375,"","");
 	}
 	
 	public void setup(PApplet drawer)

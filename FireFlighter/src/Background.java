@@ -15,6 +15,7 @@ public class Background
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
 	private final int GROUND_LEVEL = 400;
+	private boolean isEnd = false;
 	
 	/**
 	 * Creates an instance of a Background with scenery images and fires at random locations initialized
@@ -70,6 +71,7 @@ public class Background
 		if (backgroundImages.get(NUM_IMAGES).getX() <= 500)
 		{
 			// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
+			isEnd = true;
 		}
 		else
 		{
@@ -179,4 +181,10 @@ public class Background
 		return destination;
 	}
 	
+	/**
+	 * @return true if last background image is visible, false otherwise
+	 */
+	public boolean getisEnd() {
+		return isEnd;
+	}
 }

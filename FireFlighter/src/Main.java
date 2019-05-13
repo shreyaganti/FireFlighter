@@ -56,6 +56,8 @@ public class Main
 	    
 	    instructions = new InstructionsPanel(this); 
 	    pilotView = new PilotPanel();
+	    pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(instructions.getSource());
+	    pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(instructions.getDestination());
 	    // window.createBufferStrategy(1);
 
 

@@ -378,5 +378,4 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	}
 	
 	
-	
 }
