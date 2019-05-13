@@ -55,7 +55,10 @@ public class PilotPanel extends PApplet
 		}
 		else if (keyCode == KeyEvent.VK_UP)
 		{
-			flightSim.getPlane().ascend(5);
+			if (flightSim.getPlane().getY() > 5) {
+				flightSim.getPlane().ascend(5);
+			}
+			
 		}
 		else if (keyCode == KeyEvent.VK_DOWN)
 		{

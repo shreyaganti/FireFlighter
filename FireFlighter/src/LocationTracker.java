@@ -115,7 +115,7 @@ public class LocationTracker {
 		{
 			drawer.image(map,0,300);
 		}
-		drawer.line(100, y, 200, y);
+		drawer.line(0, y, 300, y);
 		drawer.ellipseMode(drawer.RADIUS);
 		drawer.ellipse(x, y, 10, 10);
 	}
