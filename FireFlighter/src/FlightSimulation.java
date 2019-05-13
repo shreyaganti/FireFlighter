@@ -91,7 +91,7 @@ public class FlightSimulation
 	    
 	    if (waterCount < 1 && water - waterDone <= 0) {
 	    	waterCount++;
-	    	JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU\'RE OUT OF WATER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
 		
@@ -136,7 +136,7 @@ public class FlightSimulation
 		{
 			takeoffCount++;
 			drawer.text("Unsuccessful takeoff", 305, 100);
-			JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
 		
