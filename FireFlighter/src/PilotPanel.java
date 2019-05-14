@@ -54,14 +54,15 @@ public class PilotPanel extends PApplet
 		}
 		else if (keyCode == KeyEvent.VK_UP)
 		{
-			if (flightSim.getPlane().getY() > 5) {
+			if (flightSim.getPlane().getY() > 5) 
+			{
 				flightSim.getPlane().ascend(4);
 			}
 			
 		}
 		else if (keyCode == KeyEvent.VK_DOWN)
 		{
-			if (flightSim.getPlane().getY() <= flightSim.getScenery().getGroundLevel()) 
+			if (flightSim.getPlane().getY() <= flightSim.getScenery().getGroundLevel()-4) 
 			{
 				flightSim.getPlane().ascend(-4);
 			}
@@ -69,7 +70,8 @@ public class PilotPanel extends PApplet
 		}
 		else if (keyCode == KeyEvent.VK_SPACE)
 		{
-			if (flightSim.getPlane().getStatus() == 1) {
+			if (flightSim.getPlane().getStatus() == 1) 
+			{
 				flightSim.getPlane().spray(this);
 			}
 			

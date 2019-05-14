@@ -273,8 +273,8 @@ public class Airplane
 	public boolean isPlaneOnRunway(Runway r)
 	{
 		double runwayLevel = r.getY()+r.getHeight()/2;
-		System.out.println("Runway level: " + runwayLevel);
-		if (Math.abs(getY()-runwayLevel) < 0.001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		// System.out.println("Runway level: " + runwayLevel);
+		if (Math.abs(getY()-runwayLevel) <= 4 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
 		{
 			return true;
 		}
