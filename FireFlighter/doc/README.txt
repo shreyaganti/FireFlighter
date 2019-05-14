@@ -2,7 +2,7 @@
 Fire Flighter
 Ashwini Suriyaprakash, Rujuta Swadi, Shreya Ganti
 Period 4, AP CS, Mr. Shelby
-5/10/19
+5/15/19
 
 
 Description:  
@@ -27,20 +27,20 @@ Must-Haves:
 * (DONE) There should be two views (one of the cockpit and one of the side view of the plane). These views can be on separate windows or on the same window.
 * (DONE) The plane should contain some kind of background/scenery that it is flying in
 * (DONE) Player can adjust the plane’s speed and altitude
-* (ALMOST DONE) Cockpit contains a dial showing speed and displays the numeric altitude in feet and approximate time remaining for the flight
-* (NOT DONE) Players can have a successful/unsuccessful flight, depending on correct take-off and landing (correct take-off means that the plane did not go past the end of the runway before taking off and correct landing means that the plane landed in the runway at a slow speed)
+* (DONE) Cockpit contains a dial showing speed and displays the numeric altitude in feet and approximate time remaining for the flight
+* (DONE) Players can have a successful/unsuccessful flight, depending on correct take-off and landing (correct take-off means that the plane did not go past the end of the runway before taking off and correct landing means that the plane landed in the runway at a slow speed)
 * (DONE) Fires are randomly placed on the plane’s route, which the plane has to extinguish by spraying water
         
-Want-To-Haves (NOT DONE):
-* A real-time location tracker to see where the plane currently is on a geographic map (source, destination airports, route, and current position should be clearly marked on the map)
-* Cockpit contains a compass, whose direction depends on the route the plane travels
-* Weather catastrophes, which disturb plane and cause damage (wind, lightning, rain)
-* Obstacles which the plane should avoid, such as birds and other planes
-* Introduce a concept called “damage” which increases when the plane is struck by weather catastrophes or crashes into obstacles (too high damage causes player to lose control of plane and results in an unsuccessful flight)
-* Sound effects (airplane engine noises when plane takes off and lands)
-* Player can open and close the wheels of the plane when appropriate
-* Guide person pops up before take-off to give a short background story on the fires
-* Feature that warns player of incoming airport so player can prepare for landing
+Want-To-Haves:
+* (ALMOST DONE) A real-time location tracker to see where the plane currently is on a geographic map (source, destination airports, route, and current position should be clearly marked on the map)
+* (NOT DONE) Cockpit contains a compass, whose direction depends on the route the plane travels
+* (NOT DONE) Weather catastrophes, which disturb plane and cause damage (wind, lightning, rain)
+* (NOT DONE) Obstacles which the plane should avoid, such as birds and other planes
+* (NOT DONE) Introduce a concept called “damage” which increases when the plane is struck by weather catastrophes or crashes into obstacles (too high damage causes player to lose control of plane and results in an unsuccessful flight)
+* (NOT DONE) Sound effects (airplane engine noises when plane takes off and lands)
+* (NOT DONE) Player can open and close the wheels of the plane when appropriate
+* (NOT DONE) Guide person pops up before take-off to give a short background story on the fires
+* (NOT DONE) Feature that warns player of incoming airport so player can prepare for landing
 
 
 Stretch Features (NOT DONE):
@@ -53,13 +53,14 @@ Stretch Features (NOT DONE):
 Class List:
 * (DONE) WaterSpray: represents a single spray of water, which the plane can shoot at the fires
 * (DONE) Airplane: represents an airplane, which has an x,y coordinate, a velocity in the horizontal direction, a downward gravitational acceleration, many WaterSprays, and a Cockpit
+* (DONE) Runway: represents a runway, which has an x,y coordinate, where the plane takes off and lands
 * (DONE) Fire: represents an animated forest fire, that the plane has to extinguish with its WaterSprays
 * (NOT DONE) Weather (abstract class): represents a weather phenomenon and stores the strength and duration of the phenomenon
 * (NOT DONE) Wind, Lightning, Rain: extends Weather and represents different kinds of weather phenomena with differing impacts (lightning causes damage while wind causes turbulence)
 * (DONE) Background: represents the scenery behind the plane as Images (depending on the complexity could also be a moving background) and contains Fires
 * (DONE) Image: represents an Image with an x,y coordinate
 * (DONE) FlightSimulation: represents the simulation of the flight (2d view), containing the Airplane, Weather, and Background objects
-* (NOT DONE) LocationTracker: represents a real-time tracker, which contains a geographic map of the plane’s route from source to destination and keeps track of where the plane is at
+* (DONE) LocationTracker: represents a real-time tracker, which contains a geographic map of the plane’s route from source to destination and keeps track of where the plane is
 * (DONE) Dial: represents a circular dial, which has incrementally spaced values and a hand pointing to the current measurement (for speed, altitude, etc..)
 * (DONE) Cockpit: represents a pilot’s cockpit, which has Dial objects and a LocationTracker object
 * (DONE) InstructionsPanel: extends JPanel and represents the drawing surface where the initial instructions are provided, where user can select source and destination airports, and where user can start the game
@@ -68,11 +69,12 @@ Class List:
 
 
 Credit List:
-* Shreya: Dial, Cockpit, Background, PilotPanel, FlightSimulation
-* Ashwini: WaterSpray, Airplane, Fire, Background, FlightSimulation, Image
-* Rujuta: PilotPanel, InstructionsPanel, Main, creating images/gifs for the plane and fires
+* Shreya: Dial, LocationTracker, Cockpit, PilotPanel, FlightSimulation
+* Ashwini: WaterSpray, Airplane, Fire, Background, LocationTracker, FlightSimulation, PilotPanel, Image, Runway
+* Rujuta: Airplane, FlightSimulation, PilotPanel, InstructionsPanel, Main
 * Airplane image: http://clipart-library.com/airplane-cliparts.html
 * Background scenery image: https://clipartimage.com/clipart/25138-clear-day-clipart.html
 * Fire/smoke gifs: http://www.animatedimages.org/cat-fire-90.htm
 * Speed dial image: http://www.clker.com/clipart-dial-5.html
+* Runway image: http://www.clker.com/clipart-24386.html
 * Used Stack Overflow for example code for Box Layout
