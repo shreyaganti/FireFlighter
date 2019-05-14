@@ -86,7 +86,7 @@ public class Runway
 	 */
 	public double getHeight() 
 	{
-		System.out.println("Height: " + runwayImage.height);
+		// System.out.println("Height: " + runwayImage.height);
 		return runwayImage.height;
 	}
 }
