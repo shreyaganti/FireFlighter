@@ -14,8 +14,8 @@ public class Image
 	
 	/**
 	 * Creates an instance of an Image
-	 * @param x x coordinate of the image
-	 * @param y y coordinate of the image
+	 * @param x x coordinate of image's top left corner
+	 * @param y y coordinate of image's top left corner
 	 * @param filename the filename the image is stored in
 	 */
 	public Image(double x, double y, String filename)

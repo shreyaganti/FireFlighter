@@ -35,10 +35,10 @@ public class PilotPanel extends PApplet
 	
 	/**
 	 * Acts based on keys pressed
-	 * @post if left key pressed, Airplane horizontal velocity decreases by 2
-	 * @post if right key pressed, Airplane horizontal velocity increases by 2
-	 * @post if up key pressed, Airplane moves up by 2 units
-	 * @post if down key pressed, Airplane moves down by 2 units
+	 * @post if left key pressed, Airplane horizontal velocity decreases by 4
+	 * @post if right key pressed, Airplane horizontal velocity increases by 4
+	 * @post if up key pressed, Airplane moves up by 4 units
+	 * @post if down key pressed, Airplane moves down by 4 units
 	 * @post if space key pressed, Airplane sprays water
 	 */
 	public void keyPressed() 
