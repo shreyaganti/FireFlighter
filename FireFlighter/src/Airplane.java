@@ -6,8 +6,8 @@ import processing.core.PImage;
 /**
  * This class represents an airplane with an (x,y) coordinate and velocities in the x and y direction
  * 
- * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @author Ashwini Suriyaprakash, Rujuta Swadi
+ * @version 5/13/19
  */
 public class Airplane 
 {
@@ -23,8 +23,8 @@ public class Airplane
 	
 	/**
 	 * Creates a instance of an Airplane object with horizontal and vertical gravity set to 0, null plane image, and a status of being on the ground
-	 * @param x x coordinate of upper left corner of plane
-	 * @param y y coordinate of upper left corner of plane
+	 * @param x x coordinate of plane's center
+	 * @param y y coordinate of plane's center
 	 * @param c Cockpit object that the plane will have
 	 */
 	public Airplane(double x, double y, Cockpit c)
@@ -54,7 +54,6 @@ public class Airplane
 	/**
 	 * Draws Airplane object to a processing PApplet
 	 * @param drawer PApplet on which Airplane object is drawn
-	 * @pre drawer can't be null
 	 */
 	public void draw(PApplet drawer)
 	{
@@ -156,7 +155,8 @@ public class Airplane
 	{
 		if (status == 1)
 		{
-			if (y < 300) {
+			if (y < 300) 
+			{
 				gravity = 3;
 			}
 			
@@ -198,7 +198,7 @@ public class Airplane
 	/**
 	 * Sets the status of the plane (0 for on the ground before take off, 1 for in the air, and 2 for on the ground after landing)
 	 * @param val status to set the plane to
-	 * @pre val can only be 0, 1, 2, or 3
+	 * @pre val can only be 0, 1, 2
 	 */
 	public void setStatus(int val)
 	{
@@ -237,14 +237,16 @@ public class Airplane
 	/**
 	 * @return returns the true X value of the plane as if it was moving
 	 */
-	public double getTrueX() {
+	public double getTrueX() 
+	{
 		return trueX;
 	}
 	
 	/**
 	 * @return Cockpit object in Airplane
 	 */
-	public Cockpit getCockpit() {
+	public Cockpit getCockpit() 
+	{
 		return cockpit;
 	}
 	

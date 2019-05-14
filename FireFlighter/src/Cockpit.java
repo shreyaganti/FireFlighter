@@ -3,12 +3,12 @@ import processing.core.PApplet;
 /**
  * This class represents the cockpit of an airplane with altitude measurement and dial for speed
  * @author Shreya Ganti
- * @version 5/7/19
+ * @version 5/13/19
  */
 public class Cockpit 
 {
 	private Dial dial;
-	private int altitude = 0;
+	private int altitude;
 	private LocationTracker locTrack;
 	
 	/**
@@ -18,9 +18,14 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
+		altitude = 0;
 		locTrack = new LocationTracker(0,300,"SFO","JFK");
 	}
 	
+	/**
+	 * Sets up the Cockpit
+	 * @param drawer Papplet need to setup the cockpit
+	 */
 	public void setup(PApplet drawer)
 	{
 		dial.setup(drawer);

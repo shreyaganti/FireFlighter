@@ -9,7 +9,7 @@ import processing.core.PImage;
  * 
  * Represents a LocationTracker which tracks the plane's flight
  * @author Shreya Ganti, Ashwini Suriyaprakash
- * @version 5/12/19
+ * @version 5/13/19
  *
  */
 public class LocationTracker {
@@ -24,11 +24,6 @@ public class LocationTracker {
 	 * @param y y-coordinate of beginning of LocationTracker
 	 * @param s name of source airport
 	 * @param d name of destination airport
-	 * Creates a new LocationTracker object
-	 * @param x x coordinate of tracker
-	 * @param y y coordinate of tracker
-	 * @param s source airport
-	 * @param d destination airport
 	 */
 	public LocationTracker(int x, int y, String s, String d) {
 		source = s;

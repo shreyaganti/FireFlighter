@@ -5,7 +5,7 @@ import processing.core.PImage;
  * This class represents an animated fire with (x,y) coordinate and can either be extinguished/not extinguished
  * 
  * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @version 5/13/19
  */
 public class Fire 
 {
@@ -18,8 +18,8 @@ public class Fire
 	
 	/**
 	 * Creates a Fire object that is not extinguished
-	 * @param x x coordinate of the fire
-	 * @param y y coordinate of the fire
+	 * @param x x coordinate of the fire's center
+	 * @param y y coordinate of the fire's center
 	 */
 	public Fire(double x, double y)
 	{
@@ -133,6 +133,10 @@ public class Fire
 		return flameImages[0].height;
 	}
 	
+	/**
+	 * Returns whether fire is extinguished
+	 * @return true if fire is extinguished, false otherwise
+	 */
 	public boolean isExtinguished() 
 	{
 		return isExtinguished;

@@ -5,7 +5,7 @@ import processing.core.PApplet;
 /**
  * Represents a background for the plane, containing scenery images and fires
  * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @version 5/13/19
  */
 public class Background 
 {

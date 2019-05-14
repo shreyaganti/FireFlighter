@@ -8,7 +8,7 @@ import java.awt.*;
  * This class contains the Main method and implements the Fire Flighter Game
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/8/19
+ * @version 5/13/19
  */
 public class Main 
 {

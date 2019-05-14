@@ -5,7 +5,7 @@ import processing.core.PImage;
  * This class represents a runway with an (x,y) coordinate
  * 
  * @author Ashwini Suriyaprakash
- * @version 5/10/19
+ * @version 5/13/19
  */
 public class Runway 
 {
@@ -15,8 +15,8 @@ public class Runway
 	
 	/**
 	 * Creates a Runway object
-	 * @param x x coordinate of runway
-	 * @param y y coordinate of runway
+	 * @param x x coordinate of top left corner of runway
+	 * @param y y coordinate of top left corner of runway
 	 * @param airport the airport the runway represents
 	 */
 	public Runway(double x, double y, String airport)

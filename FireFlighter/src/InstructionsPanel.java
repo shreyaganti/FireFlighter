@@ -2,12 +2,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-
-//Author: Rujuta Swadi, per. 4
-
-//format correctly, add pictures
-
-
 /**
  * This class represents the Instructions Panel, which allows user to seek help and select airport options
  * @author Rujuta Swadi
