@@ -119,7 +119,7 @@ public class LocationTracker {
 	
 	/**
 	 * Sets the destination airport
-	 * @param s the new destination airport
+	 * @param d the new destination airport
 	 */
 	public void setDestination(String d) {
 		destination = d;

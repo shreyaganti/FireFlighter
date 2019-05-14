@@ -221,6 +221,7 @@ public class Airplane
 	
 	/**
 	 * Sprays a WaterSpray with vertical velocity downward, if water spray amount the plane contains hasn't run out
+	 * @param drawer Papplet needed to setup the WaterSpray
 	 */
 	public void spray(PApplet drawer)
 	{
