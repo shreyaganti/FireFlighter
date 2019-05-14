@@ -96,7 +96,6 @@ public class Airplane
 		applyGravity();
 		move(x,y+gravity);
 		trueX+=vx;
-		System.out.println(status);
 		if (y >= 440)
 			cockpit.setAltitude(0);
 		else
