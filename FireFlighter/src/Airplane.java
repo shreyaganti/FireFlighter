@@ -96,13 +96,11 @@ public class Airplane
 		applyGravity();
 		move(x,y+gravity);
 		trueX+=vx;
-		if (Math.abs(y+gravity) <=0.01) 
-		{
+		if (y >= 440)
 			cockpit.setAltitude(0);
-		}
 		else
 		{
-			cockpit.setAltitude((int) (-1*(y+gravity-360)));
+			cockpit.setAltitude((int) (-1*(y+gravity-440)));
 		}
 		
 			
