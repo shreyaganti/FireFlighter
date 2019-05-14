@@ -64,6 +64,7 @@ public class FlightSimulation
 			}
 		}
 		
+		// System.out.println("Speed: " + plane.getVelocityX());
 		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
@@ -74,7 +75,7 @@ public class FlightSimulation
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
-			System.out.println("y coordinate: " + plane.getY());
+			// System.out.println("y coordinate: " + plane.getY());
 			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 			{
 				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
@@ -82,8 +83,17 @@ public class FlightSimulation
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
-		    	System.exit(0);
+				if (plane.getVelocityX() > 30)
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+			    	System.exit(0);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+			    	System.exit(0);
+				}
+				
 			}
 		}
 		

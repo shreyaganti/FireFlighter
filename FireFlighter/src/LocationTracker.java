@@ -61,10 +61,10 @@ public class LocationTracker {
 			int start = i+23;
 			int end = output.indexOf("\"", start+1);
 			
-			System.out.println(output.substring(i+22,i+100));
+			// System.out.println(output.substring(i+22,i+100));
 			
 			String imgURL = "http://www.gcmap.com" + output.substring(start, end);
-			System.out.println("URL: " + imgURL);
+			// System.out.println("URL: " + imgURL);
 			map = drawer.loadImage(imgURL, "png");
 			map.resize(300,200);
 		}
