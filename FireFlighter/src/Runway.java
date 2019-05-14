@@ -54,6 +54,7 @@ public class Runway
 	public void draw(PApplet drawer)
 	{
 		drawer.image(runwayImage,(float)x, (float)y);
+		// drawer.line(0, 400, 300, 400);
 	}
 	
 	/**
@@ -73,12 +74,19 @@ public class Runway
 	}
 	
 	/**
-	 * @return width of the fire
+	 * @return width of the runway
 	 */
 	public double getWidth() 
 	{
 		return runwayImage.width;
 	}
 	
-	
+	/**
+	 * @return width of the runway
+	 */
+	public double getHeight() 
+	{
+		System.out.println("Height: " + runwayImage.height);
+		return runwayImage.height;
+	}
 }

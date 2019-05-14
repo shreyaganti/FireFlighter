@@ -18,7 +18,6 @@ public class Cockpit
 	public Cockpit(Dial d) 
 	{
 		dial = d;
-
 		locTrack = new LocationTracker(0,300,"SFO","JFK");
 	}
 	

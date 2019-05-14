@@ -14,7 +14,7 @@ public class Background
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
-	private final int GROUND_LEVEL = 400;
+	private final int GROUND_LEVEL = 440;
 	private boolean isEnd = false;
 	
 	/**
@@ -28,11 +28,11 @@ public class Background
 		for (int f = 0; f < NUM_FIRES; f++)
 		{
 			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
-			double ycoord = 370;
+			double ycoord = GROUND_LEVEL-50;
 			fires.add(new Fire(xcoord,ycoord));
 		}
-		source = new Runway(300,GROUND_LEVEL,"SFO");
-		destination = new Runway(300+700*(NUM_IMAGES-2), GROUND_LEVEL, "NYC");
+		source = new Runway(300,GROUND_LEVEL-40,"SFO");
+		destination = new Runway(300+700*(NUM_IMAGES-2), GROUND_LEVEL-40, "NYC");
 	}
 	
 	/**

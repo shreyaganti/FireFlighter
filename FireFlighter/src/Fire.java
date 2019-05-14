@@ -71,10 +71,10 @@ public class Fire
 	{
 		frame = (frame+1) % IMAGE_COUNT;
 		if (!isExtinguished)
-			drawer.image(flameImages[frame], (float)x, (float)y);
+			drawer.image(flameImages[frame], (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		else
 		{
-			drawer.image(smokeImages[frame], (float)x, (float)y);
+			drawer.image(smokeImages[frame], (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		}
 	}
 	
@@ -123,6 +123,14 @@ public class Fire
 	public double getWidth() 
 	{
 		return flameImages[0].width;
+	}
+	
+	/**
+	 * @return height of the fire
+	 */
+	public double getHeight() 
+	{
+		return flameImages[0].height;
 	}
 	
 	public boolean isExtinguished() 

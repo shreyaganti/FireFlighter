@@ -134,10 +134,13 @@ public class FlightSimulation
 		{
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
-		
+		drawer.fill(0);
+		drawer.ellipse(400, 400-40,50,50);
+		drawer.ellipse(400, 400,50,50);
 		
 		drawer.popStyle();
 		drawer.popMatrix();
+		
 	}
 	
 	/**

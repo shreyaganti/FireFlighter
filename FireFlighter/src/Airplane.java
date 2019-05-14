@@ -58,7 +58,7 @@ public class Airplane
 	 */
 	public void draw(PApplet drawer)
 	{
-		drawer.image(planeImage, (float)(x), (float)(y));
+		drawer.image(planeImage, (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		cockpit.draw(drawer);
 	}
 	
@@ -257,13 +257,24 @@ public class Airplane
 	}
 	
 	/**
+	 * @return the height of the plane
+	 */
+	public int getHeight()
+	{
+		return planeImage.height;
+	}
+	
+	
+	/**
 	 * Checks if the plane is on the runway
 	 * @param r Runway to check
 	 * @return true if the plane is on the runway, false otherwise
 	 */
 	public boolean isPlaneOnRunway(Runway r)
 	{
-		if (Math.abs(getY()-r.getY()) < 2 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		double runwayLevel = r.getY()+r.getHeight()/2;
+		System.out.println("Runway level: " + runwayLevel);
+		if (Math.abs(getY()-runwayLevel) < 0.001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
 		{
 			return true;
 		}
