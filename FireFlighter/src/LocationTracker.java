@@ -62,6 +62,7 @@ public class LocationTracker {
 			int end = output.indexOf("\"", start+1);
 			
 			// System.out.println(output.substring(i+22,i+100));
+			// comment
 			
 			String imgURL = "http://www.gcmap.com" + output.substring(start, end);
 			// System.out.println("URL: " + imgURL);

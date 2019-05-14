@@ -75,6 +75,7 @@ public class FlightSimulation
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
+			// comment
 			// System.out.println("y coordinate: " + plane.getY());
 			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 			{
