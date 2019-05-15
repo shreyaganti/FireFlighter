@@ -19,12 +19,12 @@ public class Cockpit
 	{
 		dial = d;
 		altitude = 0;
-		locTrack = new LocationTracker(0,300,"SAT","JFK");
+		locTrack = new LocationTracker(0,300,"SAT","CSN");
 	}
 	
 	/**
 	 * Sets up the Cockpit
-	 * @param drawer Papplet need to setup the cockpit
+	 * @param drawer PApplet need to setup the cockpit
 	 */
 	public void setup(PApplet drawer)
 	{

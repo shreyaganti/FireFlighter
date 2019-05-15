@@ -56,8 +56,8 @@ public class Main
 	    instructions = new InstructionsPanel(this); 
 	    pilotView = new PilotPanel();
 	    
-	    pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(instructions.getSource());
-	    pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(instructions.getDestination());
+	    //pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(instructions.getSource());
+	    //pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(instructions.getDestination());
 	    
 	    System.out.println();
 	    // window.createBufferStrategy(1);
@@ -92,11 +92,13 @@ public class Main
 	/**
 	 * Changes panels
 	 */
-	public void changePanel() 
+	public void changePanel(String s, String d) 
 	{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		processingCanvas.requestFocus();	
-		
+		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(s);
+		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(d);
+		System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
 	}
 	
 	

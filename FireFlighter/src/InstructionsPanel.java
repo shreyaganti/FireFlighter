@@ -84,7 +84,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 			{
 				System.out.println("Source: " + source);
 				System.out.println("Destination: " + destination);
-				w.changePanel();
+				w.changePanel(source, destination);
 			}
 			else
 			{
