@@ -29,7 +29,7 @@ public class Cockpit
 	public void setup(PApplet drawer)
 	{
 		dial.setup(drawer);
-		locTrack.setup(drawer);
+		//locTrack.setup(drawer);
 	}
 	
 	/**

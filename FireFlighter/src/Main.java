@@ -99,8 +99,8 @@ public class Main
 		processingCanvas.requestFocus();	
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(s);
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(d);
-		System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
-		
+		//System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
+		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setup(pilotView);
 		Image img = new Image(0, 0, "images/water.png");
 		ImageIcon icon = new ImageIcon("images/water.png");
 		
