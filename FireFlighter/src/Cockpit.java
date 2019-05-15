@@ -19,7 +19,7 @@ public class Cockpit
 	{
 		dial = d;
 		altitude = 0;
-		locTrack = new LocationTracker(0,300,"SFO","JFK");
+		locTrack = new LocationTracker(0,300,"SAT","JFK");
 	}
 	
 	/**
