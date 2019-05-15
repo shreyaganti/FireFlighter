@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 
 /**
@@ -99,10 +100,13 @@ public class Main
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(s);
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(d);
 		System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
+		
+		Image img = new Image(0, 0, "images/water.png");
+		ImageIcon icon = new ImageIcon("images/water.png");
+		
+		
+		JOptionPane.showMessageDialog(null, "Eggs are not supposed to be green.", "Inane custom dialog", JOptionPane.INFORMATION_MESSAGE, icon);
 	}
-	
-	
-	
 	
   
 }
