@@ -95,10 +95,14 @@ public class LocationTracker {
 		}
 		drawer.line(0, y, 300, y);
 		drawer.ellipseMode(drawer.RADIUS);
-		if (x<=295)
+		if (x<=295) {
+			drawer.fill(255,0,0);
 			drawer.ellipse(x, y, 10, 10);
-		else
+		}
+		else {
+			drawer.fill(255,0,0);
 			drawer.ellipse(295, y, 10, 10);
+		}
 	}
 	
 	/**
