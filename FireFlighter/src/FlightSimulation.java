@@ -14,11 +14,6 @@ public class FlightSimulation
 	private Background scenery;
 	private int timeRemaining;
 	
-	private int waterCount = 0;
-	private int takeoffCount = 0;
-	private int landingCount = 0;
-	private int crashCount = 0;
-	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
 	 */
@@ -69,12 +64,37 @@ public class FlightSimulation
 			}
 		}
 		
+		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
+		{
+			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	System.exit(0);	
+		}
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
+			// System.out.println("y coordinate: " + plane.getY());
+			// System.out.println("y coordinate: " + plane.getY());
+			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+			{
+				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+			    System.exit(0);
+			}
+			else
+			{
+				if (plane.getVelocityX() > 30)
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+				    System.exit(0);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+				    System.exit(0);
+				}
+			}
 		}
 		
-		System.out.println("Status: " + plane.getStatus());
+		// System.out.println("Status: " + plane.getStatus());
 		// System.out.println("Y coordinate: " + plane.getY());
 		
 		// Draws useful data
@@ -90,9 +110,9 @@ public class FlightSimulation
 	    int waterDone = plane.getSprayedWater().size();
 	    
 	   
-	    
-	    if (waterCount < 1 && water - waterDone <= 0) {
-	    	waterCount++;
+
+	    if (water - waterDone <= 0)
+	    {
 	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 	    	System.exit(0);
 		}
@@ -129,39 +149,6 @@ public class FlightSimulation
 		{
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
-		
-	
-		
-		
-		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
-		if (takeoffCount < 1 && plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
-		{
-			takeoffCount++;
-			drawer.text("Unsuccessful takeoff", 305, 100);
-			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-	    	System.exit(0);
-		}
-		
-		System.out.println(!plane.isPlaneOnRunway(scenery.getDestinationRunway()));
-		
-		
-		if (crashCount < 1 && plane.getStatus() == 3) { 
-			crashCount++;
-			JOptionPane.showMessageDialog(null, "GAME OVER -- YOU CRASHED", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-	    	System.exit(0);
-		}
-		
-		if (landingCount < 1 && plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
-		{
-			// hello
-			landingCount++;
-			drawer.text("Unsuccessful landing", 305, 110);
-			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-	    	System.exit(0);
-		}
-		
-		// hello again
-		
 		drawer.popStyle();
 		drawer.popMatrix();
 	}

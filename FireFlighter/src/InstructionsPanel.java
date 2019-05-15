@@ -107,7 +107,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	
 	private void displaySameBoxCheckedMessage() 
 	{
-		JOptionPane.showMessageDialog(null, "The source and destination should be different", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "The source and destination should be different", "ISSUE",  JOptionPane.WARNING_MESSAGE);
 	}
 	
 	
