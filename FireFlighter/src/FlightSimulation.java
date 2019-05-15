@@ -6,7 +6,7 @@ import processing.core.PApplet;
  * This class represents a flight simulation (2d side view), containing the Airplane and Background objects.
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/8/19
+ * @version 5/13/19
  */
 public class FlightSimulation
 {
@@ -66,7 +66,7 @@ public class FlightSimulation
 		
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
-			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.ERROR_MESSAGE);
 	    	System.exit(0);	
 		}
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
@@ -76,14 +76,14 @@ public class FlightSimulation
 			// System.out.println("y coordinate: " + plane.getY());
 			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 			{
-				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.ERROR_MESSAGE);
 			    System.exit(0);
 			}
 			else
 			{
 				if (plane.getVelocityX() > 30)
 				{
-					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.ERROR_MESSAGE);
 				    System.exit(0);
 				}
 				else
@@ -113,7 +113,7 @@ public class FlightSimulation
 
 	    if (water - waterDone <= 0)
 	    {
-	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.ERROR_MESSAGE);
 	    	System.exit(0);
 		}
 		
@@ -168,3 +168,4 @@ public class FlightSimulation
 		return scenery;
 	}
 }
+

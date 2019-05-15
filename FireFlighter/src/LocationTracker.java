@@ -67,7 +67,7 @@ public class LocationTracker {
 			String imgURL = "http://www.gcmap.com" + output.substring(start, end);
 			
 			imgURL = imgURL.replaceAll("amp;", "");
-			System.out.println("URL: " + imgURL);
+			// System.out.println("URL: " + imgURL);
 			map = drawer.loadImage(imgURL, "png");
 			map.resize(300,200);
 		}
