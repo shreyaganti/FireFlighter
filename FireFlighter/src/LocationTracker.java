@@ -128,4 +128,12 @@ public class LocationTracker {
 	public void setDestination(String d) {
 		destination = d;
 	}
+	
+	public String getSource() {
+		return source;
+	}
+	
+	public String getDestination() {
+		return destination;
+	}
 }
