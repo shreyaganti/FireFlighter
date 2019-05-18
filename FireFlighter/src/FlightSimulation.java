@@ -45,7 +45,21 @@ public class FlightSimulation
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
 		plane.act();
+		
+		int altitude = (int)(-1*(plane.getY()-scenery.getGroundLevel()));
+		// System.out.println("Altitude: " + altitude);
+		if (altitude <= 0)
+		{
+			// System.out.println("Altitude set to 0");
+			plane.getCockpit().setAltitude(0);
+		}
+		else
+		{
+			plane.getCockpit().setAltitude((altitude*3));
+		}
+		
 		plane.draw(drawer);
+		
 		for (WaterSpray w: plane.getSprayedWater())
 		{
 			w.act();

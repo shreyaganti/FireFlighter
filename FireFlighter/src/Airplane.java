@@ -57,8 +57,8 @@ public class Airplane
 	 */
 	public void draw(PApplet drawer)
 	{
-		drawer.image(planeImage, (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		cockpit.draw(drawer);
+		drawer.image(planeImage, (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 	}
 	
 	/**
@@ -96,14 +96,15 @@ public class Airplane
 		applyGravity();
 		move(x,y+gravity);
 		trueX+=vx;
-		if (y >= 440)
+		/*int altitude = (int)(-1*(y+gravity-440));
+		if (altitude < 0)
+		{
 			cockpit.setAltitude(0);
+		}
 		else
 		{
-			cockpit.setAltitude((int) (-1*(y+gravity-440)));
-		}
-		
-			
+			cockpit.setAltitude((altitude));
+		}*/
 	}
 	
 	/**
@@ -153,7 +154,7 @@ public class Airplane
 	{
 		if (status == 1)
 		{
-			if (y < 300) 
+			if (y < 400) 
 			{
 				gravity = 3;
 			}

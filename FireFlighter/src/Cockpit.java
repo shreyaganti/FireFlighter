@@ -47,19 +47,20 @@ public class Cockpit
 		p.rect(60, 225, 180, 50);
 		p.fill(0);
 		p.textSize(26);
-		p.text(altitude*5+" ft", 125, 260);
+		p.text(altitude+" ft", 125, 260);
 		locTrack.draw(p);
 		p.popStyle();
 		p.popMatrix();
 	}
-	
+	/*
 	/**
 	 * Increments or decrements altitude of plane
 	 * @param a Value to change altitude by
 	 */
-	public void changeAltitude(int a) {
+	/*public void changeAltitude(int a) {
 		altitude+=a;
-	}
+	}*/
+	
 	
 	/**
 	 * Sets value of altitude of plane
