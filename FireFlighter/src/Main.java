@@ -55,7 +55,7 @@ public class Main
 	    window.getContentPane().removeAll();
 	    
 	    instructions = new InstructionsPanel(this); 
-	    pilotView = new PilotPanel();
+	    // pilotView = new PilotPanel();
 	    
 	    //pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(instructions.getSource());
 	    //pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(instructions.getDestination());
@@ -67,15 +67,11 @@ public class Main
 	    cardPanel.add(instructions,"1");
 	    cardPanel.add(processingCanvas,"2");
 	   
-	    
-	    
-	    
 	    window.setLayout(new BorderLayout());
 	    window.pack();
 	    window.add(cardPanel);
 	    window.revalidate();
-	    
-	    
+	  
 	    // window.setVisible(true);
 	    
 	}
@@ -95,12 +91,14 @@ public class Main
 	 */
 	public void changePanel(String s, String d) 
 	{
-		((CardLayout)cardPanel.getLayout()).next(cardPanel);
-		processingCanvas.requestFocus();	
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(s);
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(d);
 		//System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setup(pilotView);
+		
+		((CardLayout)cardPanel.getLayout()).next(cardPanel);
+		processingCanvas.requestFocus();	
+		
 		Image img = new Image(0, 0, "images/water.png");
 		ImageIcon icon = new ImageIcon("images/water.png");
 		

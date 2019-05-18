@@ -15,11 +15,11 @@ public class Cockpit
 	 * Constructor to initialize Cockpit object with speed dial
 	 * @param d Dial object for speed
 	 */
-	public Cockpit(Dial d) 
+	public Cockpit(Dial d, LocationTracker loc) 
 	{
 		dial = d;
 		altitude = 0;
-		locTrack = new LocationTracker(0,300,"SAT","CSN");
+		locTrack = loc;
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class Cockpit
 	public void setup(PApplet drawer)
 	{
 		dial.setup(drawer);
-		//locTrack.setup(drawer);
+		locTrack.setup(drawer);
 	}
 	
 	/**
@@ -37,6 +37,7 @@ public class Cockpit
 	 * @param p PApplet used to draw Cockpit object
 	 */
 	public void draw(PApplet p) {
+		// System.out.println("Drawing cockpit");
 		p.pushMatrix();
 		p.pushStyle();
 		p.fill(0,0,128);

@@ -15,7 +15,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	private JButton instructions;
 	
 	private JComboBox sourceBox, destinationBox;
-	private final String AIRPORTS[] = {"San Francisco, CA (SFO)","Carson City, NV (CSN)","Scottsdale, AZ (SDL)","Seattle, WA (BFI)","Queens, NY (JFK)", "San Antonio, TX (SAT)"};
+	private final String AIRPORTS[] = {"San Francisco, CA (SFO)","Carson City, NV (CSN)","O'Hare International Airport (ORD)","Seattle, WA (BFI)","Queens, NY (JFK)", "San Antonio, TX (SAT)"};
 	
 	// private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
@@ -79,6 +79,10 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		{
 			source = sourceBox.getItemAt(sourceBox.getSelectedIndex()) + "";
 			destination = destinationBox.getItemAt(destinationBox.getSelectedIndex()) + "";
+			int index = source.indexOf("(");
+			source = source.substring(index+1, source.length()-1);
+			int index2 = destination.indexOf("(");
+			destination = destination.substring(index2+1, destination.length()-1);
 			
 			if (!source.equals(destination))
 			{

@@ -93,8 +93,10 @@ public class LocationTracker {
 	{
 		if (map != null)
 		{
+			// System.out.println("Map is not null");
 			drawer.image(map,0,300);
 		}
+		
 		drawer.line(0, y, 300, y);
 		drawer.ellipseMode(drawer.RADIUS);
 		if (x<=295) {
