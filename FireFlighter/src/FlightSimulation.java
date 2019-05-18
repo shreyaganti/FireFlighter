@@ -117,12 +117,15 @@ public class FlightSimulation
 	    	System.exit(0);
 		}
 		
-		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-
+		double distanceLeft = (scenery.getNumImages()-1)*700 - plane.getTrueX();
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
-		if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
+		
+		/*if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
 			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*375/(700*scenery.getNumImages()));
-		}
+		}*/
+		double fracCovered = (plane.getTrueX())/((scenery.getNumImages()-2)*700);
+		plane.getCockpit().getLocTrack().setFractionOfRouteCovered(fracCovered);
+		
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
 		String sec = "";
