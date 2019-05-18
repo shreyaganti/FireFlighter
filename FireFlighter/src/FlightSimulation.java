@@ -20,7 +20,7 @@ public class FlightSimulation
 	public FlightSimulation()
 	{
 		scenery = new Background();
-		plane = new Airplane(500,scenery.getGroundLevel(), new Cockpit(new Dial(150,100), new LocationTracker(0,300,"SFO", "BFI")));
+		plane = new Airplane(500,scenery.getGroundLevel(), new Cockpit(new Dial(150,100), new LocationTracker(0,300,"SFO", "JFK")));
 		timeRemaining = -1;
 	}
 	

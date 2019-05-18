@@ -38,7 +38,7 @@ public class Main
 		
 		PSurfaceAWT surf = (PSurfaceAWT) pilotView.getSurface();
 		processingCanvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		processingCanvas.getFrame().setTitle("Fire Flighter");
+		processingCanvas.getFrame().setTitle("FireFlighter");
 		window = (JFrame)processingCanvas.getFrame();
 
 		window.setBounds(0,0, WIDTH, HEIGHT);

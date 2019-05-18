@@ -35,7 +35,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		BoxLayout bLayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
 		buttonPanel.setLayout(bLayout);
 		
-		JLabel gameName = new JLabel("FIRE FLIGHTER");
+		JLabel gameName = new JLabel("FIREFLIGHTER");
 		gameName.setFont(new Font("Serif", Font.BOLD, 40));
 		
 		instructions = new JButton("HELP");

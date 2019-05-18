@@ -92,7 +92,16 @@ public class LocationTracker {
 				for (int c = 0; c < map.height; c++)
 				{
 					int loc = r+c*map.width;
-					if (count == 0 && map.pixels[loc] == drawer.color(255,0,0))
+					boolean isRed = false;
+					float red = drawer.red(map.pixels[loc]);
+				    float green = drawer.green(map.pixels[loc]);
+				    float blue = drawer.blue(map.pixels[loc]);
+				    if (red > green && red > blue)
+				    {
+				    	isRed = true;
+				    }
+				    
+					if (count == 0 && isRed)
 					{
 						// System.out.println("Found red");
 						// System.out.println("x:" + (x+r) + " y:"+ (y+c));
@@ -101,12 +110,13 @@ public class LocationTracker {
 						count++;
 						break;
 					}
-					if (count == 1 && map.pixels[loc] == drawer.color(255,0,0))
+					if (count == 1 && isRed)
 					{
 						// System.out.println("Found red");
-						// System.out.println("x:" + (x+r) + " y:"+ (y+c));
-						if (Math.abs(sourceX-(x+r)) > 1 || Math.abs(sourceY-(y+c)) > 1)
+						
+						if (Math.abs(sourceX-(x+r)) > 10 || Math.abs(sourceY-(y+c)) > 10)
 						{
+							// System.out.println("x:" + (x+r) + " y:"+ (y+c));
 							destX = x+r;
 							destY = y+c;
 							count++;
@@ -146,17 +156,20 @@ public class LocationTracker {
 		{
 			double routeCovered = fractionOfRouteCovered*route.getLength();
 			double angle = Math.atan(route.calculateSlope());
+			// System.out.println("Slope: " + route.calculateSlope() + " Angle: " + angle);
 			double markerX = routeCovered*Math.cos(angle)+route.getX1();
 			double markerY = routeCovered*Math.sin(angle)+route.getY1();
 			markerX-=planeMarker.width/2;
 			markerY-=planeMarker.height/2;
+			// System.out.println("Markerx: " + markerX + " markerY: " + markerY);
 			drawer.pushMatrix();
 			drawer.translate((float)markerX, (float)markerY);
 			drawer.rotate((float)angle);
 			drawer.translate(-(float)markerX, -(float)markerY);
 			drawer.image(planeMarker,(float)markerX, (float)markerY);
+			// System.out.println("Markerx: " + markerX + " markerY: " + markerY);
 			drawer.popMatrix();
-			for (double x = route.getX1(); x < markerX; x+=5)
+			for (double x = route.getX1(); x <= markerX; x+=5)
 			{
 				double y = x*route.calculateSlope()+route.calculateYIntercept();
 				drawer.fill(0,0,255);
