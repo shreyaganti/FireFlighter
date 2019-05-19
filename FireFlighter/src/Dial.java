@@ -13,18 +13,22 @@ public class Dial
 	private double speed;
 	private double xCoord,yCoord; //center of dial
 	private PImage dial;
-	private boolean maxSpeed = false;
-	private boolean minSpeed = true;
+	private int maxVal;
+	// private boolean maxSpeed = false;
+	// private boolean minSpeed = true;
 	
 	/**
 	 * Constructor to initialize Dial object with x,y coordinates representing center
 	 * @param x x-coordinate of center of Dial
 	 * @param y y-coordinate of center of Dial
+	 * @param maxVal maximum value the dial can show
+	 * @pre maxVal has to be positive
 	 */
-	public Dial(double x, double y) {
-		speed = 850; //starting at 850 refers to speed of 50 mph
+	public Dial(double x, double y, int maxVal) {
+		speed = 0; //starting at 850 refers to speed of 50 mph
 		xCoord = x;
 		yCoord = y;
+		this.maxVal = maxVal;
 	}
 	
 	/**
@@ -34,12 +38,69 @@ public class Dial
 	public void setup(PApplet drawer)
 	{
 		dial = drawer.loadImage("images/speed_dial.png");
+		dial.resize(200, 200);
 	}
+	
+	public void draw(PApplet drawer)
+	{
+		drawer.pushMatrix();
+		drawer.pushStyle();
+		drawer.imageMode(drawer.CENTER);
+		drawer.image(dial,(float)xCoord,(float)yCoord);
+		drawer.fill(255);
+		double angle = 222;
+		int measure = 0;
+		double width = dial.width/3;
+		for (int i = 0; i < 10; i++)
+		{
+			if (angle == 110)
+			{
+				width = dial.width/3.4;
+			}
+			
+			if (angle < 110)
+			{
+				width = dial.width/3.7;
+				angle-=5;
+			}
+			
+			if (angle <= 54)
+			{
+				width = dial.width/4.0;
+			}
+			
+			Line l = Line.getLineFromAngle(xCoord, yCoord,angle,width);
+			drawer.text(measure+"", (float)l.getX2(), (float)l.getY2());
+			angle-=28;
+			measure+=maxVal/9;
+		}
+		
+		double interval = maxVal/9;
+		drawer.fill(0);
+		drawer.strokeWeight(10);
+		int diff = (int)(speed/interval);
+		int rem = (int)(speed%interval);
+		double rodAngle = diff*28 + (28*rem)/interval;
+		// System.out.println("Diff: " + diff);
+		// System.out.println("Rem: " + rem);
+		// System.out.println("Speed: " + speed);
+		// System.out.println("Angle: " + rodAngle);
+		
+		rodAngle=222-rodAngle;
+		// System.out.println("Angle: " + rodAngle);
+		
+		Line l = Line.getLineFromAngle(xCoord,yCoord,rodAngle,dial.width/2-10);
+		drawer.line((float)xCoord,(float)yCoord,(float)l.getX2(),(float)l.getY2());
+		drawer.popStyle();
+		drawer.popMatrix();
+	}
+	
+	
 	/**
 	 * Draws the dial object
 	 * @param p PApplet object used to draw the dial
 	 */
-	public void draw(PApplet p) 
+	/*public void draw(PApplet p) 
 	{
 		p.pushMatrix();
 		p.pushStyle();
@@ -68,7 +129,7 @@ public class Dial
 		p.line((float)xCoord,(float)yCoord,(float)(Math.cos(Math.toRadians(speed))*(dial.width/2-10)+xCoord),(float)((Math.sin(Math.toRadians(speed))*(dial.height/2-10)+yCoord)));
 		p.popStyle();
 		p.popMatrix();
-	}
+	}*/
 	
 	/**
 	 * Sets the speed value of the dial
@@ -90,17 +151,17 @@ public class Dial
 	 * Returns if speed dial has reached its max speed
 	 * @return true if max speed is reached, false otherwise
 	 */
-	public boolean reachedMax() {
+	/*public boolean reachedMax() {
 		return maxSpeed;
-	}
+	}*/
 	
 	/**
 	 * Returns if speed dial has reached its minimum speed
 	 * @return true if minimum speed is reached, false otherwise
 	 */
-	public boolean reachedMin() {
+	/*public boolean reachedMin() {
 		return minSpeed;
-	}
+	}*/
 	
 	
 	/**

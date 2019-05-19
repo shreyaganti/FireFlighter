@@ -18,16 +18,17 @@ public class Airplane
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
 	private int status;
 	private Cockpit cockpit;
-	
 	private double trueX;
+	private final int MAX_SPEED;
 	
 	/**
 	 * Creates a instance of an Airplane object with horizontal and vertical gravity set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of plane's center
 	 * @param y y coordinate of plane's center
+	 * @param maxSpeed plane can only have speed from 0 to maxSpeed
 	 * @param c Cockpit object that the plane will have
 	 */
-	public Airplane(double x, double y, Cockpit c)
+	public Airplane(double x, double y, int maxSpeed, Cockpit c)
 	{
 		this.x = x;
 		this.y = y;
@@ -38,6 +39,7 @@ public class Airplane
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
 		cockpit = c;
+		MAX_SPEED = maxSpeed;
 	}
 	
 	/**
@@ -113,23 +115,28 @@ public class Airplane
 	 */
 	public void increaseSpeed(double offset)
 	{
-		if (offset < 0 && vx >= -offset)
+		vx+=offset;
+		if (vx > MAX_SPEED)
 		{
-			vx+=offset;
-		}
-		else if (offset > 0)
-		{
-			vx+=offset;
+			vx = MAX_SPEED;
 		}
 		
-		if (offset < 0 && !cockpit.getDial().reachedMin())
+		if (vx < 0)
+		{
+			vx = 0;
+		}
+		// System.out.println("vx: " + vx);
+		
+		cockpit.getDial().setSpeed(vx*9);
+		
+		/*if (offset < 0 && !cockpit.getDial().reachedMin())
 		{
 			cockpit.getDial().addSpeed(10*offset);
 		}
 		else if (offset > 0 && !cockpit.getDial().reachedMax())
 		{
 			cockpit.getDial().addSpeed(10*offset);
-		}
+		}*/
 			
 	}
 	
@@ -184,7 +191,7 @@ public class Airplane
 	
 	private boolean isReadyForTakeOff()
 	{
-		if (status == 0 && vx > 20)
+		if (status == 0 && vx > MAX_SPEED/3)
 		{
 			return true;
 		}
@@ -264,6 +271,11 @@ public class Airplane
 	public int getHeight()
 	{
 		return planeImage.height;
+	}
+	
+	public int getMaxSpeed()
+	{
+		return MAX_SPEED;
 	}
 	
 	

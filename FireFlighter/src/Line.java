@@ -92,6 +92,20 @@ public class Line
 		}
 	}
 	
+	/**
+	 * Returns a Line object specified by a coordinate, angle, and length
+	 * @param x x coordinate of first end point
+	 * @param y y coordinate of first end point
+	 * @param angle angle in degrees from the horizontal
+	 * @param length length of line segment
+	 * @return Line object specified by parameters
+	 */
+	public static Line getLineFromAngle(double x, double y, double angle, double length)
+	{
+		Line l = new Line(x,y,x+Math.cos(angle*Math.PI/180)*length, y-Math.sin(angle*Math.PI/180)*length);
+		return l;
+	}
+	
 	// Method "calculateYIntercept" returns the y intercept of the line containing this line segment
 	public double calculateYIntercept()
 	{

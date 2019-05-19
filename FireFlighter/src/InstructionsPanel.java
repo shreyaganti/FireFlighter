@@ -38,7 +38,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		JLabel gameName = new JLabel("FIREFLIGHTER");
 		gameName.setFont(new Font("Serif", Font.BOLD, 40));
 		
-		instructions = new JButton("HELP");
+		instructions = new JButton("HOW TO PLAY");
 		instructions.setPreferredSize(new Dimension (100, 50));
 		instructions.addActionListener(this);
 		
@@ -106,7 +106,15 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	
 	private void displayInstructions() 
 	{
-		JOptionPane.showMessageDialog(null, "TO BEGIN:\n1. use the drop down menus to select source and destination airports\n2. press start\n\nWHILE PLAYING:\n- press the up and down arrows to increase or decrease the plane's altitude\n- press the left and right arrows to slow or speed up the plane\n- press the spacebar to drop water on fires", "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
+		String instr = "TO BEGIN:\n1. use the drop down menus to select source and destination airports\n";
+		instr += "2. press start\n";
+		instr += "\nWHILE PLAYING:\n";
+		instr += "-press the up and down arrow keys to increase or decrease the plane's altitude\n";
+		instr += "-press the left and right arrow keys to slow or speed up the plane\n";
+		instr += "-press the spacebar to drop water on fires\n";
+		instr += "-in order to take off, your plane's speed must be in the yellow/green range, shown in the cockpit\n";
+		instr += "-in order to land, your plane's speed must be in the red/yellow range, shown in the cockpit\n";
+		JOptionPane.showMessageDialog(null, instr, "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	private void displaySameBoxCheckedMessage() 

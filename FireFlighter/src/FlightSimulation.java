@@ -20,7 +20,7 @@ public class FlightSimulation
 	public FlightSimulation()
 	{
 		scenery = new Background();
-		plane = new Airplane(500,scenery.getGroundLevel(), new Cockpit(new Dial(150,100), new LocationTracker(0,300,"SFO", "JFK")));
+		plane = new Airplane(500,scenery.getGroundLevel(),50, new Cockpit(new Dial(150,100,450), new LocationTracker(0,300,"SFO", "JFK")));
 		timeRemaining = -1;
 	}
 	
@@ -95,7 +95,7 @@ public class FlightSimulation
 			}
 			else
 			{
-				if (plane.getVelocityX() > 30)
+				if (plane.getVelocityX() > plane.getMaxSpeed()*2.0/3.0)
 				{
 					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.ERROR_MESSAGE);
 				    System.exit(0);
@@ -131,7 +131,7 @@ public class FlightSimulation
 	    	System.exit(0);
 		}
 		
-		double distanceLeft = (scenery.getNumImages()-1)*700 - plane.getTrueX();
+		double distanceLeft = (scenery.getNumImages()-2)*700 - plane.getTrueX();
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
 		
 		/*if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
