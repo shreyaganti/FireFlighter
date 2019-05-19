@@ -1,17 +1,21 @@
-// Name: Ashwini Suriyaprakash
-// Date: 9/6/18
-// Period: 4
-// Description: The Line class represents a line segment defined by two endpoint coordinates.
-// It provides methods to change the endpoint of the segment and find if two line segments intersect.
-
 import processing.core.PApplet;
 
+/**
+ * This class represents a line segment defined by two end points. It provides methods to change one end point of the segment and perform various calculations.
+ * @author Ashwini Suriyaprakash
+ * @version 5/22/19
+ */
 public class Line 
 {
-	// Fields:
 	double xCoord1, yCoord1, xCoord2, yCoord2;
 	
-	// Constructor:
+	/**
+	 * Creates a new line object with two endpoints
+	 * @param x1 x coordinate of first end point
+	 * @param y1 y coordinate of first end point
+	 * @param x2 x coordinate of second end point
+	 * @param y2 y coordinate of second end point
+	 */
 	public Line(double x1, double y1, double x2, double y2)
 	{
 		// Initializing fields
@@ -21,52 +25,73 @@ public class Line
 		yCoord2 = y2;
 	}
 	
-	// Methods:
+
 	
-	// Method "setPoint2" changes the second end point of the segment
+	/**
+	 * Changes the second end point of the line segment
+	 * @param x2 new x coordinate of line segment end point
+	 * @param y2 new y coordinate of line segment end point
+	 */
 	public void setPoint2(double x2, double y2)
 	{
 		xCoord2 = x2;
 		yCoord2 = y2;
 	}
 	
-	// Method "draw" draws the line on the window
+	/**
+	 * Draws Line object
+	 * @param drawer PApplet to draw the line segment on
+	 */
 	public void draw(PApplet drawer)
 	{
 		drawer.line((float)xCoord1, (float)yCoord1, (float)xCoord2, (float)yCoord2);
 	}
 	
-	// Method "getX1" gets the x value of the first end point of the line segment
+	/**
+	 * @return x coordinate of first end point
+	 */
 	public double getX1()
 	{
 		return xCoord1;
 	}
 	
-	// Method "getY1" gets the y value of the first end point of the line segment
+	/**
+	 * @return y coordinate of second end point
+	 */
 	public double getY1()
 	{
 		return yCoord1;
 	}
 	
-	// Method "getX2" gets the x value of the second end point of the line segment
+	/**
+	 * @return x coordinate of second end point
+	 */
 	public double getX2()
 	{
 		return xCoord2;
 	}
 	
-	// Method "getY2" gets the y value of the second end point of the line segment
+	/**
+	 * @return y coordinate of second end point
+	 */
 	public double getY2()
 	{
 		return yCoord2;
 	}
 	
-	// Method "calculateSlope" calculates the slope of the line segment
+	/**
+	 * Calculates slope of the Line
+	 * @return slope of Line object
+	 */
 	public double calculateSlope()
 	{
 		return (getY1()-getY2())/(getX1()-getX2());
 	}
 	
-	// Method "isVertical" returns true if the line segment is vertical and false otherwise
+	/**
+	 * Checks if Line object is vertical
+	 * @return true if it is vertical, false otherwise
+	 */
 	public boolean isVertical()
 	{
 		if (Math.abs(getX1() - getX2()) < 0.0000000001)
@@ -79,7 +104,10 @@ public class Line
 		}
 	}
 	
-	// Method "isHorizontal" returns true if the line segment is horizontal and false otherwise
+	/**
+	 * Checks if Line object is horizontal
+	 * @return true if it is horizontal, false otherwise
+	 */
 	public boolean isHorizontal()
 	{
 		if (Math.abs(getY1()-getY2()) < 0.0000000001)
@@ -106,12 +134,19 @@ public class Line
 		return l;
 	}
 	
-	// Method "calculateYIntercept" returns the y intercept of the line containing this line segment
+	/**
+	 * Calculates y intercept of the Line object
+	 * @return y intercept
+	 */
 	public double calculateYIntercept()
 	{
 		return (getY1()-calculateSlope()*getX1());
 	}
 	
+	/**
+	 * Calculates length of the Line object
+	 * @return length of Line object
+	 */
 	public double getLength()
 	{
 		double length = Math.pow((xCoord1-xCoord2),2) + Math.pow((yCoord1-yCoord2), 2);

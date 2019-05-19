@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 /**
  * Represents a background for the plane, containing scenery images and fires
- * @author Ashwini Suriyaprakash
- * @version 5/13/19
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/22/19
  */
 public class Background 
 {
@@ -15,10 +15,9 @@ public class Background
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
 	private final int GROUND_LEVEL = 440;
-	private boolean isEnd = false;
 	
 	/**
-	 * Creates an instance of a Background with scenery images and fires at random locations initialized
+	 * Creates an instance of a Background with scenery images, fires at random locations, and runways
 	 */
 	public Background()
 	{
@@ -70,8 +69,6 @@ public class Background
 		// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
 		if (backgroundImages.get(NUM_IMAGES-1).getX() <= 500)
 		{
-			// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
-			isEnd = true;
 		}
 		else
 		{
@@ -111,7 +108,6 @@ public class Background
 		}
 		source.draw(drawer);
 		destination.draw(drawer);
-		// drawer.background(0,0,255);
 	}
 	
 	/**
@@ -179,12 +175,5 @@ public class Background
 	public Runway getDestinationRunway()
 	{
 		return destination;
-	}
-	
-	/**
-	 * @return true if last background image is visible, false otherwise
-	 */
-	public boolean getIsEnd() {
-		return isEnd;
 	}
 }

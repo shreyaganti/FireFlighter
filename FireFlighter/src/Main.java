@@ -7,10 +7,10 @@ import java.awt.image.BufferedImage;
 
 
 /**
- * This class contains the Main method and implements the Fire Flighter Game
+ * This class contains the Main method and implements the FireFlighter Game
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/13/19
+ * @version 5/22/19
  */
 public class Main 
 {
@@ -20,9 +20,6 @@ public class Main
 	private InstructionsPanel instructions; 
 	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
-	
-	
-	
 	
 	
 	/**

@@ -5,8 +5,8 @@ import processing.core.PShape;
 /**
  * This class represents a dial that keeps track of a measurement, specifically speed
  * 
- * @author Shreya Ganti
- * @version 5/13/19
+ * @author Shreya Ganti, Ashwini Suriyaprakash
+ * @version 5/22/19
  */
 public class Dial 
 {
@@ -14,8 +14,6 @@ public class Dial
 	private double xCoord,yCoord; //center of dial
 	private PImage dial;
 	private int maxVal;
-	// private boolean maxSpeed = false;
-	// private boolean minSpeed = true;
 	
 	/**
 	 * Constructor to initialize Dial object with x,y coordinates representing center
@@ -24,8 +22,9 @@ public class Dial
 	 * @param maxVal maximum value the dial can show
 	 * @pre maxVal has to be positive
 	 */
-	public Dial(double x, double y, int maxVal) {
-		speed = 0; //starting at 850 refers to speed of 50 mph
+	public Dial(double x, double y, int maxVal) 
+	{
+		speed = 0;
 		xCoord = x;
 		yCoord = y;
 		this.maxVal = maxVal;
@@ -95,81 +94,12 @@ public class Dial
 		drawer.popMatrix();
 	}
 	
-	
-	/**
-	 * Draws the dial object
-	 * @param p PApplet object used to draw the dial
-	 */
-	/*public void draw(PApplet p) 
-	{
-		p.pushMatrix();
-		p.pushStyle();
-		
-		dial.resize(200, 200);
-		if (speed == 360) {
-			speed = 0;
-		}
-		p.imageMode(p.CENTER);
-		p.image(dial,(float)xCoord,(float)yCoord);
-		p.strokeWeight(10);
-		if (speed>1130 || Math.abs(1130-speed) <=0.001) {
-			speed = 1130;
-			maxSpeed = true;
-		}
-		else {
-			maxSpeed = false;
-		}
-		if (speed <850 || Math.abs(850-speed)<=0.001) {
-			speed = 850;
-			minSpeed = true;
-		}
-		else {
-			minSpeed = false;
-		}
-		p.line((float)xCoord,(float)yCoord,(float)(Math.cos(Math.toRadians(speed))*(dial.width/2-10)+xCoord),(float)((Math.sin(Math.toRadians(speed))*(dial.height/2-10)+yCoord)));
-		p.popStyle();
-		p.popMatrix();
-	}*/
-	
 	/**
 	 * Sets the speed value of the dial
 	 * @param s New value of speed on dial
 	 */
-	public void setSpeed(double s) {
+	public void setSpeed(double s) 
+	{
 		speed = s;
 	}
-	
-	/**
-	 * Increments speed on dial
-	 * @param s Value to increment speed on dial
-	 */
-	public void addSpeed(double s) {
-		speed+=s;
-	}
-	
-	/**
-	 * Returns if speed dial has reached its max speed
-	 * @return true if max speed is reached, false otherwise
-	 */
-	/*public boolean reachedMax() {
-		return maxSpeed;
-	}*/
-	
-	/**
-	 * Returns if speed dial has reached its minimum speed
-	 * @return true if minimum speed is reached, false otherwise
-	 */
-	/*public boolean reachedMin() {
-		return minSpeed;
-	}*/
-	
-	
-	/**
-	 * @return returns the current speed of the plane 
-	 */
-	public double getSpeed() {
-		return speed;
-	}
-	
-	
 }

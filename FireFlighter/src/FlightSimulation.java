@@ -6,7 +6,7 @@ import processing.core.PApplet;
  * This class represents a flight simulation (2d side view), containing the Airplane and Background objects.
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/13/19
+ * @version 5/22/19
  */
 public class FlightSimulation
 {
@@ -181,7 +181,8 @@ public class FlightSimulation
 	/**
 	 * @return Background of FlightSimulation
 	 */
-	public Background getScenery() {
+	public Background getScenery() 
+	{
 		return scenery;
 	}
 }

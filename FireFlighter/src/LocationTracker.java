@@ -6,11 +6,9 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 /**
- * 
  * Represents a LocationTracker which tracks the plane's flight
  * @author Shreya Ganti, Ashwini Suriyaprakash
- * @version 5/13/19
- *
+ * @version 5/22/19
  */
 public class LocationTracker {
 	
@@ -32,16 +30,12 @@ public class LocationTracker {
 		this.x = x;
 		this.y = y;
 		this.fractionOfRouteCovered = 0;
-		/*this.sourceX = -1;
-		this.sourceY = -1;
-		this.destX = -1;
-		this.destY = -1;*/
 		this.map = null;
 		this.route = null;
 	}
 	
 	/**
-	 * Downloads map image from Internet
+	 * Downloads map image from Internet and set up the route
 	 * @param drawer PApplet used to setup the LocationTracker
 	 */
 	public void setup(PApplet drawer)
@@ -176,40 +170,12 @@ public class LocationTracker {
 				drawer.ellipse((float)x,(float)y,(float)0.5,(float)0.5);
 			}
 		}
-		
-		/*drawer.line(0, (float)y, 300, (float)y);
-		drawer.ellipseMode(drawer.RADIUS);
-		if (x<=295) {
-			drawer.fill(255,0,0);
-			drawer.ellipse((float)x, (float)y, 10, 10);
-		}
-		else {
-			drawer.fill(255,0,0);
-			drawer.ellipse(295, (float)y, 10, 10);
-		}*/
-		
-		/*if (route != null)
-		{
-			drawer.fill(0);
-			drawer.ellipse((float)route.getX1(), (float)route.getY1(), 5, 5);
-			drawer.fill(255);
-			drawer.ellipse((float)route.getX2(), (float)route.getY2(), 5, 5);
-		}*/
-		
-		// System.out.println("Source on map: " + sourceX + ", " + sourceY);
-		// System.out.println("Destination on map: " + destX + ", " + destY);
-		
 	}
 	
 	/**
-	 * Changes x coordinate of the LocationTracker
-	 * @param a x offset to shift by
+	 * Sets the fraction of the route the plane has covered
+	 * @param frac the fraction of the route the plane has covered
 	 */
-	public void changeX(double a) {
-		x+=a;
-	}
-	
-
 	public void setFractionOfRouteCovered(double frac) 
 	{
 		fractionOfRouteCovered = frac;
@@ -227,15 +193,24 @@ public class LocationTracker {
 	 * Sets the destination airport
 	 * @param d the new destination airport
 	 */
-	public void setDestination(String d) {
+	public void setDestination(String d) 
+	{
 		destination = d;
 	}
 	
-	public String getSource() {
+	/**
+	 * @return source airport
+	 */
+	public String getSource() 
+	{
 		return source;
 	}
 	
-	public String getDestination() {
+	/**
+	 * @return destination airport
+	 */
+	public String getDestination() 
+	{
 		return destination;
 	}
 }

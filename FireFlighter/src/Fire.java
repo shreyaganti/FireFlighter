@@ -5,7 +5,7 @@ import processing.core.PImage;
  * This class represents an animated fire with (x,y) coordinate and can either be extinguished/not extinguished
  * 
  * @author Ashwini Suriyaprakash
- * @version 5/13/19
+ * @version 5/22/19
  */
 public class Fire 
 {

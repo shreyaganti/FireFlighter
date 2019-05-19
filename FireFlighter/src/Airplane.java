@@ -4,10 +4,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 /**
- * This class represents an airplane with an (x,y) coordinate and velocities in the x and y direction
+ * This class represents an airplane with an (x,y) coordinate with x direction velocity and gravity
  * 
  * @author Ashwini Suriyaprakash, Rujuta Swadi
- * @version 5/13/19
+ * @version 5/22/19
  */
 public class Airplane 
 {
@@ -22,7 +22,7 @@ public class Airplane
 	private final int MAX_SPEED;
 	
 	/**
-	 * Creates a instance of an Airplane object with horizontal and vertical gravity set to 0, null plane image, and a status of being on the ground
+	 * Creates a instance of an Airplane object with horizontal velocity and vertical gravity set to 0, null plane image, and a status of being on the ground
 	 * @param x x coordinate of plane's center
 	 * @param y y coordinate of plane's center
 	 * @param maxSpeed plane can only have speed from 0 to maxSpeed
@@ -91,22 +91,13 @@ public class Airplane
 	}
 	
 	/**
-	 * Causes the Airplane to act based on its velocities and adjusts the cockpit dial appropriately
+	 * Causes the Airplane to act based on its velocities
 	 */
 	public void act()
 	{
 		applyGravity();
 		move(x,y+gravity);
 		trueX+=vx;
-		/*int altitude = (int)(-1*(y+gravity-440));
-		if (altitude < 0)
-		{
-			cockpit.setAltitude(0);
-		}
-		else
-		{
-			cockpit.setAltitude((altitude));
-		}*/
 	}
 	
 	/**
@@ -125,19 +116,8 @@ public class Airplane
 		{
 			vx = 0;
 		}
-		// System.out.println("vx: " + vx);
 		
 		cockpit.getDial().setSpeed(vx*9);
-		
-		/*if (offset < 0 && !cockpit.getDial().reachedMin())
-		{
-			cockpit.getDial().addSpeed(10*offset);
-		}
-		else if (offset > 0 && !cockpit.getDial().reachedMax())
-		{
-			cockpit.getDial().addSpeed(10*offset);
-		}*/
-			
 	}
 	
 	/**
@@ -150,7 +130,6 @@ public class Airplane
 		{
 			status = 1;
 			y-=num;
-			// vy = 3;
 		}
 	}
 	
@@ -273,6 +252,9 @@ public class Airplane
 		return planeImage.height;
 	}
 	
+	/**
+	 * @return max speed of the plane
+	 */
 	public int getMaxSpeed()
 	{
 		return MAX_SPEED;
