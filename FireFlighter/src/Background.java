@@ -15,6 +15,7 @@ public class Background
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
 	private final int GROUND_LEVEL = 440;
+	private boolean incoming = false;
 	
 	/**
 	 * Creates an instance of a Background with scenery images, fires at random locations, and runways
@@ -72,6 +73,9 @@ public class Background
 		}
 		else
 		{
+			if (backgroundImages.get(NUM_IMAGES-3).getX()<=500) {
+				incoming = true;
+			}
 			for (int x = 0; x < NUM_IMAGES; x++)
 			{
 				backgroundImages.get(x).shift(v, 0);
@@ -175,5 +179,9 @@ public class Background
 	public Runway getDestinationRunway()
 	{
 		return destination;
+	}
+	
+	public boolean getIncoming() {
+		return incoming;
 	}
 }
