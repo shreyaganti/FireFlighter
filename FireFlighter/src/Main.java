@@ -100,7 +100,7 @@ public class Main
 		ImageIcon icon = new ImageIcon("images/fire5.gif");
 		
 		
-		JOptionPane.showMessageDialog(null, "climate change is an issue our world faces today\nit causes changes such as extreme weather, drought, and higher temperatures\nin this simulation, you will be fighting forest fires that have spread out of control due to a lack of water and high temperatures", "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
+		JOptionPane.showMessageDialog(null, "climate change is an issue our world faces today\nit causes changes such as extreme weather, drought, and higher temperatures\nwhile this is just a simulation, forest fires like this will become more common due to climate change", "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 	
   
