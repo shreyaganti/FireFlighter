@@ -9,7 +9,7 @@ public class Lightning
 	private double x,y;
 	
 	/**
-	 * Creates a Fire object that is not extinguished
+	 * Creates a Lightning object that is not extinguished
 	 * @param x x coordinate of the fire's center
 	 * @param y y coordinate of the fire's center
 	 */
