@@ -11,6 +11,7 @@ public class Background
 {
 	private ArrayList<Image> backgroundImages;
 	private ArrayList<Fire> fires;
+	private ArrayList<Lightning> lightning;
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;

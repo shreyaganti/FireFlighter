@@ -88,4 +88,15 @@ public class Lightning
 	{
 		return y;
 	}
+	
+	/**
+	 * Checks if this lightning object struck a plane
+	 * @param p Airplane to check a collision with
+	 * @return true if lightning hit the plane, false otherwise
+	 */
+	public boolean hasHit(Airplane p) {
+		if (x>=p.getX() && x<=p.getX()+p.getWidth() && y>=p.getY()&&y<=p.getHeight()+p.getY())
+			return true;
+		return false;
+	}
 }
