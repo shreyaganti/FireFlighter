@@ -120,7 +120,7 @@ public class FlightSimulation
 		if (scenery.getIncoming()) {
 			drawer.textSize(25);
 			drawer.fill(255,0,0);
-			drawer.text("INCOMING RUNWAY!", 700, 20);
+			drawer.text("INCOMING RUNWAY!", 700, 50);
 		}
 
 	    int water = plane.WATER_SPRAY_MAX;
