@@ -97,10 +97,10 @@ public class Main
 		processingCanvas.requestFocus();	
 		
 		Image img = new Image(0, 0, "images/water.png");
-		ImageIcon icon = new ImageIcon("images/water.png");
+		ImageIcon icon = new ImageIcon("images/fire5.gif");
 		
 		
-		JOptionPane.showMessageDialog(null, "Eggs are not supposed to be green.", "Inane custom dialog", JOptionPane.INFORMATION_MESSAGE, icon);
+		JOptionPane.showMessageDialog(null, "climate change is an issue our world faces today\nit causes changes such as extreme weather, drought, and higher temperatures\nin this simulation, you will be fighting forest fires that have spread out of control due to a lack of water and high temperatures", "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 	
   
