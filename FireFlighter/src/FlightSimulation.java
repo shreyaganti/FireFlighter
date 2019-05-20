@@ -6,7 +6,7 @@ import processing.core.PApplet;
  * This class represents a flight simulation (2d side view), containing the Airplane and Background objects.
  * 
  * @author Ashwini Suriyaprakash, Shreya Ganti, Rujuta Swadi
- * @version 5/8/19
+ * @version 5/22/19
  */
 public class FlightSimulation
 {
@@ -14,15 +14,13 @@ public class FlightSimulation
 	private Background scenery;
 	private int timeRemaining;
 	
-	private int messageCount = 0;
-	
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
 	 */
 	public FlightSimulation()
 	{
 		scenery = new Background();
-		plane = new Airplane(500,scenery.getGroundLevel(), new Cockpit(new Dial(150,100)));
+		plane = new Airplane(500,scenery.getGroundLevel(),50, new Cockpit(new Dial(150,100,450), new LocationTracker(0,300,"SFO", "JFK")));
 		timeRemaining = -1;
 	}
 	
@@ -46,9 +44,22 @@ public class FlightSimulation
 		drawer.pushMatrix();
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
-		
 		plane.act();
+		
+		int altitude = (int)(-1*(plane.getY()-scenery.getGroundLevel()));
+		// System.out.println("Altitude: " + altitude);
+		if (altitude <= 0)
+		{
+			// System.out.println("Altitude set to 0");
+			plane.getCockpit().setAltitude(0);
+		}
+		else
+		{
+			plane.getCockpit().setAltitude((altitude*3));
+		}
+		
 		plane.draw(drawer);
+		
 		for (WaterSpray w: plane.getSprayedWater())
 		{
 			w.act();
@@ -67,9 +78,34 @@ public class FlightSimulation
 			}
 		}
 		
+		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
+		{
+			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    	System.exit(0);	
+		}
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
+			// System.out.println("y coordinate: " + plane.getY());
+			// System.out.println("y coordinate: " + plane.getY());
+			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
+			{
+				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.ERROR_MESSAGE);
+			    System.exit(0);
+			}
+			else
+			{
+				if (plane.getVelocityX() > plane.getMaxSpeed()*2.0/3.0)
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.ERROR_MESSAGE);
+				    System.exit(0);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+				    System.exit(0);
+				}
+			}
 		}
 		
 		// System.out.println("Status: " + plane.getStatus());
@@ -77,27 +113,36 @@ public class FlightSimulation
 		
 		// Draws useful data
 		drawer.fill(0);
-		drawer.fill(0);
 		drawer.textSize(13);
-		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 20);
+		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 30);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		
-		
+		if (scenery.getIncoming()) {
+			drawer.textSize(25);
+			drawer.fill(255,0,0);
+			drawer.text("INCOMING RUNWAY!", 700, 20);
+		}
 
-	    int waterCount = plane.WATER_SPRAY_MAX;
+	    int water = plane.WATER_SPRAY_MAX;
 	    int waterDone = plane.getSprayedWater().size();
 	    
 	   
-	    
-	    if (messageCount < 1 && waterCount - waterDone <= 0) {
-	    	messageCount++;
-	    	JOptionPane.showMessageDialog(null, "GAME OVER -- you're out of water", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+
+	    if (water - waterDone <= 0)
+	    {
+	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.ERROR_MESSAGE);
 	    	System.exit(0);
 		}
 		
-		double distanceLeft = scenery.getNumImages()*700 - plane.getTrueX() - plane.getWidth();
-		plane.getCockpit().getLocTrack().changeX(distanceLeft/700);
+		double distanceLeft = (scenery.getNumImages()-2)*700 - plane.getTrueX();
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
+		
+		/*if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
+			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*375/(700*scenery.getNumImages()));
+		}*/
+		double fracCovered = (plane.getTrueX())/((scenery.getNumImages()-2)*700);
+		plane.getCockpit().getLocTrack().setFractionOfRouteCovered(fracCovered);
+		
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
 		String sec = "";
@@ -119,26 +164,15 @@ public class FlightSimulation
 		
 		if (plane.getVelocityX() <= 0) 
 		{
+			drawer.fill(0);
+			drawer.textSize(13);
 			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
 		} else 
 		{
+			drawer.fill(0);
+			drawer.textSize(13);
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
-		
-	
-		
-		
-		// Unsuccessful takeoff (if plane is on ground and is not on source runway)
-		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
-		{
-			drawer.text("Unsuccessful takeoff", 305, 100);
-		}
-		
-		if (plane.getStatus() == 2 && !plane.isPlaneOnRunway(scenery.getDestinationRunway()))
-		{
-			drawer.text("Unsuccessful landing", 305, 110);
-		}
-		
 		drawer.popStyle();
 		drawer.popMatrix();
 	}
@@ -150,4 +184,13 @@ public class FlightSimulation
 	{
 		return plane;
 	}
+	
+	/**
+	 * @return Background of FlightSimulation
+	 */
+	public Background getScenery() 
+	{
+		return scenery;
+	}
 }
+

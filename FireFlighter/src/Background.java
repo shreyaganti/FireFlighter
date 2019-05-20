@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 /**
  * Represents a background for the plane, containing scenery images and fires
- * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/22/19
  */
 public class Background 
 {
@@ -14,10 +14,11 @@ public class Background
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
 	private Runway source, destination;
-	private final int GROUND_LEVEL = 400;
+	private final int GROUND_LEVEL = 440;
+	private boolean incoming = false;
 	
 	/**
-	 * Creates an instance of a Background with scenery images and fires at random locations initialized
+	 * Creates an instance of a Background with scenery images, fires at random locations, and runways
 	 */
 	public Background()
 	{
@@ -26,12 +27,12 @@ public class Background
 		
 		for (int f = 0; f < NUM_FIRES; f++)
 		{
-			double xcoord = 300+Math.random()*NUM_IMAGES*700;
-			double ycoord = 370;
+			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
+			double ycoord = GROUND_LEVEL-50;
 			fires.add(new Fire(xcoord,ycoord));
 		}
-		source = new Runway(300,GROUND_LEVEL,"SFO");
-		destination = new Runway(300+700*(NUM_IMAGES-1), GROUND_LEVEL, "NYC");
+		source = new Runway(300,GROUND_LEVEL-40,"SFO");
+		destination = new Runway(300+700*(NUM_IMAGES-2), GROUND_LEVEL-40, "NYC");
 	}
 	
 	/**
@@ -40,7 +41,7 @@ public class Background
 	 */
 	public void setup(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES+1; x++)
+		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (x%2 == 0)
 			{
@@ -67,13 +68,15 @@ public class Background
 	public void scrollBackgroundSideways(double v)
 	{
 		// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
-		if (backgroundImages.get(NUM_IMAGES).getX() <= 500)
+		if (backgroundImages.get(NUM_IMAGES-1).getX() <= 500)
 		{
-			// System.out.println(Math.abs(backgroundImages.get(NUM_IMAGES).getX()));
 		}
 		else
 		{
-			for (int x = 0; x < NUM_IMAGES+1; x++)
+			if (backgroundImages.get(NUM_IMAGES-3).getX()<=500) {
+				incoming = true;
+			}
+			for (int x = 0; x < NUM_IMAGES; x++)
 			{
 				backgroundImages.get(x).shift(v, 0);
 				
@@ -95,7 +98,7 @@ public class Background
 	 */
 	public void draw(PApplet drawer)
 	{
-		for (int x = 0; x < NUM_IMAGES+1; x++)
+		for (int x = 0; x < NUM_IMAGES; x++)
 		{
 			if (backgroundImages.get(x) != null)
 			{
@@ -109,7 +112,6 @@ public class Background
 		}
 		source.draw(drawer);
 		destination.draw(drawer);
-		// drawer.background(0,0,255);
 	}
 	
 	/**
@@ -179,4 +181,7 @@ public class Background
 		return destination;
 	}
 	
+	public boolean getIncoming() {
+		return incoming;
+	}
 }

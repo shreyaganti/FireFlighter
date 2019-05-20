@@ -4,10 +4,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 /**
- * This class represents an airplane with an (x,y) coordinate and velocities in the x and y direction
+ * This class represents an airplane with an (x,y) coordinate with x direction velocity and gravity
  * 
- * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @author Ashwini Suriyaprakash, Rujuta Swadi
+ * @version 5/22/19
  */
 public class Airplane 
 {
@@ -18,16 +18,17 @@ public class Airplane
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
 	private int status;
 	private Cockpit cockpit;
-	
 	private double trueX;
+	private final int MAX_SPEED;
 	
 	/**
-	 * Creates a instance of an Airplane object with horizontal and vertical gravity set to 0, null plane image, and a status of being on the ground
-	 * @param x x coordinate of upper left corner of plane
-	 * @param y y coordinate of upper left corner of plane
+	 * Creates a instance of an Airplane object with horizontal velocity and vertical gravity set to 0, null plane image, and a status of being on the ground
+	 * @param x x coordinate of plane's center
+	 * @param y y coordinate of plane's center
+	 * @param maxSpeed plane can only have speed from 0 to maxSpeed
 	 * @param c Cockpit object that the plane will have
 	 */
-	public Airplane(double x, double y, Cockpit c)
+	public Airplane(double x, double y, int maxSpeed, Cockpit c)
 	{
 		this.x = x;
 		this.y = y;
@@ -38,6 +39,7 @@ public class Airplane
 		this.sprayedWater = new ArrayList<WaterSpray>();
 		this.status = 0;
 		cockpit = c;
+		MAX_SPEED = maxSpeed;
 	}
 	
 	/**
@@ -54,12 +56,11 @@ public class Airplane
 	/**
 	 * Draws Airplane object to a processing PApplet
 	 * @param drawer PApplet on which Airplane object is drawn
-	 * @pre drawer can't be null
 	 */
 	public void draw(PApplet drawer)
 	{
-		drawer.image(planeImage, (float)(x), (float)(y));
 		cockpit.draw(drawer);
+		drawer.image(planeImage, (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 	}
 	
 	/**
@@ -90,23 +91,13 @@ public class Airplane
 	}
 	
 	/**
-	 * Causes the Airplane to act based on its velocities and adjusts the cockpit dial appropriately
+	 * Causes the Airplane to act based on its velocities
 	 */
 	public void act()
 	{
 		applyGravity();
 		move(x,y+gravity);
 		trueX+=vx;
-		if (Math.abs(y+gravity) <=0.01) 
-		{
-			cockpit.setAltitude(0);
-		}
-		else
-		{
-			cockpit.setAltitude((int) (-1*(y+gravity-360)));
-		}
-		
-			
 	}
 	
 	/**
@@ -115,24 +106,18 @@ public class Airplane
 	 */
 	public void increaseSpeed(double offset)
 	{
-		if (offset < 0 && vx >= -offset)
+		vx+=offset;
+		if (vx > MAX_SPEED)
 		{
-			vx+=offset;
-		}
-		else if (offset > 0)
-		{
-			vx+=offset;
+			vx = MAX_SPEED;
 		}
 		
-		if (offset < 0 && !cockpit.getDial().reachedMin())
+		if (vx < 0)
 		{
-			cockpit.getDial().addSpeed(10*offset);
+			vx = 0;
 		}
-		else if (offset > 0 && !cockpit.getDial().reachedMax())
-		{
-			cockpit.getDial().addSpeed(10*offset);
-		}
-			
+		
+		cockpit.getDial().setSpeed(vx*9);
 	}
 	
 	/**
@@ -145,7 +130,6 @@ public class Airplane
 		{
 			status = 1;
 			y-=num;
-			// vy = 3;
 		}
 	}
 	
@@ -156,7 +140,11 @@ public class Airplane
 	{
 		if (status == 1)
 		{
-			gravity = 3;
+			if (y < 400) 
+			{
+				gravity = 3;
+			}
+			
 		}
 		else
 		{
@@ -182,7 +170,7 @@ public class Airplane
 	
 	private boolean isReadyForTakeOff()
 	{
-		if (status == 0 && vx > 20)
+		if (status == 0 && vx > MAX_SPEED/3)
 		{
 			return true;
 		}
@@ -195,7 +183,7 @@ public class Airplane
 	/**
 	 * Sets the status of the plane (0 for on the ground before take off, 1 for in the air, and 2 for on the ground after landing)
 	 * @param val status to set the plane to
-	 * @pre val can only be 0, 1, or 2
+	 * @pre val can only be 0, 1, 2
 	 */
 	public void setStatus(int val)
 	{
@@ -220,6 +208,7 @@ public class Airplane
 	
 	/**
 	 * Sprays a WaterSpray with vertical velocity downward, if water spray amount the plane contains hasn't run out
+	 * @param drawer Papplet needed to setup the WaterSpray
 	 */
 	public void spray(PApplet drawer)
 	{
@@ -234,14 +223,16 @@ public class Airplane
 	/**
 	 * @return returns the true X value of the plane as if it was moving
 	 */
-	public double getTrueX() {
+	public double getTrueX() 
+	{
 		return trueX;
 	}
 	
 	/**
 	 * @return Cockpit object in Airplane
 	 */
-	public Cockpit getCockpit() {
+	public Cockpit getCockpit() 
+	{
 		return cockpit;
 	}
 	
@@ -253,9 +244,33 @@ public class Airplane
 		return planeImage.width;
 	}
 	
+	/**
+	 * @return the height of the plane
+	 */
+	public int getHeight()
+	{
+		return planeImage.height;
+	}
+	
+	/**
+	 * @return max speed of the plane
+	 */
+	public int getMaxSpeed()
+	{
+		return MAX_SPEED;
+	}
+	
+	
+	/**
+	 * Checks if the plane is on the runway
+	 * @param r Runway to check
+	 * @return true if the plane is on the runway, false otherwise
+	 */
 	public boolean isPlaneOnRunway(Runway r)
 	{
-		if (Math.abs(getY()-r.getY()) < 0.0001 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
+		double runwayLevel = r.getY()+r.getHeight()/2;
+		// System.out.println("Runway level: " + runwayLevel);
+		if (Math.abs(getY()-runwayLevel) <= 4 && getX() >= r.getX() && getX() <= r.getX()+r.getWidth())
 		{
 			return true;
 		}

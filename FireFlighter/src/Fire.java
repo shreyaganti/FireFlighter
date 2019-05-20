@@ -5,29 +5,31 @@ import processing.core.PImage;
  * This class represents an animated fire with (x,y) coordinate and can either be extinguished/not extinguished
  * 
  * @author Ashwini Suriyaprakash
- * @version 5/8/19
+ * @version 5/22/19
  */
 public class Fire 
 {
 	private PImage[] flameImages;
 	private PImage[] smokeImages;
-	private final int IMAGE_COUNT = 2;
-	private int frame;
+	private final int FIRE_GIF_COUNT = 5;
+	private final int SMOKE_GIF_COUNT = 2;
+	private int fireFrame, smokeFrame;
 	private double x,y;
 	private boolean isExtinguished;
 	
 	/**
 	 * Creates a Fire object that is not extinguished
-	 * @param x x coordinate of the fire
-	 * @param y y coordinate of the fire
+	 * @param x x coordinate of the fire's center
+	 * @param y y coordinate of the fire's center
 	 */
 	public Fire(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
-		this.flameImages = new PImage[IMAGE_COUNT];
-		this.smokeImages = new PImage[IMAGE_COUNT];
-		this.frame = 0;
+		this.flameImages = new PImage[FIRE_GIF_COUNT];
+		this.smokeImages = new PImage[SMOKE_GIF_COUNT];
+		this.fireFrame = 0;
+		this.smokeFrame = 0;
 		this.isExtinguished = false;
 	}
 	
@@ -37,14 +39,14 @@ public class Fire
 	 */
 	public void setup(PApplet drawer)
 	{
-		for (int i = 0; i < IMAGE_COUNT; i++) 
+		for (int i = 0; i < FIRE_GIF_COUNT; i++) 
 		{
 			// images[i] = drawer.loadImage("images//fire.gif");
 			flameImages[i] = drawer.loadImage("images/fire" + (i+1) + ".gif");
 			flameImages[i].resize(100, 100);
 		}
 		
-		for (int i = 0; i < IMAGE_COUNT; i++) 
+		for (int i = 0; i < SMOKE_GIF_COUNT; i++) 
 		{
 			// images[i] = drawer.loadImage("images//fire.gif");
 			smokeImages[i] = drawer.loadImage("images/smoke" + (i+1) + ".gif");
@@ -69,12 +71,13 @@ public class Fire
 	 */
 	public void draw(PApplet drawer)
 	{
-		frame = (frame+1) % IMAGE_COUNT;
+		fireFrame = (fireFrame+1) % FIRE_GIF_COUNT;
+		smokeFrame = (smokeFrame+1) % SMOKE_GIF_COUNT;
 		if (!isExtinguished)
-			drawer.image(flameImages[frame], (float)x, (float)y);
+			drawer.image(flameImages[fireFrame], (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		else
 		{
-			drawer.image(smokeImages[frame], (float)x, (float)y);
+			drawer.image(smokeImages[smokeFrame], (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		}
 	}
 	
@@ -125,6 +128,18 @@ public class Fire
 		return flameImages[0].width;
 	}
 	
+	/**
+	 * @return height of the fire
+	 */
+	public double getHeight() 
+	{
+		return flameImages[0].height;
+	}
+	
+	/**
+	 * Returns whether fire is extinguished
+	 * @return true if fire is extinguished, false otherwise
+	 */
 	public boolean isExtinguished() 
 	{
 		return isExtinguished;

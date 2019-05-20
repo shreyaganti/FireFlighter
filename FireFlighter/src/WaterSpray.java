@@ -4,8 +4,8 @@ import processing.core.PImage;
 /**
  * This class represents a single spray of water, which the plane can shoot at the fires
  * 
- * @author Ashwini Suriyaprakash, Shreya Ganti
- * @version 5/8/19
+ * @author Ashwini Suriyaprakash
+ * @version 5/22/19
  */
 public class WaterSpray 
 {
