@@ -99,6 +99,7 @@ public class Main
 		Image img = new Image(0, 0, "images/water.png");
 		ImageIcon icon = new ImageIcon("images/fire5.gif");
 		
+		pilotView.setStarted(true);
 		
 		JOptionPane.showMessageDialog(null, "climate change is an issue our world faces today\nit causes changes such as extreme weather, drought, and higher temperatures\nwhile this is just a simulation, forest fires like this will become more common due to climate change", "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
 	}

@@ -14,6 +14,8 @@ public class PilotPanel extends PApplet
 {
 	private FlightSimulation flightSim;
 	private final float DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 500;
+	private boolean started = false;
+	private Sound s;
 	
 	/**
 	 * Creates a PilotPanel object, which contains a FlightSimulation object
@@ -86,6 +88,15 @@ public class PilotPanel extends PApplet
 		background(255);
 		pushMatrix();
 		pushStyle();
+		
+		
+		
+		if (started) {
+			s = new Sound();
+			s.play();
+			started = false;
+		}
+		
 		float scaleW = width / DRAWING_WIDTH;
 		float scaleH = height / DRAWING_HEIGHT;
 		scale(scaleW,scaleH);
@@ -101,4 +112,8 @@ public class PilotPanel extends PApplet
 		return flightSim;
 	}
 
+	
+	public void setStarted(boolean started) {
+		this.started = started;
+	}
 }
