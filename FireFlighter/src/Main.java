@@ -58,7 +58,6 @@ public class Main
 		    System.out.println();
 		    // window.createBufferStrategy(1);
 
-
 		    cardPanel.add(instructions,"1");
 		    cardPanel.add(processingCanvas,"2");
 		   

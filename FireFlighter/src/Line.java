@@ -25,8 +25,6 @@ public class Line
 		yCoord2 = y2;
 	}
 	
-
-	
 	/**
 	 * Changes the second end point of the line segment
 	 * @param x2 new x coordinate of line segment end point
