@@ -37,6 +37,10 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	
 		
 		JPanel buttonPanel = new JPanel();
+		
+		
+		
+		
 		BoxLayout bLayout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
 		buttonPanel.setLayout(bLayout);
 		
@@ -56,6 +60,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
 	
+		
 		sourceBox = new JComboBox(AIRPORTS);  
 		destinationBox = new JComboBox(AIRPORTS);
 		buttonPanel.add(sourceLabel);
@@ -63,11 +68,13 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		buttonPanel.add(destinationLabel);
 		buttonPanel.add(destinationBox);
 		
-		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
 		startButton = new JButton("START");
 		startButton.setPreferredSize(new Dimension(100, 50)); //width, height
 		startButton.addActionListener(this);
 		buttonPanel.add(startButton);
+		
+		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
+		
 	
 		// fireHat = Toolkit.getDefaultToolkit().createImage("images/hat.png");
 		// this.drawImage(background, 0, 0, null);
@@ -134,11 +141,11 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		String instr = "TO BEGIN:\n1. use the drop down menus to select source and destination airports\n";
 		instr += "2. press start\n";
 		instr += "\nWHILE PLAYING:\n";
-		instr += "-press the up and down arrow keys to increase or decrease the plane's altitude\n";
-		instr += "-press the left and right arrow keys to slow or speed up the plane\n";
-		instr += "-press the spacebar to drop water on fires\n";
-		instr += "-in order to take off, your plane's speed must be in the yellow/green range, shown in the cockpit\n";
-		instr += "-in order to land, your plane's speed must be in the red/yellow range, shown in the cockpit\n";
+		instr += "- RIGHT ARROW: increase speed, LEFT ARROW: decrease speed\n";
+		instr += "- UP ARROW: increase altitude, DOWN ARROW: decrease altitude\n";
+		instr += "- press the spacebar to drop water on fires\n";
+		instr += "- for takeoff: plane speed cannot be in red\n";
+		instr += "- for landing: plane speed cannot be in green\n";
 		JOptionPane.showMessageDialog(null, instr, "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
