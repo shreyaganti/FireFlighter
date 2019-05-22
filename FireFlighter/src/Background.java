@@ -30,14 +30,14 @@ public class Background
 		
 		for (int f = 0; f < NUM_FIRES; f++)
 		{
-			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
+			double xcoord = 1100+Math.random()*(NUM_IMAGES-3)*700;
 			double ycoord = GROUND_LEVEL-50;
 			fires.add(new Fire(xcoord,ycoord));
 		}
 		
 		for (int l = 0; l < NUM_LIGHTNING; l++)
 		{
-			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
+			double xcoord = 1100+Math.random()*(NUM_IMAGES-3)*700;
 			double ycoord = 100;
 			lightnings.add(new Lightning(xcoord,ycoord));
 		}
