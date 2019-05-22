@@ -14,7 +14,7 @@ public class PilotPanel extends PApplet
 {
 	private FlightSimulation flightSim;
 	private final float DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 500;
-	private boolean started = false;
+	private boolean started;
 	private Sound s;
 	
 	/**
@@ -24,6 +24,7 @@ public class PilotPanel extends PApplet
 	{
 		super();
 		flightSim = new FlightSimulation();
+		started = false;
 		
 	}
 	
@@ -91,7 +92,8 @@ public class PilotPanel extends PApplet
 		
 		
 		
-		if (started) {
+		if (started) 
+		{
 			s = new Sound();
 			s.play();
 			started = false;

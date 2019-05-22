@@ -279,4 +279,18 @@ public class Airplane
 			return false;
 		}
 	}
+	
+	/**
+	 * Checks if this plane has been struck by lightning
+	 * @param light Lightning to check a collision with
+	 * @return true if lightning hit the plane, false otherwise
+	 */
+	public boolean struckByLightning(Lightning light) 
+	{
+		if (x >= light.getX()-light.getWidth()/3 && x <= light.getX()+light.getWidth()/3 && y >= light.getY()-light.getHeight()/3 && y <= light.getHeight()/3+light.getY())
+		{
+			return true;
+		}
+		return false;
+	}
 }

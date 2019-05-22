@@ -1,17 +1,23 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * This class represents an animated lightning with (x,y) coordinate
+ * 
+ * @author Ashwini Suriyaprakash, Shreya Ganti
+ * @version 5/22/19
+ */
 public class Lightning 
 {
 	private PImage[] lightningImages;
-	private final int GIF_COUNT = 5;
+	private final int GIF_COUNT = 4;
 	private int lightningFrame;
 	private double x,y;
 	
 	/**
-	 * Creates a Lightning object that is not extinguished
-	 * @param x x coordinate of the fire's center
-	 * @param y y coordinate of the fire's center
+	 * Creates a Lightning object
+	 * @param x x coordinate of the lightning's center
+	 * @param y y coordinate of the lightning's center
 	 */
 	public Lightning(double x, double y)
 	{
@@ -22,7 +28,7 @@ public class Lightning
 	}
 	
 	/**
-	 * Loads flame and smoke images
+	 * Loads lightning images
 	 * @param drawer PApplet needed for the setup
 	 */
 	public void setup(PApplet drawer)
@@ -31,14 +37,14 @@ public class Lightning
 		{
 			// images[i] = drawer.loadImage("images//fire.gif");
 			lightningImages[i] = drawer.loadImage("images/lightning" + (i+1) + ".gif");
-			lightningImages[i].resize(100, 100);
+			lightningImages[i].resize(200, 300);
 		}
 	}
 	
 	/**
-	 * Shifts the Fire's location
-	 * @param offsetX amount in the x direction the fire should be shifted by
-	 * @param offsetY amount in the y direction the fire should be shifted by
+	 * Shifts the Lightning's location
+	 * @param offsetX amount in the x direction the lightning should be shifted by
+	 * @param offsetY amount in the y direction the lightning should be shifted by
 	 */
 	public void shift(double offsetX, double offsetY)
 	{
@@ -47,8 +53,8 @@ public class Lightning
 	}
 	
 	/**
-	 * Draws the Fire object on a PApplet
-	 * @param drawer PApplet on which Fire object is drawn
+	 * Draws the Lightning object on a PApplet
+	 * @param drawer PApplet on which Lightning object is drawn
 	 */
 	public void draw(PApplet drawer)
 	{
@@ -57,7 +63,7 @@ public class Lightning
 	}
 	
 	/**
-	 * @return width of the fire
+	 * @return width of the lightning
 	 */
 	public double getWidth() 
 	{
@@ -65,7 +71,7 @@ public class Lightning
 	}
 	
 	/**
-	 * @return height of the fire
+	 * @return height of the lightning
 	 */
 	public double getHeight() 
 	{
@@ -74,7 +80,7 @@ public class Lightning
 	
 	
 	/**
-	 * @return x coordinate of the fire
+	 * @return x coordinate of the lightning
 	 */
 	public double getX() 
 	{
@@ -82,21 +88,10 @@ public class Lightning
 	}
 	
 	/**
-	 * @return y coordinate of the fire
+	 * @return y coordinate of the lightning
 	 */
 	public double getY() 
 	{
 		return y;
-	}
-	
-	/**
-	 * Checks if this lightning object struck a plane
-	 * @param p Airplane to check a collision with
-	 * @return true if lightning hit the plane, false otherwise
-	 */
-	public boolean hasHit(Airplane p) {
-		if (x>=p.getX() && x<=p.getX()+p.getWidth() && y>=p.getY()&&y<=p.getHeight()+p.getY())
-			return true;
-		return false;
 	}
 }

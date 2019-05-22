@@ -78,6 +78,17 @@ public class FlightSimulation
 			}
 		}
 		
+		for (Lightning l: scenery.getLightnings())
+		{
+			if (plane.struckByLightning(l))
+			{
+				System.out.println("Lightning: " + l.getX() + " ," + l.getY());
+				System.out.println("Plane: " + plane.getX() + " ," + plane.getY());
+				JOptionPane.showMessageDialog(null, "GAME OVER -- STRUCK BY LIGHTNING", "ERROR", JOptionPane.ERROR_MESSAGE);
+		    	System.exit(0);	
+			}
+		}
+		
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
 			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.ERROR_MESSAGE);

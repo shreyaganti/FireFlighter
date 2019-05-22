@@ -96,7 +96,7 @@ public class Fire
 	 */
 	public boolean isHitByWaterSpray(WaterSpray spray)
 	{
-		if (spray.getX() >= x && spray.getX() <= x+getWidth() && spray.getY()+spray.getHeight()>=y) 
+		if (spray.getX() >= x-getWidth()/2 && spray.getX() <= x+getWidth()/2 && spray.getY()+spray.getHeight()/2 >=y) 
 		{
 			return true;
 		}

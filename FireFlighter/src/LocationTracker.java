@@ -10,7 +10,8 @@ import processing.core.PImage;
  * @author Shreya Ganti, Ashwini Suriyaprakash
  * @version 5/22/19
  */
-public class LocationTracker {
+public class LocationTracker 
+{
 	
 	private String source, destination;
 	private PImage map, planeMarker;

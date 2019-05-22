@@ -49,7 +49,7 @@ public class WaterSpray
 	{
 		if (!isConsumedByFire) 
 		{
-			drawer.image(waterImage, (float)(x), (float)(y));
+			drawer.image(waterImage, (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 		}
 	}
 	

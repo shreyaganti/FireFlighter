@@ -1,10 +1,15 @@
 import java.awt.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * This class represents the Instructions Panel, which allows user to seek help and select airport options
- * @author Rujuta Swadi
+ * @author Rujuta Swadi, Ashwini Suriyaprakash
  * @version 5/22/19
  */
 public class InstructionsPanel extends JPanel implements ActionListener // , ItemListener
@@ -20,13 +25,14 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	// private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
 	private String destination = "";
+	private java.awt.Image fireHat;
 
 	
 	/**
 	 * Creates an InstructionsPanel with start, help, source, and destination buttons
 	 * @param w the Main object on which to run methods to begin the game
 	 */
-	public InstructionsPanel(Main w) 
+	public InstructionsPanel(Main w)
 	{
 		this.w = w;
 	
@@ -36,6 +42,7 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		buttonPanel.setLayout(bLayout);
 		
 		JLabel gameName = new JLabel("FIREFLIGHTER");
+		gameName.setForeground(Color.WHITE);
 		gameName.setFont(new Font("Serif", Font.BOLD, 40));
 		
 		instructions = new JButton("HOW TO PLAY");
@@ -43,7 +50,9 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		instructions.addActionListener(this);
 		
 		JLabel sourceLabel = new JLabel("select a source airport:");
+		sourceLabel.setForeground(Color.WHITE);
 		JLabel destinationLabel = new JLabel("select a destination airport:");
+		destinationLabel.setForeground(Color.WHITE);
 		
 		buttonPanel.add(gameName);
 		buttonPanel.add(instructions);
@@ -60,7 +69,24 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		startButton.setPreferredSize(new Dimension(100, 50)); //width, height
 		startButton.addActionListener(this);
 		buttonPanel.add(startButton);
+	
+		// fireHat = Toolkit.getDefaultToolkit().createImage("images/hat.png");
+		// this.drawImage(background, 0, 0, null);
 		
+		try
+		{
+			java.awt.Image image = ImageIO.read(new File("images/hat.png"));
+			image = image.getScaledInstance(400, 200, 0);
+			JLabel label = new JLabel(new ImageIcon(image));
+			buttonPanel.add(label);
+		}
+		catch (IOException e)
+		{
+			System.out.println("Could not load hat image");
+		}
+		
+		buttonPanel.setBackground(new Color(0,0,128));
+		this.setBackground(new Color(0,0,128)); 
 		this.add(buttonPanel);
 		
 	}

@@ -11,9 +11,10 @@ public class Background
 {
 	private ArrayList<Image> backgroundImages;
 	private ArrayList<Fire> fires;
-	private ArrayList<Lightning> lightning;
+	private ArrayList<Lightning> lightnings;
 	private final int NUM_IMAGES = 10;
 	private final int NUM_FIRES = 10;
+	private final int NUM_LIGHTNING = 5;
 	private Runway source, destination;
 	private final int GROUND_LEVEL = 440;
 	private boolean incoming = false;
@@ -25,12 +26,20 @@ public class Background
 	{
 		this.backgroundImages = new ArrayList<Image>();// [NUM_IMAGES];
 		this.fires = new ArrayList<Fire>();
+		this.lightnings = new ArrayList<Lightning>();
 		
 		for (int f = 0; f < NUM_FIRES; f++)
 		{
 			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
 			double ycoord = GROUND_LEVEL-50;
 			fires.add(new Fire(xcoord,ycoord));
+		}
+		
+		for (int l = 0; l < NUM_LIGHTNING; l++)
+		{
+			double xcoord = 1000+Math.random()*(NUM_IMAGES-3)*700;
+			double ycoord = 100;
+			lightnings.add(new Lightning(xcoord,ycoord));
 		}
 		source = new Runway(300,GROUND_LEVEL-40,"SFO");
 		destination = new Runway(300+700*(NUM_IMAGES-2), GROUND_LEVEL-40, "NYC");
@@ -57,6 +66,11 @@ public class Background
 		for (int f = 0; f < NUM_FIRES; f++)
 		{
 			fires.get(f).setup(drawer);
+		}
+		
+		for (int l = 0; l < NUM_LIGHTNING; l++)
+		{
+			lightnings.get(l).setup(drawer);
 		}
 		source.setup(drawer);
 		destination.setup(drawer);
@@ -88,6 +102,11 @@ public class Background
 				fires.get(f).shift(v,0);
 			}
 			
+			for (int l = 0; l < NUM_LIGHTNING; l++)
+			{
+				lightnings.get(l).shift(v,0);
+			}
+			
 			source.shift(v, 0);
 			destination.shift(v, 0);
 		}
@@ -111,6 +130,11 @@ public class Background
 		{
 			fires.get(f).draw(drawer);
 		}
+		
+		for (int l = 0; l < NUM_LIGHTNING; l++)
+		{
+			lightnings.get(l).draw(drawer);
+		}
 		source.draw(drawer);
 		destination.draw(drawer);
 	}
@@ -123,11 +147,20 @@ public class Background
 		return fires;
 	}
 	
+	/**
+	 * @return ArrayList of lightning this Background object contains
+	 */
+	public ArrayList<Lightning> getLightnings()
+	{
+		return lightnings;
+	}
+	
 	
 	/**
 	 * @return total number of fires in the simulation
 	 */
-	public int getFireCount() {
+	public int getFireCount() 
+	{
 		return NUM_FIRES;
 	}
 	
@@ -182,7 +215,11 @@ public class Background
 		return destination;
 	}
 	
-	public boolean getIncoming() {
+	/**
+	 * @return true if runway is coming up, false otherwise
+	 */
+	public boolean getIncoming() 
+	{
 		return incoming;
 	}
 }

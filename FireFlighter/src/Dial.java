@@ -40,6 +40,10 @@ public class Dial
 		dial.resize(200, 200);
 	}
 	
+	/**
+	 * Draws Dial object on a processing PApplet
+	 * @param drawer PApplet to draw the Dial on
+	 */
 	public void draw(PApplet drawer)
 	{
 		drawer.pushMatrix();
