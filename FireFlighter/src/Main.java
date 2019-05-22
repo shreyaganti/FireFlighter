@@ -87,6 +87,8 @@ public class Main
 	
 	/**
 	 * Changes panels
+	 * @param s source airport string
+	 * @param d destination airport string
 	 */
 	public void changePanel(String s, String d) 
 	{
