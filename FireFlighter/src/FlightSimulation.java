@@ -131,7 +131,7 @@ public class FlightSimulation
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 30);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		
-		if (scenery.getIncoming()) {
+		if (scenery.getIncoming() && !plane.isPlaneOnRunway(scenery.getDestinationRunway())) {
 			drawer.textSize(25);
 			drawer.fill(255,0,0);
 			drawer.text("INCOMING RUNWAY!", 700, 50);
