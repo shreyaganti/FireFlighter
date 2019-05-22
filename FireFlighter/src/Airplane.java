@@ -14,6 +14,10 @@ public class Airplane
 	private PImage planeImage;
 	private double x,y,vx,gravity;
 	private ArrayList<WaterSpray> sprayedWater;
+	
+	/**
+	 * WATER_SPRAY_MAX is number of watersprays plane can shoot
+	 */
 	public static final int WATER_SPRAY_MAX = 40;
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
 	private int status;

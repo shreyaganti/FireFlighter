@@ -25,7 +25,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	// private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
 	private String destination = "";
-	private java.awt.Image fireHat;
 
 	
 	/**

@@ -7,7 +7,7 @@ import processing.core.PApplet;
  */
 public class Line 
 {
-	double xCoord1, yCoord1, xCoord2, yCoord2;
+	private double xCoord1, yCoord1, xCoord2, yCoord2;
 	
 	/**
 	 * Creates a new line object with two endpoints
