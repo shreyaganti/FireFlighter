@@ -126,7 +126,7 @@ public class FlightSimulation
 		// System.out.println("Y coordinate: " + plane.getY());
 		
 		// Draws useful data
-		drawer.fill(0);
+		drawer.fill(255);
 		drawer.textSize(13);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 30);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
@@ -178,12 +178,12 @@ public class FlightSimulation
 		
 		if (plane.getVelocityX() <= 0) 
 		{
-			drawer.fill(0);
+			drawer.fill(255);
 			drawer.textSize(13);
 			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
 		} else 
 		{
-			drawer.fill(0);
+			drawer.fill(255);
 			drawer.textSize(13);
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
