@@ -113,7 +113,10 @@ public class FlightSimulation
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+					if (scenery.getFireCount() == scenery.getFiresExtinguished()) {
+						JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\nAND ALL FIRES EXTINGUISHED!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+					}
+					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\n" + scenery.getFiresExtinguished() + " fires were extinguished", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
 				    System.exit(0);
 				}
 			}
