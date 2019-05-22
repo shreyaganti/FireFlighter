@@ -55,11 +55,11 @@ public class Background
 		{
 			if (x%2 == 0)
 			{
-				backgroundImages.add(new Image(300+700*x, 0, "images/scenery.jpg"));
+				backgroundImages.add(new Image(300+700*x, 0, "images/dark_background.jpg"));
 			}
 			else
 			{
-				backgroundImages.add(new Image(300+700*x, 0, "images/scenery-flipped.jpg"));
+				backgroundImages.add(new Image(300+700*x, 0, "images/dark_background_flipped.jpg"));
 			}
 		}
 		
