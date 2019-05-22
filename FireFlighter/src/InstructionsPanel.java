@@ -144,8 +144,8 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		instr += "- RIGHT ARROW: increase speed, LEFT ARROW: decrease speed\n";
 		instr += "- UP ARROW: increase altitude, DOWN ARROW: decrease altitude\n";
 		instr += "- press the spacebar to drop water on fires\n";
-		instr += "- for takeoff: plane speed cannot be in red\n";
-		instr += "- for landing: plane speed cannot be in green\n";
+		instr += "- for takeoff: plane speed can't be in red\n";
+		instr += "- for landing: plane speed can't be in green\n";
 		JOptionPane.showMessageDialog(null, instr, "How to Play: ", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
