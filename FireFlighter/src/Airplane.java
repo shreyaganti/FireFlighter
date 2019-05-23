@@ -18,7 +18,7 @@ public class Airplane
 	/**
 	 * WATER_SPRAY_MAX is number of watersprays plane can shoot
 	 */
-	public static final int WATER_SPRAY_MAX = 25;
+	public static final int WATER_SPRAY_MAX = 20;
 	// 0 for ground (about to take off), 1 for in the air, 2 for ground (after landing)
 	private int status;
 	private Cockpit cockpit;

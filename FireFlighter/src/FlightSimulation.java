@@ -116,8 +116,8 @@ public class FlightSimulation
 					String message = "";
 					message+="GAME OVER -- SUCCESSFUL LANDING\n";
 					message+=scenery.getFiresExtinguished() + " fires were extinguished and you have " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " water sprays left\n";
-					int points = scenery.getFiresExtinguished() + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size());
-					message+="You have earned " + scenery.getFiresExtinguished() + " + " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " = " + points + " points!";
+					int points = scenery.getFiresExtinguished()*20 + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size());
+					message+="You have earned " + scenery.getFiresExtinguished() + "*20 + " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " = " + points + " points!";
 					/*if (scenery.getFireCount() == scenery.getFiresExtinguished()) {
 						JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\nAND ALL FIRES EXTINGUISHED!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
 					}*/
