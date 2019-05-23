@@ -73,8 +73,9 @@ Credit List:
 * Shreya: Dial, LocationTracker, Cockpit, PilotPanel, FlightSimulation, Background, Main
 * Ashwini: Airplane, WaterSpray, Fire, Lightning, Background, LocationTracker, Image, Runway, Main
 * Rujuta: Airplane, FlightSimulation, PilotPanel, InstructionsPanel, Sound, Main
+* Line class: from Ashwini’s Shapes library
 * Airplane image: http://clipart-library.com/airplane-cliparts.html
-* Background scenery image: https://clipartimage.com/clipart/25138-clear-day-clipart.html
+* Background scenery image: https://www.videoblocks.com/video/dark-scary-lake-at-night-background-loop-raw-1-white-haze-floating-over-the-still-lake-surrounded-by-a-creepy-forest-seamless-looping-perfect-for-backgrounds-backdrops-intro-outro-or-credits-for-themes-like-halloween-apocalypse-9ulijtp
 * Fire/smoke gifs: http://www.animatedimages.org/cat-fire-90.htm
 * Water spray image: http://clipartportal.com/water-drop-clipart-png-6/
 * Speed dial image: http://www.clker.com/clipart-dial-5.html
@@ -83,5 +84,4 @@ Credit List:
 * Small airplane tracker image: http://clipart-library.com/airplane-cliparts.html
 * Firefighter hat image: http://clipart-library.com/fire-hat-clipart.html
 * Sound mp3 file: https://www.soundjay.com/airplane-sound-effect.html
-* Line class: from Ashwini’s Shapes library
 * Used Stack Overflow for example code for Box Layout
