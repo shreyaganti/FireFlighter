@@ -113,10 +113,15 @@ public class FlightSimulation
 				}
 				else
 				{
-					if (scenery.getFireCount() == scenery.getFiresExtinguished()) {
+					String message = "";
+					message+="GAME OVER -- SUCCESSFUL LANDING\n";
+					message+=scenery.getFiresExtinguished() + " fires were extinguished and you have " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " water sprays left\n";
+					int points = scenery.getFiresExtinguished() + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size());
+					message+="You have earned " + scenery.getFiresExtinguished() + " + " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " = " + points + " points!";
+					/*if (scenery.getFireCount() == scenery.getFiresExtinguished()) {
 						JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\nAND ALL FIRES EXTINGUISHED!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
-					}
-					JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\n" + scenery.getFiresExtinguished() + " fires were extinguished", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
+					}*/
+					JOptionPane.showMessageDialog(null, message, "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
 				    System.exit(0);
 				}
 			}
@@ -127,7 +132,7 @@ public class FlightSimulation
 		
 		// Draws useful data
 		drawer.fill(255);
-		drawer.textSize(13);
+		drawer.textSize(15);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 30);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
 		
@@ -179,12 +184,12 @@ public class FlightSimulation
 		if (plane.getVelocityX() <= 0) 
 		{
 			drawer.fill(255);
-			drawer.textSize(13);
+			drawer.textSize(15);
 			drawer.text("Estimated time until landing: UNKNOWN", 305, 80);
 		} else 
 		{
 			drawer.fill(255);
-			drawer.textSize(13);
+			drawer.textSize(15);
 			drawer.text("Estimated time until landing: "+ min + ":" + sec, 305, 80); 
 		}
 		drawer.popStyle();

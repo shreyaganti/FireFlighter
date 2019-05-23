@@ -102,7 +102,12 @@ public class Main
 		
 		ImageIcon icon = new ImageIcon("images/fire5.gif");
 		pilotView.setStarted(true);
-		JOptionPane.showMessageDialog(null, "climate change is an issue our world faces today\nit causes changes such as extreme weather, drought, and higher temperatures\nwhile this is just a simulation, forest fires like this will become more common due to climate change", "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
+		String message = "";
+		message+="Climate change is an issue our world faces today and continues to cause drought and fires\n";
+		message+="There are many things we can do to help fight climate change, such as recycling and using water efficiently\n\n";
+		message+="But now...as part of this game, you will pilot a plane to extinguish the fires and you have limited water\n";
+		message+="Are you ready to save the world from the flames? Humanity is counting on you!";
+		JOptionPane.showMessageDialog(null, message, "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 	
   
