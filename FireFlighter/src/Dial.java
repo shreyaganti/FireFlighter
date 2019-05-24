@@ -84,13 +84,8 @@ public class Dial
 		int diff = (int)(speed/interval);
 		int rem = (int)(speed%interval);
 		double rodAngle = diff*28 + (28*rem)/interval;
-		// System.out.println("Diff: " + diff);
-		// System.out.println("Rem: " + rem);
-		// System.out.println("Speed: " + speed);
-		// System.out.println("Angle: " + rodAngle);
 		
 		rodAngle=222-rodAngle;
-		// System.out.println("Angle: " + rodAngle);
 		
 		Line l = Line.getLineFromAngle(xCoord,yCoord,rodAngle,dial.width/2-10);
 		drawer.line((float)xCoord,(float)yCoord,(float)l.getX2(),(float)l.getY2());

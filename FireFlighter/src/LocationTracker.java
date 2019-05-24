@@ -43,7 +43,8 @@ public class LocationTracker
 	{
 		planeMarker = drawer.loadImage("images/smallplane.png");
 		planeMarker.resize(20, 20);
-
+		
+		// Sets to null
 		Scanner scan = null;
 		URL reader = null;
 		String url = "http://www.gcmap.com/mapui?P=" + source + ",+" + destination;

@@ -53,7 +53,6 @@ public class PilotPanel extends PApplet
 		else if (keyCode == KeyEvent.VK_RIGHT)
 		{
 			flightSim.getPlane().increaseSpeed(4);
-			//System.out.println(flightSim.getPlane().getVelocityX());
 		}
 		else if (keyCode == KeyEvent.VK_UP)
 		{
