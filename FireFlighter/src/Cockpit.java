@@ -10,7 +10,7 @@ public class Cockpit
 	private Dial dial;
 	private int altitude;
 	private LocationTracker locTrack;
-	
+
 	/**
 	 * Constructor to initialize Cockpit object with speed dial and location tracker
 	 * @param d Dial object for speed
@@ -22,7 +22,7 @@ public class Cockpit
 		altitude = 0;
 		locTrack = loc;
 	}
-	
+
 	/**
 	 * Sets up the Cockpit
 	 * @param drawer PApplet need to setup the cockpit
@@ -32,14 +32,13 @@ public class Cockpit
 		dial.setup(drawer);
 		locTrack.setup(drawer);
 	}
-	
+
 	/**
 	 * Draws Cockpit object with PApplet
 	 * @param p PApplet used to draw Cockpit object
 	 */
 	public void draw(PApplet p) 
 	{
-		// System.out.println("Drawing cockpit");
 		p.pushMatrix();
 		p.pushStyle();
 		p.fill(0,0,128);
@@ -54,7 +53,7 @@ public class Cockpit
 		p.popStyle();
 		p.popMatrix();
 	}
-	
+
 	/**
 	 * Sets value of altitude of plane
 	 * @param a New value to assign to altitude
@@ -63,7 +62,7 @@ public class Cockpit
 	{
 		altitude = a;
 	}
-	
+
 	/**
 	 * @return Altitude of plane
 	 */
@@ -71,7 +70,7 @@ public class Cockpit
 	{
 		return altitude;
 	}
-	
+
 	/**
 	 * @return Dial object located in cockpit
 	 */
@@ -79,7 +78,7 @@ public class Cockpit
 	{
 		return dial;
 	}
-	
+
 	/**
 	 * @return LocationTracker object in the Cockpit
 	 */

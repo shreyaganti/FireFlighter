@@ -13,7 +13,7 @@ public class FlightSimulation
 	private Airplane plane;
 	private Background scenery;
 	private int timeRemaining;
-	
+
 	/**
 	 * Creates a FlightSimulation with a Background object and Airplane object at coordinates (500,360) 
 	 */
@@ -23,7 +23,7 @@ public class FlightSimulation
 		plane = new Airplane(500,scenery.getGroundLevel(),50, new Cockpit(new Dial(150,100,450), new LocationTracker(0,300,"SFO", "JFK")));
 		timeRemaining = -1;
 	}
-	
+
 	/**
 	 * Sets up the Airplane and Background objects
 	 * @param drawer PApplet object need for setup
@@ -33,7 +33,7 @@ public class FlightSimulation
 		plane.setup(drawer);
 		scenery.setup(drawer);
 	}
-	
+
 	/**
 	 * Draws this FlightSimulation object to a PApplet
 	 * @param drawer Papplet used to draw FlightSimulation object
@@ -45,27 +45,25 @@ public class FlightSimulation
 		scenery.scrollBackgroundSideways(-plane.getVelocityX());
 		scenery.draw(drawer);
 		plane.act();
-		
+
 		int altitude = (int)(-1*(plane.getY()-scenery.getGroundLevel()));
-		// System.out.println("Altitude: " + altitude);
 		if (altitude <= 0)
 		{
-			// System.out.println("Altitude set to 0");
 			plane.getCockpit().setAltitude(0);
 		}
 		else
 		{
 			plane.getCockpit().setAltitude((altitude*3));
 		}
-		
+
 		plane.draw(drawer);
-		
+
 		for (WaterSpray w: plane.getSprayedWater())
 		{
 			w.act();
 			w.draw(drawer);
 		}
-		
+
 		for (Fire f: scenery.getFires())
 		{
 			for (WaterSpray w: plane.getSprayedWater())
@@ -77,39 +75,35 @@ public class FlightSimulation
 				}
 			}
 		}
-		
+
 		for (Lightning l: scenery.getLightnings())
 		{
 			if (plane.struckByLightning(l))
 			{
-				System.out.println("Lightning: " + l.getX() + " ," + l.getY());
-				System.out.println("Plane: " + plane.getX() + " ," + plane.getY());
 				JOptionPane.showMessageDialog(null, "GAME OVER -- STRUCK BY LIGHTNING", "ERROR", JOptionPane.ERROR_MESSAGE);
-		    	System.exit(0);	
+				System.exit(0);	
 			}
 		}
-		
+
 		if (plane.getStatus() == 0 && !plane.isPlaneOnRunway(scenery.getSourceRunway()))
 		{
 			JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL TAKEOFF", "ERROR", JOptionPane.ERROR_MESSAGE);
-	    	System.exit(0);	
+			System.exit(0);	
 		}
 		if (plane.getStatus() == 1 && plane.getY() >= scenery.getGroundLevel())
 		{
 			plane.setStatus(2);
-			// System.out.println("y coordinate: " + plane.getY());
-			// System.out.println("y coordinate: " + plane.getY());
 			if (!plane.isPlaneOnRunway(scenery.getDestinationRunway()))
 			{
 				JOptionPane.showMessageDialog(null, "GAME OVER -- UNSUCCESSFUL LANDING", "GAME OVER", JOptionPane.ERROR_MESSAGE);
-			    System.exit(0);
+				System.exit(0);
 			}
 			else
 			{
 				if (plane.getVelocityX() > plane.getMaxSpeed()*2.0/3.0)
 				{
 					JOptionPane.showMessageDialog(null, "GAME OVER -- CRASH LANDING: PLANE SPEED WAS TOO HIGH", "GAME OVER", JOptionPane.ERROR_MESSAGE);
-				    System.exit(0);
+					System.exit(0);
 				}
 				else
 				{
@@ -118,55 +112,45 @@ public class FlightSimulation
 					message+=scenery.getFiresExtinguished() + " fires were extinguished and you have " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " water sprays left\n";
 					int points = scenery.getFiresExtinguished()*20 + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size());
 					message+="You have earned " + scenery.getFiresExtinguished() + "*20 + " + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()) + " = " + points + " points!";
-					/*if (scenery.getFireCount() == scenery.getFiresExtinguished()) {
-						JOptionPane.showMessageDialog(null, "GAME OVER -- SUCCESSFUL LANDING\nAND ALL FIRES EXTINGUISHED!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
-					}*/
 					JOptionPane.showMessageDialog(null, message, "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
-				    System.exit(0);
+					System.exit(0);
 				}
 			}
 		}
-		
-		// System.out.println("Status: " + plane.getStatus());
-		// System.out.println("Y coordinate: " + plane.getY());
-		
-		// Draws useful data
+
 		drawer.fill(255);
 		drawer.textSize(15);
 		drawer.text("Water Spray Count Left:" + (plane.WATER_SPRAY_MAX - plane.getSprayedWater().size()), 305, 30);
 		drawer.text("Fires Extinguished: " + scenery.getFiresExtinguished() + "/" + scenery.getFireCount(), 305, 50);
-		
+
 		if (scenery.getIncoming() && !plane.isPlaneOnRunway(scenery.getDestinationRunway())) {
 			drawer.textSize(25);
 			drawer.fill(255,0,0);
 			drawer.text("INCOMING RUNWAY!", 700, 50);
 		}
 
-	    int water = plane.WATER_SPRAY_MAX;
-	    int waterDone = plane.getSprayedWater().size();
-	    
-	   
+		int water = plane.WATER_SPRAY_MAX;
+		int waterDone = plane.getSprayedWater().size();
 
-	    if (water - waterDone <= 0)
-	    {
-	    	JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.ERROR_MESSAGE);
-	    	System.exit(0);
+
+
+		if (water - waterDone <= 0)
+		{
+			JOptionPane.showMessageDialog(null, "GAME OVER -- YOU'RE OUT OF WATER", "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 		}
-		
+
 		double distanceLeft = (scenery.getNumImages()-2)*700 - plane.getTrueX();
 		timeRemaining = (int) (distanceLeft/plane.getVelocityX());
-		
-		/*if (plane.getStatus() == 1 && !scenery.getIsEnd()) {
-			plane.getCockpit().getLocTrack().changeX(plane.getVelocityX()*375/(700*scenery.getNumImages()));
-		}*/
+
 		double fracCovered = (plane.getTrueX())/((scenery.getNumImages()-2)*700);
 		plane.getCockpit().getLocTrack().setFractionOfRouteCovered(fracCovered);
-		
+
 		int minutesLeft = timeRemaining/60;
 		int secondsLeft = timeRemaining%60;
 		String sec = "";
 		String min = "" + minutesLeft;
-		
+
 		if (secondsLeft < 10) 
 		{
 			sec = "0" + secondsLeft;
@@ -175,12 +159,12 @@ public class FlightSimulation
 		{
 			sec = "" + secondsLeft;
 		}
-		
+
 		if (secondsLeft < 0) 
 		{
 			sec = "0";
 		}
-		
+
 		if (plane.getVelocityX() <= 0) 
 		{
 			drawer.fill(255);
@@ -195,7 +179,7 @@ public class FlightSimulation
 		drawer.popStyle();
 		drawer.popMatrix();
 	}
-	
+
 	/**
 	 * @return the Airplane object this FlightSimulation contains
 	 */
@@ -203,7 +187,7 @@ public class FlightSimulation
 	{
 		return plane;
 	}
-	
+
 	/**
 	 * @return Background of FlightSimulation
 	 */

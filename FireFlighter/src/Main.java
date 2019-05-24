@@ -13,14 +13,14 @@ import java.awt.*;
  */
 public class Main 
 {
-	
+
 	private JFrame window;
 	private JPanel cardPanel;
 	private InstructionsPanel instructions; 
 	private PilotPanel pilotView;
 	private PSurfaceAWT.SmoothCanvas processingCanvas;
-	
-	
+
+
 	/**
 	 * Creates a Main object with a JFrame object that displays InstructionsPanel and PilotPanel 
 	 */
@@ -30,10 +30,10 @@ public class Main
 		{
 			final int WIDTH = 1000;
 			final int HEIGHT = 500;
-			
+
 			pilotView = new PilotPanel();
 			PApplet.runSketch(new String[]{""}, pilotView);
-			
+
 			PSurfaceAWT surf = (PSurfaceAWT) pilotView.getSurface();
 			processingCanvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 			processingCanvas.getFrame().setTitle("FireFlighter");
@@ -43,39 +43,36 @@ public class Main
 			window.setMinimumSize(new Dimension(WIDTH,HEIGHT));
 			window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			window.setResizable(true);
-			
-			cardPanel = new JPanel();
-		    CardLayout cl = new CardLayout();
-		    cardPanel.setLayout(cl);
-		    
-		    
-		    
-		    window.getContentPane().removeAll();
-		    
-		    instructions = new InstructionsPanel(this); 
-		    // pilotView = new PilotPanel();
-		    
-		    System.out.println();
-		    // window.createBufferStrategy(1);
 
-		    cardPanel.add(instructions,"1");
-		    cardPanel.add(processingCanvas,"2");
-		   
-		    window.setLayout(new BorderLayout());
-		    window.pack();
-		    window.add(cardPanel);
-		    window.revalidate();
-		  
-		    // window.setVisible(true);
+			cardPanel = new JPanel();
+			CardLayout cl = new CardLayout();
+			cardPanel.setLayout(cl);
+
+
+
+			window.getContentPane().removeAll();
+
+			instructions = new InstructionsPanel(this); 
+
+			System.out.println();
+
+			cardPanel.add(instructions,"1");
+			cardPanel.add(processingCanvas,"2");
+
+			window.setLayout(new BorderLayout());
+			window.pack();
+			window.add(cardPanel);
+			window.revalidate();
+
 		}
 		catch (IllegalStateException e)
 		{
 			System.out.println("There has been an error with the processing library. Please rerun the program. Thank you!");
 		}
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Main method
 	 * @param args string arguments
@@ -84,7 +81,7 @@ public class Main
 	{
 		Main m = new Main();
 	}
-	
+
 	/**
 	 * Changes panels
 	 * @param s source airport string
@@ -94,12 +91,11 @@ public class Main
 	{
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setSource(s);
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setDestination(d);
-		//System.out.println("destination:     " + pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().getDestination());
 		pilotView.getFlightSim().getPlane().getCockpit().getLocTrack().setup(pilotView);
-		
+
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		processingCanvas.requestFocus();	
-		
+
 		ImageIcon icon = new ImageIcon("images/fire5.gif");
 		pilotView.setStarted(true);
 		String message = "";
@@ -109,6 +105,6 @@ public class Main
 		message+="Are you ready to save the world from the flames? Humanity is counting on you!";
 		JOptionPane.showMessageDialog(null, message, "WELCOME!", JOptionPane.INFORMATION_MESSAGE, icon);
 	}
-	
-  
+
+
 }

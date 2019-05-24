@@ -11,7 +11,7 @@ public class Sound implements JayLayerListener
 {
 
 	private JayLayer jay;
-	
+
 	/**
 	 * Creates a new Sound object
 	 */
@@ -28,38 +28,32 @@ public class Sound implements JayLayerListener
 	public void musicStarted() 
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	@Override
 	/**
 	 * Nonutilized method
 	 */
 	public void musicStopped() 
 	{
-		// TODO Auto-generated method stub
-		
+
 	}
 
-	@Override
 	/**
 	 * Nonutilized method
 	 */
 	public void playlistEnded() 
 	{
-		// TODO Auto-generated method stub
-		
+
 	}
 
-	@Override
 	/**
 	 * Nonutilized method
 	 */
 	public void songEnded() 
 	{
-		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * Plays the sound
 	 */

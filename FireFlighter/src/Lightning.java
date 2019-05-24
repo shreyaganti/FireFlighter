@@ -13,7 +13,7 @@ public class Lightning
 	private final int GIF_COUNT = 4;
 	private int lightningFrame;
 	private double x,y;
-	
+
 	/**
 	 * Creates a Lightning object
 	 * @param x x coordinate of the lightning's center
@@ -26,7 +26,7 @@ public class Lightning
 		this.lightningImages = new PImage[GIF_COUNT];
 		this.lightningFrame = 0;
 	}
-	
+
 	/**
 	 * Loads lightning images
 	 * @param drawer PApplet needed for the setup
@@ -35,12 +35,11 @@ public class Lightning
 	{
 		for (int i = 0; i < GIF_COUNT; i++) 
 		{
-			// images[i] = drawer.loadImage("images//fire.gif");
 			lightningImages[i] = drawer.loadImage("images/lightning" + (i+1) + ".gif");
 			lightningImages[i].resize(200, 300);
 		}
 	}
-	
+
 	/**
 	 * Shifts the Lightning's location
 	 * @param offsetX amount in the x direction the lightning should be shifted by
@@ -51,7 +50,7 @@ public class Lightning
 		x+=offsetX;
 		y+=offsetY;
 	}
-	
+
 	/**
 	 * Draws the Lightning object on a PApplet
 	 * @param drawer PApplet on which Lightning object is drawn
@@ -61,7 +60,7 @@ public class Lightning
 		lightningFrame = (lightningFrame+1) % GIF_COUNT;
 		drawer.image(lightningImages[lightningFrame], (float)(x-getWidth()/2), (float)(y-getHeight()/2));
 	}
-	
+
 	/**
 	 * @return width of the lightning
 	 */
@@ -69,7 +68,7 @@ public class Lightning
 	{
 		return lightningImages[0].width;
 	}
-	
+
 	/**
 	 * @return height of the lightning
 	 */
@@ -77,8 +76,8 @@ public class Lightning
 	{
 		return lightningImages[0].height;
 	}
-	
-	
+
+
 	/**
 	 * @return x coordinate of the lightning
 	 */
@@ -86,7 +85,7 @@ public class Lightning
 	{
 		return x;
 	}
-	
+
 	/**
 	 * @return y coordinate of the lightning
 	 */
