@@ -54,7 +54,6 @@ public class Runway
 	public void draw(PApplet drawer)
 	{
 		drawer.image(runwayImage,(float)x, (float)y);
-		// drawer.line(0, 400, 300, 400);
 	}
 	
 	/**
@@ -86,7 +85,6 @@ public class Runway
 	 */
 	public double getHeight() 
 	{
-		// System.out.println("Height: " + runwayImage.height);
 		return runwayImage.height;
 	}
 }

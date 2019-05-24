@@ -66,13 +66,9 @@ public class LocationTracker
 			int start = i+23;
 			int end = output.indexOf("\"", start+1);
 			
-			// System.out.println(output.substring(i+22,i+100));
-			// comment
-			
 			String imgURL = "http://www.gcmap.com" + output.substring(start, end);
 			
 			imgURL = imgURL.replaceAll("amp;", "");
-			// System.out.println("URL: " + imgURL);
 			map = drawer.loadImage(imgURL, "png");
 			map.resize(300,200);
 			map.loadPixels();
@@ -98,8 +94,6 @@ public class LocationTracker
 				    
 					if (count == 0 && isRed)
 					{
-						// System.out.println("Found red");
-						// System.out.println("x:" + (x+r) + " y:"+ (y+c));
 						sourceX = x+r;
 						sourceY = y+c;
 						count++;
@@ -107,11 +101,9 @@ public class LocationTracker
 					}
 					if (count == 1 && isRed)
 					{
-						// System.out.println("Found red");
 						
 						if (Math.abs(sourceX-(x+r)) > 10 || Math.abs(sourceY-(y+c)) > 10)
 						{
-							// System.out.println("x:" + (x+r) + " y:"+ (y+c));
 							destX = x+r;
 							destY = y+c;
 							count++;
@@ -151,18 +143,15 @@ public class LocationTracker
 		{
 			double routeCovered = fractionOfRouteCovered*route.getLength();
 			double angle = Math.atan(route.calculateSlope());
-			// System.out.println("Slope: " + route.calculateSlope() + " Angle: " + angle);
 			double markerX = routeCovered*Math.cos(angle)+route.getX1();
 			double markerY = routeCovered*Math.sin(angle)+route.getY1();
 			markerX-=planeMarker.width/2;
 			markerY-=planeMarker.height/2;
-			// System.out.println("Markerx: " + markerX + " markerY: " + markerY);
 			drawer.pushMatrix();
 			drawer.translate((float)markerX, (float)markerY);
 			drawer.rotate((float)angle);
 			drawer.translate(-(float)markerX, -(float)markerY);
 			drawer.image(planeMarker,(float)markerX, (float)markerY);
-			// System.out.println("Markerx: " + markerX + " markerY: " + markerY);
 			drawer.popMatrix();
 			for (double x = route.getX1(); x <= markerX; x+=5)
 			{

@@ -22,7 +22,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 	private JComboBox sourceBox, destinationBox;
 	private final String AIRPORTS[] = {"San Francisco, CA (SFO)","Carson City, NV (CSN)","Chicago, IL (ORD)","Orlando, FL (MCO)","Queens, NY (JFK)", "San Antonio, TX (SAT)"};
 	
-	// private JCheckBox sfo1, sfo2, nv1, nv2, az1, az2, wa1, wa2, jfk1, jfk2, tx1, tx2; //1 and 2 means source or destination
 	private String source = "";
 	private String destination = "";
 
@@ -73,12 +72,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		startButton.addActionListener(this);
 		buttonPanel.add(startButton);
 		
-		//buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
-		
-	
-		// fireHat = Toolkit.getDefaultToolkit().createImage("images/hat.png");
-		// this.drawImage(background, 0, 0, null);
-		
 		try
 		{
 			java.awt.Image image = ImageIO.read(new File("images/hat.png"));
@@ -118,8 +111,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 			
 			if (!source.equals(destination))
 			{
-				// System.out.println("Source: " + source);
-				// System.out.println("Destination: " + destination);
 				w.changePanel(source, destination);
 			}
 			else
