@@ -72,10 +72,6 @@ public class InstructionsPanel extends JPanel implements ActionListener // , Ite
 		startButton.addActionListener(this);
 		buttonPanel.add(startButton);
 		
-		/*java.net.URL imageURL = Main.class.getResource("/images/hat.png");
-		JLabel label = new JLabel(new ImageIcon(imageURL));
-		buttonPanel.add(label);*/
-		
 		try
 		{
 			java.awt.Image image = ImageIO.read(new File("images/hat.png"));
